@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Search, Cpu, TrendingUp } from "lucide-react";
+import { DashboardMockup } from "./DashboardMockup";
 
 const steps = [
   {
@@ -69,6 +70,8 @@ export const HubFlow = () => {
             </motion.div>
           ))}
         </div>
+
+        <DashboardMockup />
       </div>
     </section>
   );
