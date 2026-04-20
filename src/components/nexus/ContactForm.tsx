@@ -220,7 +220,7 @@ export const ContactForm = () => {
                 disabled={isSubmitting}
                 className="flex-1"
               >
-                {isSubmitting ? "Enviando..." : "Enviar para a Engenharia"}
+                {isSubmitting ? "Enviando..." : "Enviar para nosso time"}
               </Button>
               <Button type="button" variant="pill-ghost" size="pill" asChild>
                 <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
