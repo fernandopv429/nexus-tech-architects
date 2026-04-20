@@ -64,7 +64,7 @@ export const Navbar = () => {
             className="rounded-full border-white/20 bg-white text-black hover:bg-white/90 hover:text-black font-medium px-6"
             asChild
           >
-            <a href="#contato">Falar com Engenharia</a>
+            <a href="#contato">Falar com nosso time</a>
           </Button>
         </div>
 
@@ -108,7 +108,7 @@ export const Navbar = () => {
                 asChild
               >
                 <a href="#contato" onClick={() => setOpen(false)}>
-                  Falar com Engenharia
+                  Falar com nosso time
                 </a>
               </Button>
             </div>
