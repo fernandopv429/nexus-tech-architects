@@ -36,8 +36,8 @@ const contacts = [
   {
     icon: Phone,
     label: "Central",
-    value: "(11) 94202-9143",
-    href: "tel:+5511942029143",
+    value: "(87) 99648-7067",
+    href: "tel:+5587996487067",
   },
   {
     icon: MessageCircle,
@@ -60,7 +60,7 @@ export const ContactForm = () => {
     const text =
       `Olá Nexus! Sou ${data.name} da ${data.company}.%0A` +
       `📧 ${data.email}%0A📱 ${data.phone}%0A%0A${encodeURIComponent(data.message)}`;
-    window.open(`https://wa.me/5511942029143?text=${text}`, "_blank");
+    window.open(`https://wa.me/5587996487067?text=${text}`, "_blank");
     toast({
       title: "Mensagem encaminhada",
       description:
