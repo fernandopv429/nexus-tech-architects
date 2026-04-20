@@ -57,9 +57,10 @@ export const ContactForm = () => {
   } = useForm<FormData>({ resolver: zodResolver(schema) });
 
   const onSubmit = (data: FormData) => {
-    const text =
-      `Olá Nexus! Sou ${data.name} da ${data.company}.%0A` +
-      `📧 ${data.email}%0A📱 ${data.phone}%0A%0A${encodeURIComponent(data.message)}`;
+    const text = encodeURIComponent(
+      `Olá Nexus! Sou ${data.name} da ${data.company}.\n` +
+        `📧 ${data.email}\n📱 ${data.phone}\n\n${data.message}`
+    );
     window.open(`https://wa.me/5587996487067?text=${text}`, "_blank");
     toast({
       title: "Mensagem encaminhada",

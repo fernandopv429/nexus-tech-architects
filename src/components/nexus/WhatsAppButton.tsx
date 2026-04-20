@@ -1,7 +1,7 @@
 import { MessageCircle } from "lucide-react";
 import { motion } from "framer-motion";
 
-const WHATSAPP_URL = "https://wa.me/5587996487067?text=Ol%C3%A1%20Nexus%2C%20gostaria%20de%20conhecer%20o%20Hub%20de%20Tecnologia";
+const WHATSAPP_URL = "https://wa.me/5587996487067?text=Ol%C3%A1+Nexus%2C+gostaria+de+conhecer+o+Hub+de+Tecnologia";
 
 export const WhatsAppFloating = () => (
   <motion.a
