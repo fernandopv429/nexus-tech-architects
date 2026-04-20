@@ -30,6 +30,10 @@ const faqs = [
     a: "RPA (n8n, Make, UiPath, automações custom em Python/Node), IA (OpenAI, Anthropic, modelos open-source, agentes autônomos, RAG), IoT (Raspberry Pi, ESP32, sensores industriais), Cloud (AWS, GCP, Supabase) e integrações com qualquer ERP, CRM ou sistema legado.",
   },
   {
+    q: "Vocês fazem coleta e análise de dados para tomada de decisão?",
+    a: "Sim. Estruturamos o ciclo completo: coleta automatizada (sensores IoT, APIs, ERPs, planilhas, web scraping), centralização em data warehouse (BigQuery, Postgres, Supabase), tratamento e modelagem (ETL/ELT em Python e dbt) e visualização em dashboards executivos (Metabase, Looker, Power BI). Aplicamos IA para detectar padrões, prever cenários e gerar alertas automáticos — transformando dado bruto em decisão acionável em tempo real.",
+  },
+  {
     q: "Vocês substituem meu time interno de TI?",
     a: "Não necessariamente. Atuamos de duas formas: como departamento de tecnologia completo para empresas que não possuem time interno, ou como extensão estratégica do time existente — assumindo automação, IA e infraestrutura enquanto seu time foca no core.",
   },
