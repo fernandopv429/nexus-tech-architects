@@ -26,35 +26,43 @@ const items = [
 
 export const Atuacao = () => {
   return (
-    <section id="atuacao" className="container py-24 md:py-32">
-      <div className="mx-auto max-w-2xl text-center">
-        <span className="text-sm font-semibold uppercase tracking-wider text-accent">Nossa Atuação</span>
-        <h2 className="mt-3 font-display text-4xl font-bold md:text-5xl">
-          Mais que automação:<br />
-          <span className="text-gradient">Gestão Tecnológica Completa</span>
-        </h2>
-      </div>
+    <section id="atuacao" className="bg-background py-32 md:py-40">
+      <div className="container">
+        <div className="mx-auto max-w-4xl text-center">
+          <p className="text-sm text-muted-foreground">Nossa Atuação</p>
+          <h2 className="mt-6 font-display text-[clamp(2.5rem,7vw,5.5rem)] font-bold leading-[0.95] tracking-[-0.04em] text-foreground">
+            Gestão tecnológica
+            <br />
+            completa.
+          </h2>
+          <p className="mx-auto mt-6 max-w-xl text-base text-muted-foreground md:text-lg">
+            Mais que automação — uma operação inteira sob responsabilidade de
+            engenharia.
+          </p>
+        </div>
 
-      <div className="mt-16 grid gap-6 md:grid-cols-2">
-        {items.map((it, i) => (
-          <motion.div
-            key={it.title}
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.5, delay: i * 0.08 }}
-            className="group relative overflow-hidden rounded-2xl border border-border bg-card/40 p-8 backdrop-blur-sm transition-all hover:border-primary/40 hover:shadow-elegant"
-          >
-            <div className="absolute -right-20 -top-20 h-48 w-48 rounded-full bg-gradient-brand opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-20" />
-            <div className="relative">
-              <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-brand shadow-glow">
-                <it.icon className="h-6 w-6 text-primary-foreground" />
+        <div className="mx-auto mt-20 grid max-w-6xl gap-px overflow-hidden rounded-3xl border border-border bg-border md:grid-cols-2">
+          {items.map((it, i) => (
+            <motion.div
+              key={it.title}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.5, delay: i * 0.06 }}
+              className="group bg-background p-10 transition-colors hover:bg-secondary/40"
+            >
+              <div className="mb-6 inline-flex h-11 w-11 items-center justify-center rounded-full border border-border bg-secondary">
+                <it.icon className="h-5 w-5 text-foreground" />
               </div>
-              <h3 className="font-display text-xl font-semibold">{it.title}</h3>
-              <p className="mt-3 text-muted-foreground leading-relaxed">{it.desc}</p>
-            </div>
-          </motion.div>
-        ))}
+              <h3 className="font-display text-2xl font-semibold tracking-tight text-foreground">
+                {it.title}
+              </h3>
+              <p className="mt-3 leading-relaxed text-muted-foreground">
+                {it.desc}
+              </p>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );

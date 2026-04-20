@@ -20,32 +20,38 @@ const props = [
 ];
 
 export const Valor = () => (
-  <section id="valor" className="container py-24 md:py-32">
-    <div className="mx-auto max-w-2xl text-center">
-      <span className="text-sm font-semibold uppercase tracking-wider text-accent">Diferencial Nexus</span>
-      <h2 className="mt-3 font-display text-4xl font-bold md:text-5xl">
-        Por que assumimos a<br />
-        <span className="text-gradient">tecnologia da sua empresa?</span>
-      </h2>
-    </div>
+  <section id="valor" className="bg-background py-32 md:py-40">
+    <div className="container">
+      <div className="mx-auto max-w-4xl text-center">
+        <p className="text-sm text-muted-foreground">Diferencial Nexus</p>
+        <h2 className="mt-6 font-display text-[clamp(2.5rem,7vw,5.5rem)] font-bold leading-[0.95] tracking-[-0.04em] text-foreground">
+          Por que assumimos
+          <br />a sua tecnologia?
+        </h2>
+      </div>
 
-    <div className="mt-16 grid gap-6 md:grid-cols-3">
-      {props.map((p, i) => (
-        <motion.div
-          key={p.title}
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: i * 0.1 }}
-          className="relative rounded-2xl border border-border bg-card/30 p-8 text-center backdrop-blur-sm"
-        >
-          <div className="mx-auto mb-5 inline-flex h-14 w-14 items-center justify-center rounded-2xl border border-primary/30 bg-primary/10">
-            <p.icon className="h-7 w-7 text-primary-glow" />
-          </div>
-          <h3 className="font-display text-xl font-semibold">{p.title}</h3>
-          <p className="mt-3 text-muted-foreground">{p.desc}</p>
-        </motion.div>
-      ))}
+      <div className="mx-auto mt-20 grid max-w-6xl gap-6 md:grid-cols-3">
+        {props.map((p, i) => (
+          <motion.div
+            key={p.title}
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: i * 0.1 }}
+            className="rounded-3xl border border-border bg-card p-10"
+          >
+            <div className="mb-8 inline-flex h-11 w-11 items-center justify-center rounded-full border border-border bg-secondary">
+              <p.icon className="h-5 w-5 text-foreground" />
+            </div>
+            <h3 className="font-display text-2xl font-semibold tracking-tight text-foreground">
+              {p.title}
+            </h3>
+            <p className="mt-3 leading-relaxed text-muted-foreground">
+              {p.desc}
+            </p>
+          </motion.div>
+        ))}
+      </div>
     </div>
   </section>
 );

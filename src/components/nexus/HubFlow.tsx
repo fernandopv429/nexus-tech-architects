@@ -24,43 +24,50 @@ const steps = [
 
 export const HubFlow = () => {
   return (
-    <section id="hub" className="relative overflow-hidden py-24 md:py-32">
-      <div className="absolute inset-0 -z-10 bg-gradient-brand-soft opacity-40" />
+    <section
+      id="hub"
+      className="relative overflow-hidden bg-background py-32 md:py-40"
+    >
+      <div className="pointer-events-none absolute inset-0 -z-10">
+        <div className="absolute left-1/2 top-1/2 h-[500px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/5 blur-[160px]" />
+      </div>
 
       <div className="container">
-        <div className="mx-auto max-w-2xl text-center">
-          <span className="text-sm font-semibold uppercase tracking-wider text-accent">Como funciona o Hub</span>
-          <h2 className="mt-3 font-display text-4xl font-bold md:text-5xl">
-            Três fases.<br />
-            <span className="text-gradient">Uma operação autônoma.</span>
+        <div className="mx-auto max-w-4xl text-center">
+          <p className="text-sm text-muted-foreground">Como funciona o Hub</p>
+          <h2 className="mt-6 font-display text-[clamp(2.5rem,7vw,5.5rem)] font-bold leading-[0.95] tracking-[-0.04em] text-foreground">
+            Três fases.
+            <br />
+            Uma operação autônoma.
           </h2>
         </div>
 
-        <div className="relative mt-20">
-          {/* connecting line */}
-          <div className="absolute left-1/2 top-0 hidden h-full w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-primary/40 to-transparent md:block" />
-
-          <div className="grid gap-10 md:grid-cols-3 md:gap-8">
-            {steps.map((s, i) => (
-              <motion.div
-                key={s.n}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: i * 0.15 }}
-                className="relative"
-              >
-                <div className="glass relative rounded-2xl p-8 text-center">
-                  <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-brand shadow-glow">
-                    <s.icon className="h-7 w-7 text-primary-foreground" />
-                  </div>
-                  <div className="font-display text-5xl font-bold text-gradient opacity-90">{s.n}</div>
-                  <h3 className="mt-2 font-display text-2xl font-semibold">{s.title}</h3>
-                  <p className="mt-3 text-muted-foreground">{s.desc}</p>
+        <div className="mx-auto mt-20 grid max-w-6xl gap-6 md:grid-cols-3">
+          {steps.map((s, i) => (
+            <motion.div
+              key={s.n}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: i * 0.12 }}
+              className="relative rounded-3xl border border-border bg-card p-10 transition-colors hover:border-foreground/20"
+            >
+              <div className="flex items-center justify-between">
+                <div className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border bg-secondary">
+                  <s.icon className="h-5 w-5 text-foreground" />
                 </div>
-              </motion.div>
-            ))}
-          </div>
+                <span className="font-display text-sm font-medium text-muted-foreground">
+                  {s.n}
+                </span>
+              </div>
+              <h3 className="mt-8 font-display text-3xl font-semibold tracking-tight text-foreground">
+                {s.title}
+              </h3>
+              <p className="mt-3 leading-relaxed text-muted-foreground">
+                {s.desc}
+              </p>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
