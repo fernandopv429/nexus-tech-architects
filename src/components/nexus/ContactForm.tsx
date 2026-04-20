@@ -9,6 +9,7 @@ import { Label } from "@/components/ui/label";
 import { toast } from "@/hooks/use-toast";
 import { Mail, Phone, MessageCircle, ArrowUpRight } from "lucide-react";
 import { WHATSAPP_URL } from "./WhatsAppButton";
+import { supabase } from "@/integrations/supabase/client";
 
 const schema = z.object({
   name: z.string().min(2, "Informe seu nome"),
@@ -56,18 +57,54 @@ export const ContactForm = () => {
     formState: { errors, isSubmitting },
   } = useForm<FormData>({ resolver: zodResolver(schema) });
 
-  const onSubmit = (data: FormData) => {
-    const text = encodeURIComponent(
-      `Olá Nexus! Sou ${data.name} da ${data.company}.\n` +
-        `📧 ${data.email}\n📱 ${data.phone}\n\n${data.message}`
-    );
-    window.open(`https://wa.me/5587996487067?text=${text}`, "_blank");
-    toast({
-      title: "Mensagem encaminhada",
-      description:
-        "Abrimos o WhatsApp com sua solicitação. Em breve retornaremos.",
-    });
-    reset();
+  const onSubmit = async (data: FormData) => {
+    try {
+      const id = crypto.randomUUID();
+      const submittedAt = new Date().toLocaleString("pt-BR", {
+        timeZone: "America/Sao_Paulo",
+      });
+
+      const { error: insertError } = await supabase
+        .from("contact_submissions")
+        .insert({ id, ...data });
+
+      if (insertError) throw insertError;
+
+      // Notify sales team (internal)
+      await supabase.functions.invoke("send-transactional-email", {
+        body: {
+          templateName: "new-lead-notification",
+          recipientEmail: "vendas@nexusdevhub.com",
+          idempotencyKey: `lead-notify-${id}`,
+          templateData: { ...data, submittedAt },
+        },
+      });
+
+      // Confirmation to lead
+      await supabase.functions.invoke("send-transactional-email", {
+        body: {
+          templateName: "contact-confirmation",
+          recipientEmail: data.email,
+          idempotencyKey: `lead-confirm-${id}`,
+          templateData: { name: data.name },
+        },
+      });
+
+      toast({
+        title: "Mensagem enviada",
+        description:
+          "Recebemos seu contato. Nossa engenharia retornará em até 24h úteis.",
+      });
+      reset();
+    } catch (err) {
+      console.error(err);
+      toast({
+        title: "Não foi possível enviar",
+        description:
+          "Tente novamente em instantes ou fale conosco pelo WhatsApp.",
+        variant: "destructive",
+      });
+    }
   };
 
   return (
