@@ -23,33 +23,40 @@ export const Hero = () => {
         >
           {/* Eyebrow */}
           <p className="text-sm text-muted-foreground md:text-base">
-            CTO as a Service · Departamento de Tecnologia Externo
+            Hub de Tecnologia · Automação · IA · IoT
           </p>
 
-          {/* Massive headline — Framer style */}
-          <h1 className="mt-6 font-display text-[clamp(3rem,10vw,8.5rem)] font-bold leading-[0.95] tracking-[-0.04em] text-foreground">
-            Seu Departamento
+          {/* Massive headline — ROI-driven */}
+          <h1 className="mt-6 font-display text-[clamp(2.5rem,9vw,7.5rem)] font-bold leading-[0.95] tracking-[-0.04em] text-foreground">
+            Recupere 20h
             <br />
-            de Tecnologia
+            da sua semana.
           </h1>
 
-          {/* Sub */}
+          {/* Sub: dor financeira + prova de tecnologia */}
           <p className="mx-auto mt-8 max-w-2xl text-base text-muted-foreground md:text-lg">
-            Assumimos a tecnologia do seu negócio para que você foque na
-            estratégia. Automação, RPA, IA e IoT em um único Hub de melhoria
-            contínua.
+            Sua operação rodando 24/7, sem aumentar a folha de pagamento.
+            Automatizamos processos repetitivos com <span className="text-foreground">RPA, IA e IoT</span> —
+            e entregamos um Hub único de melhoria contínua.
           </p>
 
           {/* Pill buttons */}
           <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <Button variant="pill" size="pill" asChild>
-              <a href="#contato">Falar com nosso time</a>
+              <a href="#calculadora">Calcular minha economia</a>
             </Button>
             <Button variant="pill-ghost" size="pill" asChild>
               <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-                WhatsApp direto
+                Diagnóstico no WhatsApp
               </a>
             </Button>
+          </div>
+
+          {/* Trust strip */}
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-xs text-muted-foreground">
+            <span>✓ Diagnóstico gratuito em 5 min</span>
+            <span>✓ Sem custo de implantação inicial</span>
+            <span>✓ Resposta em até 24h úteis</span>
           </div>
         </motion.div>
       </div>

@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/nexus/Navbar";
 import { Hero } from "@/components/nexus/Hero";
+import { Calculadora } from "@/components/nexus/Calculadora";
 import { Atuacao } from "@/components/nexus/Atuacao";
 import { HubFlow } from "@/components/nexus/HubFlow";
 import { Valor } from "@/components/nexus/Valor";
@@ -16,6 +17,7 @@ const Index = () => {
     <main className="relative min-h-screen overflow-x-hidden">
       <Navbar />
       <Hero />
+      <Calculadora />
       <Atuacao />
       <HubFlow />
       <Valor />
