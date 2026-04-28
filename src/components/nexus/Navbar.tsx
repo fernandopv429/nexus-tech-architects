@@ -4,12 +4,12 @@ import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const links = [
-  { href: "#atuacao", label: "Atuação" },
-  { href: "#hub", label: "Como funciona" },
-  { href: "#valor", label: "Diferenciais" },
-  { href: "#areas", label: "Áreas" },
-  { href: "#projetos", label: "Projetos" },
-  { href: "#contato", label: "Contato" },
+  { href: "/#calculadora", label: "Calcular ROI" },
+  { href: "/#projetos", label: "Projetos" },
+  { href: "/medico", label: "Saúde" },
+  { href: "/industria", label: "Indústria" },
+  { href: "/varejo", label: "Varejo" },
+  { href: "/#contato", label: "Contato" },
 ];
 
 export const Navbar = () => {
