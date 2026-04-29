@@ -2,8 +2,10 @@ import { NicheLanding } from "@/components/nexus/NicheLanding";
 
 const Varejo = () => (
   <NicheLanding
-    seoTitle="PDV, Totens e Automação para Varejo | Nexus DevHub"
-    seoDescription="PDV integrado com balanças, totens de autoatendimento, controle de estoque e dashboard de vendas em tempo real."
+    canonicalPath="/varejo"
+    segmentName="Varejo"
+    seoTitle="PDV Integrado, Totens e Automação para Varejo | Nexus DevHub"
+    seoDescription="PDV integrado com balanças, totens de autoatendimento, controle de estoque multi-loja e dashboard de vendas em tempo real. Tecnologia para supermercados, lojas e franquias."
     eyebrow="Hub Nexus · Varejo"
     headline="Loja vendendo"
     headlineHighlight="enquanto você dorme."
