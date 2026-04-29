@@ -2,8 +2,10 @@ import { NicheLanding } from "@/components/nexus/NicheLanding";
 
 const Industria = () => (
   <NicheLanding
-    seoTitle="IoT e Automação Industrial | Nexus DevHub"
-    seoDescription="Sensoriamento de máquinas, OEE em tempo real e manutenção preditiva. Tecnologia IoT para chão de fábrica."
+    canonicalPath="/industria"
+    segmentName="Indústria"
+    seoTitle="IoT Industrial, OEE e Manutenção Preditiva | Nexus DevHub"
+    seoDescription="Sensoriamento de máquinas, OEE em tempo real, manutenção preditiva por IA e integração com ERP (SAP, Protheus, Sankhya). Tecnologia IoT para chão de fábrica."
     eyebrow="Hub Nexus · Indústria"
     headline="Chão de fábrica"
     headlineHighlight="que fala com você."

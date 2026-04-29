@@ -5,7 +5,7 @@ import { Navbar } from "@/components/nexus/Navbar";
 import { Footer } from "@/components/nexus/Footer";
 import { WhatsAppFloating } from "@/components/nexus/WhatsAppButton";
 import { ContactForm } from "@/components/nexus/ContactForm";
-import { useEffect } from "react";
+import { useSEO } from "@/hooks/useSEO";
 
 export type NichePageProps = {
   eyebrow: string;
@@ -20,14 +20,44 @@ export type NichePageProps = {
   ctaPrimary?: string;
   seoTitle: string;
   seoDescription: string;
+  canonicalPath: string;
+  segmentName: string;
 };
 
 export const NicheLanding = (props: NichePageProps) => {
-  useEffect(() => {
-    document.title = props.seoTitle;
-    const desc = document.querySelector('meta[name="description"]');
-    if (desc) desc.setAttribute("content", props.seoDescription);
-  }, [props.seoTitle, props.seoDescription]);
+  const SITE = "https://go.nexusdevhub.com";
+  useSEO({
+    title: props.seoTitle,
+    description: props.seoDescription,
+    canonical: props.canonicalPath,
+    jsonLd: [
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        name: `${props.segmentName} — Nexus DevHub`,
+        provider: { "@type": "Organization", name: "Nexus DevHub", url: SITE },
+        areaServed: { "@type": "Country", name: "Brasil" },
+        description: props.seoDescription,
+        serviceType: props.segmentName,
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: `Soluções para ${props.segmentName}`,
+          itemListElement: props.servicos.map((s) => ({
+            "@type": "Offer",
+            itemOffered: { "@type": "Service", name: s.title, description: s.desc },
+          })),
+        },
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Início", item: `${SITE}/` },
+          { "@type": "ListItem", position: 2, name: props.segmentName, item: `${SITE}${props.canonicalPath}` },
+        ],
+      },
+    ],
+  });
 
   return (
     <main className="relative min-h-screen overflow-x-hidden">

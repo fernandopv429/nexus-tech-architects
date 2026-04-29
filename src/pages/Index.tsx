@@ -11,8 +11,15 @@ import { FAQ } from "@/components/nexus/FAQ";
 import { ContactForm } from "@/components/nexus/ContactForm";
 import { Footer } from "@/components/nexus/Footer";
 import { WhatsAppFloating } from "@/components/nexus/WhatsAppButton";
+import { useSEO } from "@/hooks/useSEO";
 
 const Index = () => {
+  useSEO({
+    title: "Nexus DevHub | Automação, RPA, IA e IoT para empresas no Brasil",
+    description:
+      "Departamento de tecnologia sob demanda: RPA, IA, IoT, totens, PDV e dashboards. Recupere até 20h/semana com o Hub Nexus.",
+    canonical: "/",
+  });
   return (
     <main className="relative min-h-screen overflow-x-hidden">
       <Navbar />
