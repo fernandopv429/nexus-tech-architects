@@ -6,6 +6,7 @@ const Industria = () => (
     segmentName="Indústria"
     seoTitle="IoT Industrial, OEE e Manutenção Preditiva | Nexus DevHub"
     seoDescription="Sensoriamento de máquinas, OEE em tempo real, manutenção preditiva por IA e integração com ERP (SAP, Protheus, Sankhya). Tecnologia IoT para chão de fábrica."
+    seoKeywords="IoT industrial, OEE em tempo real, manutenção preditiva, sensoriamento de máquinas, integração SAP, integração Protheus, indústria 4.0 Brasil, MES, apontamento de produção"
     eyebrow="Hub Nexus · Indústria"
     headline="Chão de fábrica"
     headlineHighlight="que fala com você."

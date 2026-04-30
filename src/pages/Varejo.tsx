@@ -6,6 +6,7 @@ const Varejo = () => (
     segmentName="Varejo"
     seoTitle="PDV Integrado, Totens e Automação para Varejo | Nexus DevHub"
     seoDescription="PDV integrado com balanças, totens de autoatendimento, controle de estoque multi-loja e dashboard de vendas em tempo real. Tecnologia para supermercados, lojas e franquias."
+    seoKeywords="PDV integrado, totem de autoatendimento varejo, automação supermercado, controle de estoque multi-loja, NFCe SAT, conciliação Pix, BI varejo, sistema para franquia"
     eyebrow="Hub Nexus · Varejo"
     headline="Loja vendendo"
     headlineHighlight="enquanto você dorme."
