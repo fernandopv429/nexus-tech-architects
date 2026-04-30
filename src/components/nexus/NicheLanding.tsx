@@ -31,6 +31,8 @@ export const NicheLanding = (props: NichePageProps) => {
     title: props.seoTitle,
     description: props.seoDescription,
     canonical: props.canonicalPath,
+    keywords: props.seoKeywords,
+    ogType: "article",
     jsonLd: [
       {
         "@context": "https://schema.org",
@@ -76,6 +78,16 @@ export const NicheLanding = (props: NichePageProps) => {
             transition={{ duration: 0.7 }}
             className="mx-auto max-w-5xl text-center"
           >
+            {/* Breadcrumbs visíveis */}
+            <nav aria-label="Breadcrumb" className="mb-4 flex justify-center">
+              <ol className="flex items-center gap-2 text-xs text-muted-foreground">
+                <li>
+                  <a href="/" className="hover:text-foreground">Início</a>
+                </li>
+                <li aria-hidden="true">/</li>
+                <li className="text-foreground" aria-current="page">{props.segmentName}</li>
+              </ol>
+            </nav>
             <p className="text-sm text-muted-foreground">{props.eyebrow}</p>
             <h1 className="mt-6 font-display text-[clamp(2.5rem,9vw,7rem)] font-bold leading-[0.95] tracking-[-0.04em] text-foreground">
               {props.headline}
