@@ -143,6 +143,7 @@ export const WhatsAppFloating = () => {
             <button
               type="button"
               onClick={() => {
+                trackWhatsAppClick("floating");
                 window.open(buildUrl(), "_blank", "noopener,noreferrer");
                 setOpen(false);
               }}
