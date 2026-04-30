@@ -60,7 +60,7 @@ export const WhatsAppFloating = () => {
       <motion.button
         type="button"
         aria-label="Falar no WhatsApp"
-        onClick={() => setOpen(true)}
+        onClick={handleOpen}
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ delay: 1.2, type: "spring" }}
