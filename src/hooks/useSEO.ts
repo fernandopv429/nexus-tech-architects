@@ -4,6 +4,8 @@ type SEOProps = {
   title: string;
   description: string;
   canonical?: string;
+  keywords?: string;
+  ogType?: "website" | "article" | "profile";
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
 };
 
@@ -30,11 +32,13 @@ const upsertLink = (rel: string, href: string) => {
   el.setAttribute("href", href);
 };
 
-export const useSEO = ({ title, description, canonical, jsonLd }: SEOProps) => {
+export const useSEO = ({ title, description, canonical, keywords, ogType, jsonLd }: SEOProps) => {
   useEffect(() => {
     document.title = title;
 
     upsertMeta('meta[name="description"]', "name", "description", description);
+    if (keywords) upsertMeta('meta[name="keywords"]', "name", "keywords", keywords);
+    if (ogType) upsertMeta('meta[property="og:type"]', "property", "og:type", ogType);
     upsertMeta('meta[property="og:title"]', "property", "og:title", title);
     upsertMeta('meta[property="og:description"]', "property", "og:description", description);
     upsertMeta('meta[name="twitter:title"]', "name", "twitter:title", title);
