@@ -10,6 +10,7 @@ import { toast } from "@/hooks/use-toast";
 import { Mail, Phone, MessageCircle, ArrowUpRight } from "lucide-react";
 import { WHATSAPP_URL } from "./WhatsAppButton";
 import { supabase } from "@/integrations/supabase/client";
+import { trackFormSubmit, trackWhatsAppClick, trackCTAClick } from "@/lib/analytics";
 
 const schema = z.object({
   name: z.string().min(2, "Informe seu nome"),
@@ -95,6 +96,7 @@ export const ContactForm = () => {
         description:
           "Recebemos seu contato. Nossa engenharia retornará em até 24h úteis.",
       });
+      trackFormSubmit("contact", { has_phone: !!data.phone });
       reset();
     } catch (err) {
       console.error(err);
@@ -138,6 +140,10 @@ export const ContactForm = () => {
                 {...(c.external
                   ? { target: "_blank", rel: "noopener noreferrer" }
                   : {})}
+                onClick={() => {
+                  if (c.external) trackWhatsAppClick("contact");
+                  else trackCTAClick(c.label, "contact_info", c.href);
+                }}
                 className="group flex items-center justify-between rounded-2xl border border-border bg-card p-5 transition-colors hover:bg-secondary/40"
               >
                 <div className="flex items-center gap-4">
@@ -260,7 +266,12 @@ export const ContactForm = () => {
                 {isSubmitting ? "Enviando..." : "Enviar para nosso time"}
               </Button>
               <Button type="button" variant="pill-ghost" size="pill" asChild>
-                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+                <a
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => trackWhatsAppClick("contact")}
+                >
                   WhatsApp
                 </a>
               </Button>
