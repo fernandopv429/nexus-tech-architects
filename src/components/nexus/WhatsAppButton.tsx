@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
+import { trackWhatsAppClick, trackEvent } from "@/lib/analytics";
 
 const PHONE = "5587996487067";
 
@@ -44,8 +45,14 @@ export const WhatsAppFloating = () => {
   const [porte, setPorte] = useState<string>();
 
   const handleSubmit = () => {
+    trackWhatsAppClick("qualified", segmento, porte);
     window.open(buildUrl(segmento, porte), "_blank", "noopener,noreferrer");
     setOpen(false);
+  };
+
+  const handleOpen = () => {
+    trackEvent("whatsapp_modal_open", { source: "floating" });
+    setOpen(true);
   };
 
   return (
@@ -53,7 +60,7 @@ export const WhatsAppFloating = () => {
       <motion.button
         type="button"
         aria-label="Falar no WhatsApp"
-        onClick={() => setOpen(true)}
+        onClick={handleOpen}
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ delay: 1.2, type: "spring" }}
@@ -136,6 +143,7 @@ export const WhatsAppFloating = () => {
             <button
               type="button"
               onClick={() => {
+                trackWhatsAppClick("floating");
                 window.open(buildUrl(), "_blank", "noopener,noreferrer");
                 setOpen(false);
               }}

@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { WHATSAPP_URL } from "./WhatsAppButton";
+import { trackCTAClick, trackWhatsAppClick } from "@/lib/analytics";
 
 export const Hero = () => {
   return (
@@ -44,10 +45,20 @@ export const Hero = () => {
           {/* Pill buttons */}
           <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <Button variant="pill" size="pill" asChild>
-              <a href="#calculadora">Calcular minha economia</a>
+              <a
+                href="#calculadora"
+                onClick={() => trackCTAClick("Calcular minha economia", "hero", "#calculadora")}
+              >
+                Calcular minha economia
+              </a>
             </Button>
             <Button variant="pill-ghost" size="pill" asChild>
-              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => trackWhatsAppClick("hero")}
+              >
                 Diagnóstico no WhatsApp
               </a>
             </Button>

@@ -10,6 +10,7 @@ import { Slider } from "@/components/ui/slider";
 import { toast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { Clock, TrendingUp, DollarSign, Sparkles } from "lucide-react";
+import { trackFormSubmit } from "@/lib/analytics";
 
 const fmtBRL = (v: number) =>
   v.toLocaleString("pt-BR", {
@@ -87,6 +88,15 @@ export const Calculadora = () => {
         title: "Plano enviado!",
         description:
           "Em até 24h úteis nossa engenharia envia seu plano de automação personalizado.",
+      });
+      trackFormSubmit("calculator_roi", {
+        people,
+        hours_per_week: hoursPerWeek,
+        hourly_cost: hourlyCost,
+        estimated_monthly_savings: Math.round(result.monthlyMoney),
+        estimated_annual_savings: Math.round(result.annualMoney),
+        value: Math.round(result.annualMoney),
+        currency: "BRL",
       });
       reset();
     } catch (err) {

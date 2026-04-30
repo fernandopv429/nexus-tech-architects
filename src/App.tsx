@@ -9,6 +9,7 @@ import Unsubscribe from "./pages/Unsubscribe.tsx";
 import Medico from "./pages/Medico.tsx";
 import Industria from "./pages/Industria.tsx";
 import Varejo from "./pages/Varejo.tsx";
+import { RouteTracker } from "./components/RouteTracker";
 
 const queryClient = new QueryClient();
 
@@ -18,6 +19,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <RouteTracker />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/medico" element={<Medico />} />
