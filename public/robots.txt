@@ -1,5 +1,22 @@
 User-agent: *
 Allow: /
 Disallow: /unsubscribe
+Disallow: /api/
 
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+Host: https://go.nexusdevhub.com
 Sitemap: https://go.nexusdevhub.com/sitemap.xml

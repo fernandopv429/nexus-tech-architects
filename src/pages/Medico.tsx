@@ -6,6 +6,7 @@ const Medico = () => (
     segmentName="Saúde"
     seoTitle="Tecnologia para Clínicas e Consultórios | Totens, IA e Prontuário | Nexus DevHub"
     seoDescription="Reduza filas em até 52%, automatize triagem e integre o prontuário eletrônico com totens, IA e dashboards. Hub Nexus para clínicas e hospitais."
+    seoKeywords="tecnologia para clínicas, totem de autoatendimento clínica, automação consultório, prontuário eletrônico integrado, triagem com IA, agendamento WhatsApp clínica, software para clínica, TISS automação"
     eyebrow="Hub Nexus · Saúde"
     headline="Menos fila."
     headlineHighlight="Mais atendimento."

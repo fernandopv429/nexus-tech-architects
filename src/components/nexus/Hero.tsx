@@ -26,18 +26,19 @@ export const Hero = () => {
             Hub de Tecnologia · Automação · IA · IoT
           </p>
 
-          {/* Massive headline — ROI-driven */}
+          {/* Massive headline — ROI-driven + keyword principal */}
           <h1 className="mt-6 font-display text-[clamp(2.5rem,9vw,7.5rem)] font-bold leading-[0.95] tracking-[-0.04em] text-foreground">
+            <span className="sr-only">Nexus DevHub — Automação, IA e IoT para empresas. </span>
             Recupere 20h
             <br />
             da sua semana.
           </h1>
 
-          {/* Sub: dor financeira + prova de tecnologia */}
+          {/* Sub: dor financeira + prova de tecnologia (com keywords) */}
           <p className="mx-auto mt-8 max-w-2xl text-base text-muted-foreground md:text-lg">
-            Sua operação rodando 24/7, sem aumentar a folha de pagamento.
-            Automatizamos processos repetitivos com <span className="text-foreground">RPA, IA e IoT</span> —
-            e entregamos um Hub único de melhoria contínua.
+            Departamento de tecnologia sob demanda para empresas no Brasil.
+            Automatizamos processos com <strong className="font-medium text-foreground">RPA, Inteligência Artificial e IoT industrial</strong> —
+            sua operação rodando 24/7 sem aumentar a folha.
           </p>
 
           {/* Pill buttons */}
