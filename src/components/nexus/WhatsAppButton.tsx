@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
+import { trackWhatsAppClick, trackEvent } from "@/lib/analytics";
 
 const PHONE = "5587996487067";
 
@@ -44,8 +45,14 @@ export const WhatsAppFloating = () => {
   const [porte, setPorte] = useState<string>();
 
   const handleSubmit = () => {
+    trackWhatsAppClick("qualified", segmento, porte);
     window.open(buildUrl(segmento, porte), "_blank", "noopener,noreferrer");
     setOpen(false);
+  };
+
+  const handleOpen = () => {
+    trackEvent("whatsapp_modal_open", { source: "floating" });
+    setOpen(true);
   };
 
   return (
