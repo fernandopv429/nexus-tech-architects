@@ -20,6 +20,7 @@ export type NichePageProps = {
   ctaPrimary?: string;
   seoTitle: string;
   seoDescription: string;
+  seoKeywords?: string;
   canonicalPath: string;
   segmentName: string;
 };
