@@ -10,7 +10,8 @@ import { toast } from "@/hooks/use-toast";
 import { Mail, Phone, MessageCircle, ArrowUpRight } from "lucide-react";
 import { WHATSAPP_URL } from "./WhatsAppButton";
 import { supabase } from "@/integrations/supabase/client";
-import { trackFormSubmit, trackWhatsAppClick, trackCTAClick } from "@/lib/analytics";
+import { trackFormSubmit, trackFormStart, trackWhatsAppClick, trackCTAClick } from "@/lib/analytics";
+import { useRef } from "react";
 
 const schema = z.object({
   name: z.string().min(2, "Informe seu nome"),
