@@ -58,6 +58,12 @@ export const ContactForm = () => {
     reset,
     formState: { errors, isSubmitting },
   } = useForm<FormData>({ resolver: zodResolver(schema) });
+  const startedRef = useRef(false);
+  const handleStart = () => {
+    if (startedRef.current) return;
+    startedRef.current = true;
+    trackFormStart("contact");
+  };
 
   const onSubmit = async (data: FormData) => {
     try {
