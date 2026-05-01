@@ -97,6 +97,7 @@ export const Calculadora = () => {
           "Em até 24h úteis nossa engenharia envia seu plano de automação personalizado.",
       });
       trackFormSubmit("calculator_roi", {
+        email: data.email,
         people,
         hours_per_week: hoursPerWeek,
         hourly_cost: hourlyCost,
