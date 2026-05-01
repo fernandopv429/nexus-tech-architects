@@ -175,6 +175,7 @@ export const ContactForm = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             onSubmit={handleSubmit(onSubmit)}
+            onFocusCapture={handleStart}
             className="space-y-5 rounded-3xl border border-border bg-card p-8 md:p-10 lg:col-span-3"
           >
             <div className="grid gap-5 md:grid-cols-2">
