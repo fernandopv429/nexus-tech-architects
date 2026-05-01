@@ -97,7 +97,7 @@ export const ContactForm = () => {
         description:
           "Recebemos seu contato. Nossa engenharia retornará em até 24h úteis.",
       });
-      trackFormSubmit("contact", { has_phone: !!data.phone });
+      trackFormSubmit("contact", { has_phone: !!data.phone, email: data.email });
       reset();
     } catch (err) {
       console.error(err);
