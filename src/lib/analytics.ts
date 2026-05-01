@@ -1,36 +1,56 @@
-// Google Analytics 4 helper
-// Wraps gtag() with safe checks for SSR / blocked scripts.
+// Google Analytics 4 + Google Tag Manager helper
+// All events are pushed to window.dataLayer so GTM can map them to tags/triggers.
+// gtag() is also called directly as a fallback when GA4 is loaded outside GTM.
 
 declare global {
   interface Window {
-    dataLayer: unknown[];
+    dataLayer: Record<string, unknown>[];
     gtag?: (...args: unknown[]) => void;
   }
 }
 
-type EventParams = Record<string, string | number | boolean | undefined>;
+type EventParams = Record<string, string | number | boolean | undefined | null>;
+
+const ensureDataLayer = () => {
+  if (typeof window === "undefined") return null;
+  window.dataLayer = window.dataLayer || [];
+  return window.dataLayer;
+};
+
+export const pushToDataLayer = (payload: Record<string, unknown>) => {
+  const dl = ensureDataLayer();
+  if (!dl) return;
+  dl.push(payload);
+};
 
 export const trackEvent = (eventName: string, params: EventParams = {}) => {
-  if (typeof window === "undefined") return;
-  // Always push to dataLayer (works for GTM too if added later)
-  window.dataLayer = window.dataLayer || [];
-  window.dataLayer.push({ event: eventName, ...params });
-  // Direct gtag call
+  const dl = ensureDataLayer();
+  if (!dl) return;
+  // GTM trigger payload
+  dl.push({ event: eventName, ...params });
+  // gtag fallback (GA4 direct)
   if (typeof window.gtag === "function") {
     window.gtag("event", eventName, params);
   }
 };
 
 export const trackPageView = (path: string, title?: string) => {
-  if (typeof window === "undefined" || typeof window.gtag !== "function") return;
-  window.gtag("event", "page_view", {
+  if (typeof window === "undefined") return;
+  pushToDataLayer({
+    event: "page_view",
     page_path: path,
     page_title: title ?? document.title,
     page_location: window.location.href,
   });
+  if (typeof window.gtag === "function") {
+    window.gtag("event", "page_view", {
+      page_path: path,
+      page_title: title ?? document.title,
+      page_location: window.location.href,
+    });
+  }
 };
 
-// Conversion-grade events (recommended GA4 names where applicable)
 export const trackCTAClick = (label: string, location: string, href?: string) =>
   trackEvent("cta_click", { cta_label: label, cta_location: location, cta_href: href });
 
@@ -40,10 +60,36 @@ export const trackWhatsAppClick = (
   porte?: string,
 ) => trackEvent("whatsapp_click", { source, segmento, porte });
 
+// Lightweight non-cryptographic hash so GTM/GA4 receives a stable
+// non-PII identifier for the lead email (useful for dedup / audiences).
+const simpleHash = (input: string): string => {
+  let h = 0;
+  for (let i = 0; i < input.length; i++) {
+    h = (h << 5) - h + input.charCodeAt(i);
+    h |= 0;
+  }
+  return Math.abs(h).toString(36);
+};
+
+export const trackFormStart = (formName: "contact" | "calculator_roi") =>
+  trackEvent("form_start", { form_name: formName });
+
 export const trackFormSubmit = (
   formName: "contact" | "calculator_roi",
-  extra: EventParams = {},
+  extra: EventParams & { email?: string } = {},
 ) => {
-  trackEvent("generate_lead", { form_name: formName, ...extra });
-  trackEvent("form_submit", { form_name: formName, ...extra });
+  const { email, ...rest } = extra;
+  const enriched: EventParams = {
+    form_name: formName,
+    form_id: formName,
+    ...rest,
+  };
+  if (email) {
+    enriched.lead_email_domain = email.split("@")[1] ?? "";
+    enriched.lead_email_hash = simpleHash(email.toLowerCase().trim());
+  }
+  // GA4 recommended event for lead capture
+  trackEvent("generate_lead", enriched);
+  // Generic form submit (for GTM triggers)
+  trackEvent("form_submit", enriched);
 };

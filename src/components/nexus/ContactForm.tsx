@@ -10,7 +10,8 @@ import { toast } from "@/hooks/use-toast";
 import { Mail, Phone, MessageCircle, ArrowUpRight } from "lucide-react";
 import { WHATSAPP_URL } from "./WhatsAppButton";
 import { supabase } from "@/integrations/supabase/client";
-import { trackFormSubmit, trackWhatsAppClick, trackCTAClick } from "@/lib/analytics";
+import { trackFormSubmit, trackFormStart, trackWhatsAppClick, trackCTAClick } from "@/lib/analytics";
+import { useRef } from "react";
 
 const schema = z.object({
   name: z.string().min(2, "Informe seu nome"),
@@ -57,6 +58,12 @@ export const ContactForm = () => {
     reset,
     formState: { errors, isSubmitting },
   } = useForm<FormData>({ resolver: zodResolver(schema) });
+  const startedRef = useRef(false);
+  const handleStart = () => {
+    if (startedRef.current) return;
+    startedRef.current = true;
+    trackFormStart("contact");
+  };
 
   const onSubmit = async (data: FormData) => {
     try {
@@ -96,7 +103,7 @@ export const ContactForm = () => {
         description:
           "Recebemos seu contato. Nossa engenharia retornará em até 24h úteis.",
       });
-      trackFormSubmit("contact", { has_phone: !!data.phone });
+      trackFormSubmit("contact", { has_phone: !!data.phone, email: data.email });
       reset();
     } catch (err) {
       console.error(err);
@@ -168,6 +175,7 @@ export const ContactForm = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             onSubmit={handleSubmit(onSubmit)}
+            onFocusCapture={handleStart}
             className="space-y-5 rounded-3xl border border-border bg-card p-8 md:p-10 lg:col-span-3"
           >
             <div className="grid gap-5 md:grid-cols-2">

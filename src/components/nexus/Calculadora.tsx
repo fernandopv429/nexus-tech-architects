@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -10,7 +10,8 @@ import { Slider } from "@/components/ui/slider";
 import { toast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { Clock, TrendingUp, DollarSign, Sparkles } from "lucide-react";
-import { trackFormSubmit } from "@/lib/analytics";
+import { trackFormSubmit, trackFormStart } from "@/lib/analytics";
+
 
 const fmtBRL = (v: number) =>
   v.toLocaleString("pt-BR", {
@@ -53,6 +54,12 @@ export const Calculadora = () => {
     reset,
     formState: { errors, isSubmitting },
   } = useForm<CaptureData>({ resolver: zodResolver(captureSchema) });
+  const startedRef = useRef(false);
+  const handleStart = () => {
+    if (startedRef.current) return;
+    startedRef.current = true;
+    trackFormStart("calculator_roi");
+  };
 
   const onSubmit = async (data: CaptureData) => {
     try {
@@ -90,6 +97,7 @@ export const Calculadora = () => {
           "Em até 24h úteis nossa engenharia envia seu plano de automação personalizado.",
       });
       trackFormSubmit("calculator_roi", {
+        email: data.email,
         people,
         hours_per_week: hoursPerWeek,
         hourly_cost: hourlyCost,
@@ -209,6 +217,7 @@ export const Calculadora = () => {
 
             <form
               onSubmit={handleSubmit(onSubmit)}
+              onFocusCapture={handleStart}
               className="space-y-3 rounded-3xl border border-border bg-card p-6"
             >
               <p className="text-sm font-medium text-foreground">
