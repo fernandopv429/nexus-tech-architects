@@ -10,7 +10,8 @@ import { Slider } from "@/components/ui/slider";
 import { toast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { Clock, TrendingUp, DollarSign, Sparkles } from "lucide-react";
-import { trackFormSubmit } from "@/lib/analytics";
+import { trackFormSubmit, trackFormStart } from "@/lib/analytics";
+import { useRef as useReactRef } from "react";
 
 const fmtBRL = (v: number) =>
   v.toLocaleString("pt-BR", {
