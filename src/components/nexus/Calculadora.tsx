@@ -54,6 +54,12 @@ export const Calculadora = () => {
     reset,
     formState: { errors, isSubmitting },
   } = useForm<CaptureData>({ resolver: zodResolver(captureSchema) });
+  const startedRef = useRef(false);
+  const handleStart = () => {
+    if (startedRef.current) return;
+    startedRef.current = true;
+    trackFormStart("calculator_roi");
+  };
 
   const onSubmit = async (data: CaptureData) => {
     try {
