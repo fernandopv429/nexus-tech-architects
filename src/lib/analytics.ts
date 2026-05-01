@@ -23,6 +23,31 @@ export const pushToDataLayer = (payload: Record<string, unknown>) => {
   dl.push(payload);
 };
 
+// Forward selected events to our backend webhook (non-blocking)
+const FORWARD_EVENTS = new Set(["form_submit", "generate_lead", "whatsapp_click"]);
+const forwardToWebhook = (eventName: string, params: EventParams) => {
+  if (typeof window === "undefined") return;
+  if (!FORWARD_EVENTS.has(eventName)) return;
+  try {
+    const url = `https://${import.meta.env.VITE_SUPABASE_PROJECT_ID}.supabase.co/functions/v1/analytics-webhook`;
+    const payload = JSON.stringify({
+      event: eventName,
+      data: params,
+      page: {
+        path: window.location.pathname,
+        url: window.location.href,
+        title: document.title,
+        referrer: document.referrer || null,
+      },
+    });
+    const blob = new Blob([payload], { type: "application/json" });
+    if (navigator.sendBeacon && navigator.sendBeacon(url, blob)) return;
+    fetch(url, { method: "POST", headers: { "Content-Type": "application/json" }, body: payload, keepalive: true }).catch(() => {});
+  } catch {
+    /* swallow — analytics must never break UX */
+  }
+};
+
 export const trackEvent = (eventName: string, params: EventParams = {}) => {
   const dl = ensureDataLayer();
   if (!dl) return;
@@ -32,6 +57,8 @@ export const trackEvent = (eventName: string, params: EventParams = {}) => {
   if (typeof window.gtag === "function") {
     window.gtag("event", eventName, params);
   }
+  // Backend webhook (leads + WhatsApp only)
+  forwardToWebhook(eventName, params);
 };
 
 export const trackPageView = (path: string, title?: string) => {
