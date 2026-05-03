@@ -10,7 +10,7 @@ import { Slider } from "@/components/ui/slider";
 import { toast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { Clock, TrendingUp, DollarSign, Sparkles } from "lucide-react";
-import { trackFormSubmit, trackFormStart } from "@/lib/analytics";
+import { trackFormSubmit, trackFormStart, forwardLeadToWebhook } from "@/lib/analytics";
 
 
 const fmtBRL = (v: number) =>
