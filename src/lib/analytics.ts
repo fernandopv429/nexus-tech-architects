@@ -24,28 +24,52 @@ export const pushToDataLayer = (payload: Record<string, unknown>) => {
 };
 
 // Forward selected events to our backend webhook (non-blocking)
-const FORWARD_EVENTS = new Set(["form_submit", "generate_lead", "whatsapp_click"]);
-const forwardToWebhook = (eventName: string, params: EventParams) => {
+const FORWARD_EVENTS = new Set([
+  "form_submit",
+  "form_start",
+  "generate_lead",
+  "lead_captured",
+  "whatsapp_click",
+]);
+
+const sendToWebhook = (body: Record<string, unknown>) => {
   if (typeof window === "undefined") return;
-  if (!FORWARD_EVENTS.has(eventName)) return;
   try {
     const url = `https://${import.meta.env.VITE_SUPABASE_PROJECT_ID}.supabase.co/functions/v1/analytics-webhook`;
     const payload = JSON.stringify({
-      event: eventName,
-      data: params,
+      ...body,
       page: {
         path: window.location.pathname,
         url: window.location.href,
         title: document.title,
         referrer: document.referrer || null,
       },
+      ts: new Date().toISOString(),
     });
     const blob = new Blob([payload], { type: "application/json" });
     if (navigator.sendBeacon && navigator.sendBeacon(url, blob)) return;
-    fetch(url, { method: "POST", headers: { "Content-Type": "application/json" }, body: payload, keepalive: true }).catch(() => {});
+    fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: payload,
+      keepalive: true,
+    }).catch(() => {});
   } catch {
     /* swallow — analytics must never break UX */
   }
+};
+
+const forwardToWebhook = (eventName: string, params: EventParams) => {
+  if (!FORWARD_EVENTS.has(eventName)) return;
+  sendToWebhook({ event: eventName, data: params });
+};
+
+// Forward full lead payload (with PII) to webhook only — never to GTM/GA4
+export const forwardLeadToWebhook = (
+  formName: "contact" | "calculator_roi",
+  data: Record<string, unknown>,
+) => {
+  sendToWebhook({ event: "lead_captured", form_name: formName, data });
 };
 
 export const trackEvent = (eventName: string, params: EventParams = {}) => {

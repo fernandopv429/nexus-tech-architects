@@ -10,7 +10,7 @@ import { toast } from "@/hooks/use-toast";
 import { Mail, Phone, MessageCircle, ArrowUpRight } from "lucide-react";
 import { WHATSAPP_URL } from "./WhatsAppButton";
 import { supabase } from "@/integrations/supabase/client";
-import { trackFormSubmit, trackFormStart, trackWhatsAppClick, trackCTAClick } from "@/lib/analytics";
+import { trackFormSubmit, trackFormStart, trackWhatsAppClick, trackCTAClick, forwardLeadToWebhook } from "@/lib/analytics";
 import { useRef } from "react";
 
 const schema = z.object({
@@ -104,6 +104,7 @@ export const ContactForm = () => {
           "Recebemos seu contato. Nossa engenharia retornará em até 24h úteis.",
       });
       trackFormSubmit("contact", { has_phone: !!data.phone, email: data.email });
+      forwardLeadToWebhook("contact", { ...data, submission_id: id, submitted_at: submittedAt });
       reset();
     } catch (err) {
       console.error(err);

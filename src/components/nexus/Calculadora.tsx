@@ -10,7 +10,7 @@ import { Slider } from "@/components/ui/slider";
 import { toast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { Clock, TrendingUp, DollarSign, Sparkles } from "lucide-react";
-import { trackFormSubmit, trackFormStart } from "@/lib/analytics";
+import { trackFormSubmit, trackFormStart, forwardLeadToWebhook } from "@/lib/analytics";
 
 
 const fmtBRL = (v: number) =>
@@ -105,6 +105,16 @@ export const Calculadora = () => {
         estimated_annual_savings: Math.round(result.annualMoney),
         value: Math.round(result.annualMoney),
         currency: "BRL",
+      });
+      forwardLeadToWebhook("calculator_roi", {
+        ...data,
+        submission_id: id,
+        submitted_at: submittedAt,
+        people,
+        hours_per_week: hoursPerWeek,
+        hourly_cost: hourlyCost,
+        estimated_monthly_savings: Math.round(result.monthlyMoney),
+        estimated_annual_savings: Math.round(result.annualMoney),
       });
       reset();
     } catch (err) {
