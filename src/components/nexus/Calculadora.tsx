@@ -278,9 +278,9 @@ const SliderField = ({
   suffix?: string;
 }) => (
   <div>
-    <div className="flex items-baseline justify-between gap-4">
-      <Label className="text-sm text-muted-foreground">{label}</Label>
-      <span className="font-display text-2xl font-semibold text-foreground">
+    <div className="flex items-baseline justify-between gap-3">
+      <Label className="flex-1 text-sm text-muted-foreground">{label}</Label>
+      <span className="shrink-0 whitespace-nowrap font-display text-xl font-semibold text-foreground sm:text-2xl">
         {prefix} {value}
         <span className="ml-1 text-xs font-normal text-muted-foreground">
           {suffix}
