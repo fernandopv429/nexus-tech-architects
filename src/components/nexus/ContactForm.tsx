@@ -104,6 +104,7 @@ export const ContactForm = () => {
           "Recebemos seu contato. Nossa engenharia retornará em até 24h úteis.",
       });
       trackFormSubmit("contact", { has_phone: !!data.phone, email: data.email });
+      forwardLeadToWebhook("contact", { ...data, submission_id: id, submitted_at: submittedAt });
       reset();
     } catch (err) {
       console.error(err);
