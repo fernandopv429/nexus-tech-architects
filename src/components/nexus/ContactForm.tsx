@@ -152,20 +152,20 @@ export const ContactForm = () => {
                   if (c.external) trackWhatsAppClick("contact");
                   else trackCTAClick(c.label, "contact_info", c.href);
                 }}
-                className="group flex items-center justify-between rounded-2xl border border-border bg-card p-5 transition-colors hover:bg-secondary/40"
+                className="group flex items-center justify-between gap-3 rounded-2xl border border-border bg-card p-4 transition-colors hover:bg-secondary/40 sm:p-5"
               >
-                <div className="flex items-center gap-4">
+                <div className="flex min-w-0 flex-1 items-center gap-3 sm:gap-4">
                   <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-border bg-secondary">
                     <c.icon className="h-5 w-5 text-foreground" />
                   </div>
-                  <div>
+                  <div className="min-w-0 flex-1">
                     <div className="text-xs text-muted-foreground">
                       {c.label}
                     </div>
-                    <div className="font-medium text-foreground">{c.value}</div>
+                    <div className="truncate font-medium text-foreground">{c.value}</div>
                   </div>
                 </div>
-                <ArrowUpRight className="h-5 w-5 text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-foreground" />
+                <ArrowUpRight className="h-5 w-5 shrink-0 text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-foreground" />
               </a>
             ))}
           </motion.div>
