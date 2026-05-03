@@ -106,6 +106,16 @@ export const Calculadora = () => {
         value: Math.round(result.annualMoney),
         currency: "BRL",
       });
+      forwardLeadToWebhook("calculator_roi", {
+        ...data,
+        submission_id: id,
+        submitted_at: submittedAt,
+        people,
+        hours_per_week: hoursPerWeek,
+        hourly_cost: hourlyCost,
+        estimated_monthly_savings: Math.round(result.monthlyMoney),
+        estimated_annual_savings: Math.round(result.annualMoney),
+      });
       reset();
     } catch (err) {
       console.error(err);
