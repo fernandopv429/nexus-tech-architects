@@ -44,13 +44,21 @@ const Unsubscribe = () => {
       { body: { token } }
     );
     if (error) {
-      setState({ status: "error", message: error.message });
+      console.error("Unsubscribe error", error);
+      setState({
+        status: "error",
+        message: "Não foi possível processar. Tente novamente mais tarde.",
+      });
       return;
     }
     if (data?.success) setState({ status: "success" });
     else if (data?.reason === "already_unsubscribed")
       setState({ status: "already" });
-    else setState({ status: "error", message: "Não foi possível processar." });
+    else
+      setState({
+        status: "error",
+        message: "Não foi possível processar. Tente novamente mais tarde.",
+      });
   };
 
   return (

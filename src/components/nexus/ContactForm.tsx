@@ -67,36 +67,18 @@ export const ContactForm = () => {
 
   const onSubmit = async (data: FormData) => {
     try {
-      const id = crypto.randomUUID();
       const submittedAt = new Date().toLocaleString("pt-BR", {
         timeZone: "America/Sao_Paulo",
       });
 
-      const { error: insertError } = await supabase
-        .from("contact_submissions")
-        .insert({ id, ...data });
+      const { data: result, error } = await supabase.functions.invoke(
+        "submit-contact",
+        { body: { ...data, source: "contact" } }
+      );
 
-      if (insertError) throw insertError;
-
-      // Notify sales team (internal)
-      await supabase.functions.invoke("send-transactional-email", {
-        body: {
-          templateName: "new-lead-notification",
-          recipientEmail: "vendas@nexusdevhub.com",
-          idempotencyKey: `lead-notify-${id}`,
-          templateData: { ...data, submittedAt },
-        },
-      });
-
-      // Confirmation to lead
-      await supabase.functions.invoke("send-transactional-email", {
-        body: {
-          templateName: "contact-confirmation",
-          recipientEmail: data.email,
-          idempotencyKey: `lead-confirm-${id}`,
-          templateData: { name: data.name },
-        },
-      });
+      if (error || !result?.success) {
+        throw error ?? new Error("submit failed");
+      }
 
       toast({
         title: "Mensagem enviada",
@@ -104,7 +86,11 @@ export const ContactForm = () => {
           "Recebemos seu contato. Nossa engenharia retornará em até 24h úteis.",
       });
       trackFormSubmit("contact", { has_phone: !!data.phone, email: data.email });
-      forwardLeadToWebhook("contact", { ...data, submission_id: id, submitted_at: submittedAt });
+      forwardLeadToWebhook("contact", {
+        ...data,
+        submission_id: result.id,
+        submitted_at: submittedAt,
+      });
       reset();
     } catch (err) {
       console.error(err);

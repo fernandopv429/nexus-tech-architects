@@ -63,32 +63,16 @@ export const Calculadora = () => {
 
   const onSubmit = async (data: CaptureData) => {
     try {
-      const id = crypto.randomUUID();
       const message = `[Calculadora ROI] ${people} pessoas · ${hoursPerWeek}h/sem · custo R$ ${hourlyCost}/h · economia est. mensal ${fmtBRL(result.monthlyMoney)} (${result.monthlySavedHours}h)`;
 
-      const { error: insertError } = await supabase
-        .from("contact_submissions")
-        .insert({ id, ...data, message });
-      if (insertError) throw insertError;
+      const { data: out, error } = await supabase.functions.invoke(
+        "submit-contact",
+        { body: { ...data, message, source: "calculator_roi" } }
+      );
+      if (error || !out?.success) throw error ?? new Error("submit failed");
 
       const submittedAt = new Date().toLocaleString("pt-BR", {
         timeZone: "America/Sao_Paulo",
-      });
-      await supabase.functions.invoke("send-transactional-email", {
-        body: {
-          templateName: "new-lead-notification",
-          recipientEmail: "vendas@nexusdevhub.com",
-          idempotencyKey: `roi-notify-${id}`,
-          templateData: { ...data, message, submittedAt },
-        },
-      });
-      await supabase.functions.invoke("send-transactional-email", {
-        body: {
-          templateName: "contact-confirmation",
-          recipientEmail: data.email,
-          idempotencyKey: `roi-confirm-${id}`,
-          templateData: { name: data.name },
-        },
       });
 
       toast({
@@ -108,7 +92,7 @@ export const Calculadora = () => {
       });
       forwardLeadToWebhook("calculator_roi", {
         ...data,
-        submission_id: id,
+        submission_id: out.id,
         submitted_at: submittedAt,
         people,
         hours_per_week: hoursPerWeek,
