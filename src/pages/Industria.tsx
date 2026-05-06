@@ -10,7 +10,7 @@ const Industria = () => (
     eyebrow="Indústria · Monitoramento inteligente"
     headline="Pare de perder dinheiro"
     headlineHighlight="com máquinas paradas."
-    sub="Monitoramos seus equipamentos 24h por dia e avisamos no seu WhatsApp antes da falha acontecer. Sem técnico parado, sem produção parada, sem prejuízo."
+    sub="Monitoramos seus equipamentos 24h por dia e avisamos no seu WhatsApp antes da falha acontecer. Sem técnico parado, sem produção parada, sem prejuízo. Projetos de automação escaláveis com investimentos a partir de R$ 1.299."
     ctaPrimary="Quero monitorar minha operação"
     bullets={[
       "Sua máquina quebra e você só descobre quando a produção já parou",
