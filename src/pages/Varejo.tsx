@@ -10,7 +10,7 @@ const Varejo = () => (
     eyebrow="Hub Nexus · Varejo"
     headline="Loja vendendo"
     headlineHighlight="enquanto você dorme."
-    sub="PDV, totens e estoque conectados. Você acompanha cada loja em tempo real, do celular, sem depender de relatório do gerente."
+    sub="PDV, totens e estoque conectados. Você acompanha cada loja em tempo real, do celular, sem depender de relatório do gerente. Projetos de automação escaláveis com investimentos a partir de R$ 1.299."
     bullets={[
       "PDV integrado com balanças, leitores e impressoras fiscais",
       "Totens de autoatendimento e fila virtual",
