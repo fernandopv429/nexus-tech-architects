@@ -10,7 +10,7 @@ const Medico = () => (
     eyebrow="Hub Nexus · Saúde"
     headline="Menos fila."
     headlineHighlight="Mais atendimento."
-    sub="Automatizamos triagem, agendamento e integração com prontuário. Sua clínica atendendo mais pacientes com a mesma equipe."
+    sub="Automatizamos triagem, agendamento e integração com prontuário. Sua clínica atendendo mais pacientes com a mesma equipe. Projetos de automação escaláveis com investimentos a partir de R$ 1.299."
     bullets={[
       "Totens de check-in por CPF integrados ao prontuário",
       "Confirmação automática de consultas via WhatsApp",
