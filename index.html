@@ -56,6 +56,12 @@
     <meta name="theme-color" content="#0a0a0a" />
     <meta name="color-scheme" content="dark" />
 
+    <!-- Favicon / Logo -->
+    <link rel="icon" type="image/png" sizes="512x512" href="/favicon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+    <link rel="shortcut icon" href="/favicon.png" type="image/png" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -105,7 +111,12 @@
         "name": "Nexus DevHub",
         "alternateName": ["Nexus", "Nexus Dev Hub"],
         "url": "https://go.nexusdevhub.com/",
-        "logo": "https://go.nexusdevhub.com/og-image.jpg",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://go.nexusdevhub.com/logo.png",
+          "width": 512,
+          "height": 512
+        },
         "description": "Departamento de tecnologia sob demanda. Automação (RPA), IA, IoT, totens, PDV e dashboards para empresas que querem escalar sem aumentar a folha.",
         "areaServed": "BR",
         "knowsAbout": ["Automação de Processos", "RPA", "Inteligência Artificial", "IoT Industrial", "PDV", "Totens de Autoatendimento", "Dashboards", "n8n"],
