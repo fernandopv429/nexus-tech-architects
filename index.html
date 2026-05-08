@@ -50,6 +50,39 @@
     </script>
     <!-- End Google Ads -->
 
+    <!-- Google Ads: Conversion event helpers -->
+    <script>
+      function gtagSendEvent(url, eventName) {
+        var callback = function () {
+          if (typeof url === 'string') {
+            window.location = url;
+          }
+        };
+        gtag('event', eventName, {
+          'event_callback': callback,
+          'event_timeout': 2000,
+        });
+        return false;
+      }
+    </script>
+
+    <!-- Event snippet for Enviar formulário de lead conversion page -->
+    <script>
+      function gtag_report_conversion(url) {
+        var callback = function () {
+          if (typeof(url) != 'undefined') {
+            window.location = url;
+          }
+        };
+        gtag('event', 'conversion', {
+            'send_to': 'AW-18129210607/qgJFCIb9gKccEO-Z18RD',
+            'event_callback': callback
+        });
+        return false;
+      }
+    </script>
+    <!-- End Google Ads conversion helpers -->
+
     <!-- Geo / language -->
     <meta name="geo.region" content="BR" />
     <meta name="geo.placename" content="Brasil" />
