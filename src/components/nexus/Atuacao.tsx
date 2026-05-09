@@ -10,7 +10,7 @@ const items = [
   {
     icon: Workflow,
     title: "Engenharia de Processos Transversal",
-    desc: "Jurídico, saúde, comercial ou industrial: mapeamos e automatizamos fluxos repetitivos, eliminando a dependência de tarefas manuais em qualquer setor.",
+    desc: "Jurídico, saúde, comercial e outros setores: mapeamos e automatizamos fluxos repetitivos, eliminando a dependência de tarefas manuais em qualquer área.",
   },
   {
     icon: Network,

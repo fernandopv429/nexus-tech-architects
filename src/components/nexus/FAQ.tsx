@@ -27,7 +27,7 @@ const faqs = [
   },
   {
     q: "Quais tecnologias vocês dominam?",
-    a: "RPA (n8n, Make, UiPath, automações custom em Python/Node), IA (OpenAI, Anthropic, modelos open-source, agentes autônomos, RAG), IoT (Raspberry Pi, ESP32, sensores industriais), Cloud (AWS, GCP, Supabase) e integrações com qualquer ERP, CRM ou sistema legado.",
+    a: "RPA (n8n, Make, UiPath, automações custom em Python/Node), IA (OpenAI, Anthropic, modelos open-source, agentes autônomos, RAG), IoT (Raspberry Pi, ESP32, sensores físicos), Cloud (AWS, GCP, Supabase) e integrações com qualquer ERP, CRM ou sistema legado.",
   },
   {
     q: "Vocês fazem coleta e análise de dados para tomada de decisão?",

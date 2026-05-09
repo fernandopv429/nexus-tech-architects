@@ -38,7 +38,7 @@ export const Hero = () => {
           {/* Sub: dor financeira + prova de tecnologia (com keywords) */}
           <p className="mx-auto mt-8 max-w-2xl text-base text-muted-foreground md:text-lg">
             Departamento de tecnologia sob demanda para empresas no Brasil.
-            Automatizamos processos com <strong className="font-medium text-foreground">RPA, Inteligência Artificial e IoT industrial</strong> —
+            Automatizamos processos com <strong className="font-medium text-foreground">RPA, Inteligência Artificial e IoT</strong> —
             sua operação rodando 24/7 sem aumentar a folha. Projetos de automação escaláveis com investimentos a partir de <strong className="font-medium text-foreground">R$ 1.299</strong>.
           </p>
 
