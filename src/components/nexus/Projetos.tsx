@@ -1,39 +1,28 @@
 import { motion } from "framer-motion";
-import { ArrowUpRight, Bot, Factory, Store, Building2, Truck, Stethoscope } from "lucide-react";
+import { ArrowUpRight, Bot, Store, Building2, Truck, Stethoscope, MessageSquare, LineChart } from "lucide-react";
 
 const projects = [
-  {
-    icon: Store,
-    sector: "Varejo",
-    title: "Rede de supermercados",
-    desc: "PDV integrado com balanças, leitores e impressoras fiscais em 12 lojas, com painel central de vendas em tempo real.",
-    metrics: [
-      { label: "Lojas integradas", value: "12" },
-      { label: "Redução de filas", value: "38%" },
-    ],
-    stack: ["PDV", "IoT", "Dashboard"],
-  },
   {
     icon: Stethoscope,
     sector: "Saúde",
     title: "Clínica multiespecialidade",
-    desc: "Totens de autoatendimento integrados ao prontuário eletrônico, com check-in por CPF e fila inteligente por especialidade.",
+    desc: "Setor digital próprio: CRM com WhatsApp e Instagram centralizados, agente de IA agendando 24/7 e cobrança ativa de inadimplentes.",
     metrics: [
-      { label: "Tempo de espera", value: "-52%" },
-      { label: "Atendimentos/dia", value: "+2x" },
+      { label: "Agendamentos", value: "+312%" },
+      { label: "Custo por lead", value: "-68%" },
     ],
-    stack: ["Totens", "RPA", "Integração"],
+    stack: ["CRM", "Agente IA", "Tráfego"],
   },
   {
-    icon: Factory,
-    sector: "Indústria",
-    title: "Linha de produção monitorada",
-    desc: "Sensoriamento de máquinas, temperatura e consumo energético, com alertas preditivos e dashboard de OEE em tempo real.",
+    icon: Store,
+    sector: "Varejo",
+    title: "Rede de lojas",
+    desc: "Painel de vendas em tempo real, conciliação automática de Pix e cartão, e campanhas de tráfego pago integradas ao CRM.",
     metrics: [
-      { label: "Paradas evitadas", value: "27" },
-      { label: "Eficiência OEE", value: "+19%" },
+      { label: "Lojas integradas", value: "12" },
+      { label: "Ticket médio", value: "+14%" },
     ],
-    stack: ["IoT", "IA", "BI"],
+    stack: ["BI", "RPA", "Ads"],
   },
   {
     icon: Bot,
@@ -47,26 +36,37 @@ const projects = [
     stack: ["RPA", "ERP", "IA"],
   },
   {
-    icon: Building2,
-    sector: "Corporativo",
-    title: "Controle de acesso predial",
-    desc: "Catracas com biometria e QR Code para portaria e áreas restritas, com log de acessos e relatórios de compliance.",
+    icon: MessageSquare,
+    sector: "Serviços",
+    title: "Agente de IA no WhatsApp",
+    desc: "Atendimento 24/7 que qualifica o lead, faz o agendamento e move o cliente dentro do CRM sem intervenção humana.",
     metrics: [
-      { label: "Pontos de acesso", value: "24" },
-      { label: "Auditoria", value: "100%" },
+      { label: "Leads qualificados", value: "+220%" },
+      { label: "Resposta média", value: "< 30s" },
     ],
-    stack: ["Hardware", "Biometria", "Painel"],
+    stack: ["IA", "WhatsApp", "CRM"],
   },
   {
-    icon: Truck,
-    sector: "Logística",
-    title: "Rastreabilidade de expedição",
-    desc: "Coletores RFID e código de barras integrados ao ERP para inventário contínuo e controle de expedição em centro de distribuição.",
+    icon: LineChart,
+    sector: "Performance",
+    title: "Tráfego pago + rastreamento",
+    desc: "Configuração completa de Google Tag Manager e Pixel da Meta, com dashboard executivo unificando funil e receita.",
     metrics: [
-      { label: "Acuracidade", value: "99,6%" },
-      { label: "Tempo de inventário", value: "-70%" },
+      { label: "ROAS", value: "4.6x" },
+      { label: "CPA", value: "-41%" },
     ],
-    stack: ["RFID", "ERP", "Mobile"],
+    stack: ["GTM", "Meta Ads", "BI"],
+  },
+  {
+    icon: Building2,
+    sector: "Corporativo",
+    title: "Site de alta conversão",
+    desc: "Desenvolvimento padrão 2026 com foco em SEO, velocidade e CRO. Site vira ativo de aquisição, não cartão de visita digital.",
+    metrics: [
+      { label: "Conversão", value: "+38%" },
+      { label: "Core Web Vitals", value: "100%" },
+    ],
+    stack: ["SEO", "CRO", "Analytics"],
   },
 ];
 
@@ -89,8 +89,8 @@ export const Projetos = () => {
             resultados medidos.
           </h2>
           <p className="mx-auto mt-6 max-w-2xl text-base text-muted-foreground md:text-lg">
-            Uma seleção de operações onde o Hub Nexus assumiu a tecnologia
-            ponta a ponta — do hardware ao dashboard.
+            Uma seleção de operações onde o Hub Nexus assumiu o setor digital
+            ponta a ponta — do CRM ao dashboard.
           </p>
         </div>
 
