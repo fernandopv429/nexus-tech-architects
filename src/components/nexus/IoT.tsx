@@ -28,12 +28,6 @@ const services = [
     tag: "Varejo",
   },
   {
-    icon: Gauge,
-    title: "Sensoriamento Industrial",
-    desc: "Monitoramento de máquinas, temperatura, vibração, consumo energético e linha de produção — com dashboards ao vivo e alertas preditivos.",
-    tag: "Indústria",
-  },
-  {
     icon: ScanLine,
     title: "Coletores e Inventário",
     desc: "Leitores de código de barras e RFID integrados ao ERP para inventário, expedição e rastreabilidade contínua de produtos e ativos.",
