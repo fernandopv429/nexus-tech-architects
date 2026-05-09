@@ -15,7 +15,7 @@ const areas = [
   {
     icon: Stethoscope,
     title: "Setores Específicos",
-    desc: "Soluções sob medida para Clínicas, Advocacias, Indústrias e Varejo.",
+    desc: "Soluções sob medida para Clínicas, Advocacias e Varejo.",
   },
   {
     icon: Radio,
