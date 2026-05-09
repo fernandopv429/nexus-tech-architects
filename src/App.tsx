@@ -7,7 +7,6 @@ import Index from "./pages/Index.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import Unsubscribe from "./pages/Unsubscribe.tsx";
 import Medico from "./pages/Medico.tsx";
-import Industria from "./pages/Industria.tsx";
 import Varejo from "./pages/Varejo.tsx";
 import { RouteTracker } from "./components/RouteTracker";
 
@@ -23,7 +22,6 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/medico" element={<Medico />} />
-          <Route path="/industria" element={<Industria />} />
           <Route path="/varejo" element={<Varejo />} />
           <Route path="/unsubscribe" element={<Unsubscribe />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

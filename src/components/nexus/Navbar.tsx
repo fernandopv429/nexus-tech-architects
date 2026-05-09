@@ -7,7 +7,6 @@ const links = [
   { href: "/#calculadora", label: "Calcular ROI" },
   { href: "/#projetos", label: "Projetos" },
   { href: "/medico", label: "Saúde" },
-  { href: "/industria", label: "Indústria" },
   { href: "/varejo", label: "Varejo" },
   { href: "/#contato", label: "Contato" },
 ];

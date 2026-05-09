@@ -17,13 +17,6 @@
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://go.nexusdevhub.com/medico" />
   </url>
   <url>
-    <loc>https://go.nexusdevhub.com/industria</loc>
-    <lastmod>2026-04-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://go.nexusdevhub.com/industria" />
-  </url>
-  <url>
     <loc>https://go.nexusdevhub.com/varejo</loc>
     <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
