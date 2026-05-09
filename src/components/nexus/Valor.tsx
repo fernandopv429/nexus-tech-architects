@@ -10,7 +10,7 @@ const props = [
   {
     icon: Zap,
     title: "Agilidade na Implementação",
-    desc: "Expertise consolidada em RPA, IA e IoT permite mudar o patamar da operação em semanas — não em meses.",
+    desc: "Expertise consolidada em RPA, IA e marketing de performance permite mudar o patamar da operação em semanas — não em meses.",
   },
   {
     icon: Target,

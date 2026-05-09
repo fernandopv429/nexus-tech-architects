@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Briefcase, TrendingUp, Stethoscope, Radio } from "lucide-react";
+import { Briefcase, TrendingUp, Stethoscope, MessageSquare } from "lucide-react";
 
 const areas = [
   {
@@ -18,9 +18,9 @@ const areas = [
     desc: "Soluções sob medida para Clínicas, Advocacias e Varejo.",
   },
   {
-    icon: Radio,
-    title: "Infraestrutura Física",
-    desc: "Controle, sensoriamento e monitoramento de ativos via IoT em tempo real.",
+    icon: MessageSquare,
+    title: "Atendimento & CRM",
+    desc: "WhatsApp, Instagram e agenda centralizados, com agente de IA qualificando e agendando 24/7.",
   },
 ];
 

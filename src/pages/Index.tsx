@@ -5,7 +5,6 @@ import { Atuacao } from "@/components/nexus/Atuacao";
 import { HubFlow } from "@/components/nexus/HubFlow";
 import { Valor } from "@/components/nexus/Valor";
 import { Areas } from "@/components/nexus/Areas";
-import { IoT } from "@/components/nexus/IoT";
 import { Projetos } from "@/components/nexus/Projetos";
 import { FAQ } from "@/components/nexus/FAQ";
 import { ContactForm } from "@/components/nexus/ContactForm";
@@ -15,12 +14,12 @@ import { useSEO } from "@/hooks/useSEO";
 
 const Index = () => {
   useSEO({
-    title: "Nexus DevHub | Automação, RPA, IA e IoT para empresas no Brasil",
+    title: "Nexus DevHub | Setor Digital Próprio: Automação, IA e Marketing",
     description:
-      "Departamento de tecnologia sob demanda: RPA, IA, IoT, totens, PDV e dashboards. Recupere até 20h/semana com o Hub Nexus.",
+      "Assumimos seu setor digital: CRM, agente de IA 24/7, site de alta conversão, tráfego pago e BI. A partir de R$ 1.299/mês.",
     canonical: "/",
     keywords:
-      "automação de processos, RPA Brasil, automação com IA, IoT, totem de autoatendimento, PDV integrado, manutenção preditiva, CTO as a service, n8n, dashboards BI, automação WhatsApp",
+      "setor digital terceirizado, automação de processos, RPA Brasil, automação com IA, agente de IA WhatsApp, CRM com IA, gestor de tráfego, CTO as a service, n8n, dashboards BI, automação WhatsApp",
     ogType: "website",
   });
   return (
@@ -32,7 +31,6 @@ const Index = () => {
       <HubFlow />
       <Valor />
       <Areas />
-      <IoT />
       <Projetos />
       <FAQ />
       <ContactForm />

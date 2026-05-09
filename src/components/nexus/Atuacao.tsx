@@ -15,7 +15,7 @@ const items = [
   {
     icon: Network,
     title: "Integração de Ecossistemas",
-    desc: "Centralizamos suas ferramentas e dispositivos IoT em um único Hub inteligente — todos os dados e ações da empresa conectados.",
+    desc: "Centralizamos CRM, WhatsApp, site e ferramentas em um único Hub inteligente — todos os dados e ações da empresa conectados.",
   },
   {
     icon: RefreshCw,
