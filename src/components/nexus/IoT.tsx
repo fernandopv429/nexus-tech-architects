@@ -3,7 +3,6 @@ import {
   MonitorSmartphone,
   DoorOpen,
   Scale,
-  Gauge,
   ScanLine,
   Cpu,
 } from "lucide-react";
