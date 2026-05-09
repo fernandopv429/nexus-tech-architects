@@ -20,7 +20,7 @@ const Index = () => {
       "Departamento de tecnologia sob demanda: RPA, IA, IoT, totens, PDV e dashboards. Recupere até 20h/semana com o Hub Nexus.",
     canonical: "/",
     keywords:
-      "automação de processos, RPA Brasil, automação com IA, IoT industrial, totem de autoatendimento, PDV integrado, manutenção preditiva, CTO as a service, n8n, dashboards BI, automação WhatsApp",
+      "automação de processos, RPA Brasil, automação com IA, IoT, totem de autoatendimento, PDV integrado, manutenção preditiva, CTO as a service, n8n, dashboards BI, automação WhatsApp",
     ogType: "website",
   });
   return (

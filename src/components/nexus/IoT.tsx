@@ -3,7 +3,6 @@ import {
   MonitorSmartphone,
   DoorOpen,
   Scale,
-  Gauge,
   ScanLine,
   Cpu,
 } from "lucide-react";
@@ -26,12 +25,6 @@ const services = [
     title: "PDV Integrado com Balanças",
     desc: "Frente de caixa conectado a balanças, leitores de código de barras e impressoras fiscais. Pesagem, precificação e emissão sincronizadas em uma única operação.",
     tag: "Varejo",
-  },
-  {
-    icon: Gauge,
-    title: "Sensoriamento Industrial",
-    desc: "Monitoramento de máquinas, temperatura, vibração, consumo energético e linha de produção — com dashboards ao vivo e alertas preditivos.",
-    tag: "Indústria",
   },
   {
     icon: ScanLine,
