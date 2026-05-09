@@ -12,7 +12,7 @@ const automations = [
   { name: "Reconciliação financeira", status: "active", runs: "2.4k", trend: [40, 55, 48, 70, 65, 82, 78] },
   { name: "Atendimento WhatsApp IA", status: "active", runs: "8.1k", trend: [30, 42, 50, 48, 62, 70, 85] },
   { name: "OCR notas fiscais", status: "active", runs: "1.2k", trend: [60, 50, 65, 58, 72, 68, 80] },
-  { name: "Sensor IoT — linha 03", status: "active", runs: "986", trend: [45, 48, 52, 50, 55, 60, 58] },
+  { name: "Tráfego pago — Meta Ads", status: "active", runs: "986", trend: [45, 48, 52, 50, 55, 60, 58] },
 ];
 
 const Sparkline = ({ data }: { data: number[] }) => {

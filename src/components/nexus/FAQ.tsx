@@ -11,7 +11,7 @@ import { WHATSAPP_URL } from "./WhatsAppButton";
 const faqs = [
   {
     q: "O que é o modelo CTO as a Service da Nexus?",
-    a: "Assumimos integralmente o departamento de tecnologia da sua empresa. Você passa a contar com um time de engenharia sênior — arquitetos, devs, especialistas em RPA, IA e IoT — sem precisar contratar, treinar ou manter estrutura interna. Atuamos como seu CTO e seu time, em um único contrato.",
+    a: "Assumimos integralmente o setor digital da sua empresa. Você passa a contar com um time de engenharia sênior — arquitetos, devs, especialistas em RPA, IA e marketing de performance — sem precisar contratar, treinar ou manter estrutura interna. Atuamos como seu CTO e seu time, em um único contrato.",
   },
   {
     q: "Como funciona a contratação? É por projeto ou mensal?",
@@ -27,11 +27,11 @@ const faqs = [
   },
   {
     q: "Quais tecnologias vocês dominam?",
-    a: "RPA (n8n, Make, UiPath, automações custom em Python/Node), IA (OpenAI, Anthropic, modelos open-source, agentes autônomos, RAG), IoT (Raspberry Pi, ESP32, sensores físicos), Cloud (AWS, GCP, Supabase) e integrações com qualquer ERP, CRM ou sistema legado.",
+    a: "RPA (n8n, Make, UiPath, automações custom em Python/Node), IA (OpenAI, Anthropic, modelos open-source, agentes autônomos, RAG), Marketing de Performance (Google Ads, Meta Ads, GTM, Pixel), Cloud (AWS, GCP, Supabase) e integrações com qualquer ERP, CRM ou sistema legado.",
   },
   {
     q: "Vocês fazem coleta e análise de dados para tomada de decisão?",
-    a: "Sim. Estruturamos o ciclo completo: coleta automatizada (sensores IoT, APIs, ERPs, planilhas, web scraping), centralização em data warehouse (BigQuery, Postgres, Supabase), tratamento e modelagem (ETL/ELT em Python e dbt) e visualização em dashboards executivos (Metabase, Looker, Power BI). Aplicamos IA para detectar padrões, prever cenários e gerar alertas automáticos — transformando dado bruto em decisão acionável em tempo real.",
+    a: "Sim. Estruturamos o ciclo completo: coleta automatizada (APIs, ERPs, CRMs, planilhas, web scraping), centralização em data warehouse (BigQuery, Postgres, Supabase), tratamento e modelagem (ETL/ELT em Python e dbt) e visualização em dashboards executivos (Metabase, Looker, Power BI). Aplicamos IA para detectar padrões, prever cenários e gerar alertas automáticos — transformando dado bruto em decisão acionável em tempo real.",
   },
   {
     q: "Vocês substituem meu time interno de TI?",

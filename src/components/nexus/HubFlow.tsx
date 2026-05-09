@@ -13,7 +13,7 @@ const steps = [
     n: "02",
     icon: Cpu,
     title: "Implementação",
-    desc: "Construímos automações com RPA, IA e IoT — integrando software e hardware em um único Hub inteligente.",
+    desc: "Construímos automações com RPA, IA e integrações com CRM, WhatsApp e tráfego pago — tudo orquestrado num único Hub.",
   },
   {
     n: "03",
