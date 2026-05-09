@@ -325,6 +325,69 @@ const Medico = () => {
         </div>
       </section>
 
+      {/* Prova Social */}
+      <section className="bg-background py-32">
+        <div className="container">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="text-sm text-muted-foreground">Resultados reais</p>
+            <h2 className="mt-6 font-display text-[clamp(2rem,5vw,4rem)] font-bold leading-[0.95] tracking-[-0.03em]">
+              Clínicas que já operam com Setor Digital próprio.
+            </h2>
+          </div>
+
+          <div className="mx-auto mt-16 grid max-w-6xl gap-6 md:grid-cols-3">
+            {[
+              {
+                metric: "+312%",
+                label: "agendamentos em 90 dias",
+                quote: "Trocamos planilha e WhatsApp espalhado por uma operação centralizada. A IA agenda sozinha durante a madrugada — algo que era impossível antes.",
+                author: "Dra. Camila R.",
+                role: "Clínica de Estética · São Paulo/SP",
+              },
+              {
+                metric: "−68%",
+                label: "no custo por lead qualificado",
+                quote: "Antes pagávamos caro por leads frios. Com o rastreamento profissional e o tráfego deles, o custo despencou e o paciente chega pronto para fechar.",
+                author: "Dr. Henrique M.",
+                role: "Odontologia Especializada · Curitiba/PR",
+              },
+              {
+                metric: "R$ 84k",
+                label: "recuperados em inadimplência",
+                quote: "A cobrança ativa automática trouxe de volta receita que estava parada há meses. Pagou o serviço várias vezes só no primeiro trimestre.",
+                author: "Dra. Letícia A.",
+                role: "Clínica Multiespecialidades · Belo Horizonte/MG",
+              },
+            ].map((c, i) => (
+              <motion.figure
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.08 }}
+                className="flex flex-col rounded-3xl border border-border bg-card p-7"
+              >
+                <div className="border-b border-border pb-5">
+                  <p className="font-display text-4xl font-bold tracking-tight text-foreground">
+                    {c.metric}
+                  </p>
+                  <p className="mt-1 text-xs uppercase tracking-widest text-muted-foreground">
+                    {c.label}
+                  </p>
+                </div>
+                <blockquote className="mt-5 flex-1 text-sm leading-relaxed text-muted-foreground">
+                  “{c.quote}”
+                </blockquote>
+                <figcaption className="mt-6">
+                  <p className="text-sm font-semibold text-foreground">{c.author}</p>
+                  <p className="text-xs text-muted-foreground">{c.role}</p>
+                </figcaption>
+              </motion.figure>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Comparativo */}
       <section className="bg-background py-32">
         <div className="container">
