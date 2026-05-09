@@ -17,7 +17,6 @@ const PHONE = "5587996487067";
 const segmentos = [
   { id: "varejo", label: "Varejo / PDV" },
   { id: "saude", label: "Clínica / Saúde" },
-  { id: "industria", label: "Indústria" },
   { id: "servicos", label: "Serviços / Backoffice" },
   { id: "logistica", label: "Logística" },
   { id: "outro", label: "Outro" },
