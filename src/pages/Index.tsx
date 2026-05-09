@@ -5,6 +5,7 @@ import { Atuacao } from "@/components/nexus/Atuacao";
 import { HubFlow } from "@/components/nexus/HubFlow";
 import { Valor } from "@/components/nexus/Valor";
 import { Areas } from "@/components/nexus/Areas";
+import { SplineWidget } from "@/components/nexus/SplineWidget";
 import { Projetos } from "@/components/nexus/Projetos";
 import { FAQ } from "@/components/nexus/FAQ";
 import { ContactForm } from "@/components/nexus/ContactForm";
@@ -31,6 +32,7 @@ const Index = () => {
       <HubFlow />
       <Valor />
       <Areas />
+      <SplineWidget />
       <Projetos />
       <FAQ />
       <ContactForm />
