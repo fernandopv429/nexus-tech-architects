@@ -7,8 +7,6 @@ import { prefetchRoute, prefetchIdle } from "@/lib/routePrefetch";
 const links = [
   { href: "/#calculadora", label: "Calcular ROI" },
   { href: "/#projetos", label: "Projetos" },
-  { href: "/medico", label: "Saúde" },
-  { href: "/varejo", label: "Varejo" },
   { href: "/#contato", label: "Contato" },
 ];
 
@@ -20,8 +18,6 @@ export const Navbar = () => {
     const onScroll = () => setScrolled(window.scrollY > 24);
     onScroll();
     window.addEventListener("scroll", onScroll);
-    // Prefetch likely-next routes during idle time
-    prefetchIdle(["/medico", "/varejo"]);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowUpRight, Bot, Store, Building2, Truck, Stethoscope, MessageSquare, LineChart } from "lucide-react";
+import { ArrowUpRight, Bot, Store, Scale, Truck, Stethoscope, MessageSquare, LineChart } from "lucide-react";
 
 const projects = [
   {
@@ -58,15 +58,15 @@ const projects = [
     stack: ["GTM", "Meta Ads", "BI"],
   },
   {
-    icon: Building2,
-    sector: "Corporativo",
-    title: "Site de alta conversão",
-    desc: "Desenvolvimento padrão 2026 com foco em SEO, velocidade e CRO. Site vira ativo de aquisição, não cartão de visita digital.",
+    icon: Scale,
+    sector: "Advocacia",
+    title: "Escritório de advocacia",
+    desc: "Setor digital completo para captação de clientes: site institucional otimizado, CRM jurídico, qualificação por IA no WhatsApp e tráfego pago segmentado por área de atuação.",
     metrics: [
-      { label: "Conversão", value: "+38%" },
-      { label: "Core Web Vitals", value: "100%" },
+      { label: "Leads qualificados", value: "+186%" },
+      { label: "Custo por caso", value: "-52%" },
     ],
-    stack: ["SEO", "CRO", "Analytics"],
+    stack: ["CRM", "IA", "SEO"],
   },
 ];
 
@@ -82,15 +82,15 @@ export const Projetos = () => {
 
       <div className="container">
         <div className="mx-auto max-w-4xl text-center">
-          <p className="text-sm text-muted-foreground">Projetos realizados</p>
+          <p className="text-sm text-muted-foreground">Setor digital por nicho</p>
           <h2 className="mt-6 font-display text-[clamp(2.5rem,7vw,5.5rem)] font-bold leading-[0.95] tracking-[-0.04em] text-foreground">
-            Casos reais,
+            Assumimos o digital
             <br />
-            resultados medidos.
+            de qualquer operação.
           </h2>
           <p className="mx-auto mt-6 max-w-2xl text-base text-muted-foreground md:text-lg">
-            Uma seleção de operações onde o Hub Nexus assumiu o setor digital
-            ponta a ponta — do CRM ao dashboard.
+            Clínicas, advocacias, varejo, serviços e backoffice — onde o Hub
+            Nexus já assumiu o setor digital ponta a ponta, do CRM ao dashboard.
           </p>
         </div>
 
