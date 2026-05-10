@@ -27,20 +27,8 @@ const contacts = [
   {
     icon: Mail,
     label: "Comercial",
-    value: "vendas@nexusdevhub.com",
-    href: "mailto:vendas@nexusdevhub.com",
-  },
-  {
-    icon: Mail,
-    label: "Suporte & Operações",
-    value: "suporte@nexusdevhub.com",
-    href: "mailto:suporte@nexusdevhub.com",
-  },
-  {
-    icon: Phone,
-    label: "Central",
-    value: "(87) 99648-7067",
-    href: "tel:+5587996487067",
+    value: "comercial@nexusdevhub.com",
+    href: "mailto:comercial@nexusdevhub.com",
   },
   {
     icon: MessageCircle,
