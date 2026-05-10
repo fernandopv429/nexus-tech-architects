@@ -1,26 +1,31 @@
 import { motion } from "framer-motion";
-import { Activity, Workflow, Network, RefreshCw } from "lucide-react";
+import { MessageSquare, Bot, RotateCcw, BarChart3, Globe } from "lucide-react";
 
 const items = [
   {
-    icon: Activity,
-    title: "Melhoria Contínua Operacional",
-    desc: "Analisamos sua operação constantemente para identificar gargalos e implementar otimizações que reduzem custos e aumentam a velocidade de entrega.",
+    icon: MessageSquare,
+    title: "CRM Robusto & Omnichannel",
+    desc: "Centralizamos seu WhatsApp, Instagram e Facebook em uma única tela. Não perca nenhum lead por falta de resposta.",
   },
   {
-    icon: Workflow,
-    title: "Engenharia de Processos Transversal",
-    desc: "Jurídico, saúde, comercial e outros setores: mapeamos e automatizamos fluxos repetitivos, eliminando a dependência de tarefas manuais em qualquer área.",
+    icon: Bot,
+    title: "Agentes de IA 24/7",
+    desc: "IAs configuráveis que fazem o pré-atendimento, qualificam o lead e preenchem os dados direto no seu CRM enquanto você dorme.",
   },
   {
-    icon: Network,
-    title: "Integração de Ecossistemas",
-    desc: "Centralizamos CRM, WhatsApp, site e ferramentas em um único Hub inteligente — todos os dados e ações da empresa conectados.",
+    icon: RotateCcw,
+    title: "Recuperação de Vendas",
+    desc: "Sistemas automáticos de follow-up e cobrança de inadimplentes para resgatar o faturamento perdido.",
   },
   {
-    icon: RefreshCw,
-    title: "Sustentação e Evolução",
-    desc: "Não apenas entregamos: mantemos e evoluímos sua infraestrutura tecnológica para que ela nunca fique obsoleta frente ao mercado.",
+    icon: BarChart3,
+    title: "Análise e Tradução de Dados",
+    desc: "Não entregamos apenas números. Traduzimos métricas em decisões estratégicas para a sua gestão.",
+  },
+  {
+    icon: Globe,
+    title: "Site e Infraestrutura",
+    desc: "Desenvolvemos sua presença digital com SEO, traqueamento (Pixel/Meta) e foco total em conversão.",
   },
 ];
 
@@ -29,19 +34,19 @@ export const Atuacao = () => {
     <section id="atuacao" className="bg-background py-32 md:py-40">
       <div className="container">
         <div className="mx-auto max-w-4xl text-center">
-          <p className="text-sm text-muted-foreground">Nossa Atuação</p>
+          <p className="text-sm text-muted-foreground">Pilares da operação</p>
           <h2 className="mt-6 font-display text-[clamp(2.5rem,7vw,5.5rem)] font-bold leading-[0.95] tracking-[-0.04em] text-foreground">
-            Gestão tecnológica
+            Tudo que sua empresa
             <br />
-            completa.
+            precisa, em um só lugar.
           </h2>
           <p className="mx-auto mt-6 max-w-xl text-base text-muted-foreground md:text-lg">
-            Mais que automação — uma operação inteira sob responsabilidade de
-            engenharia.
+            Cinco frentes integradas operando juntas — sem ferramentas soltas,
+            sem fornecedores desconectados.
           </p>
         </div>
 
-        <div className="mx-auto mt-20 grid max-w-6xl gap-px overflow-hidden rounded-3xl border border-border bg-border md:grid-cols-2">
+        <div className="mx-auto mt-20 grid max-w-6xl gap-px overflow-hidden rounded-3xl border border-border bg-border md:grid-cols-2 lg:grid-cols-3">
           {items.map((it, i) => (
             <motion.div
               key={it.title}
