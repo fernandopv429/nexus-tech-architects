@@ -20,6 +20,8 @@ export const Navbar = () => {
     const onScroll = () => setScrolled(window.scrollY > 24);
     onScroll();
     window.addEventListener("scroll", onScroll);
+    // Prefetch likely-next routes during idle time
+    prefetchIdle(["/medico", "/varejo"]);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
