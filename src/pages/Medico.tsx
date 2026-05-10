@@ -262,6 +262,49 @@ const Medico = () => {
         </div>
       </section>
 
+      {/* Fluxo Estratégico e CRM */}
+      <section className="bg-background py-32">
+        <div className="container">
+          <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-2">
+            <div className="lg:order-2">
+              <p className="text-sm text-muted-foreground">Fluxo estratégico · CRM</p>
+              <h2 className="mt-6 font-display text-[clamp(2rem,5vw,3.75rem)] font-bold leading-[0.95] tracking-[-0.03em]">
+                Você no comando. <span className="text-muted-foreground">A tecnologia no trabalho pesado.</span>
+              </h2>
+              <p className="mt-8 text-base leading-relaxed text-muted-foreground md:text-lg">
+                A IA não apenas responde — ela <span className="text-foreground font-semibold">move o lead dentro do CRM</span>:
+                qualifica, agenda, envia confirmações, dispara lembretes e reativa pacientes inativos.
+                Tudo registrado. Tudo rastreável.
+              </p>
+              <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">
+                Você abre o painel e vê o pipeline inteiro vivo: do primeiro clique no anúncio até o
+                paciente sentado na sua cadeira. Sem planilha. Sem WhatsApp espalhado. Sem perda.
+              </p>
+            </div>
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              className="relative lg:order-1"
+            >
+              <div className="pointer-events-none absolute -inset-6 rounded-[2rem] bg-primary/10 blur-3xl" />
+              <div className="relative overflow-hidden rounded-3xl border border-border bg-card/50 backdrop-blur-xl">
+                <div className="absolute inset-0 bg-gradient-to-bl from-background/70 via-transparent to-background/40" />
+                <img
+                  src={crmFlow}
+                  alt="Médico operando o CRM gerenciado pela IA da Nexus DevHub"
+                  loading="lazy"
+                  width={1024}
+                  height={1024}
+                  className="relative h-full w-full object-cover"
+                />
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* O que entrega */}
       <section className="bg-background py-32">
         <div className="container">
