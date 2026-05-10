@@ -202,42 +202,18 @@ const Medico = () => {
       {/* Inteligência por trás da Clínica */}
       <section className="bg-background py-32">
         <div className="container">
-          <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-2">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-              className="relative"
-            >
-              <div className="pointer-events-none absolute -inset-6 rounded-[2rem] bg-primary/10 blur-3xl" />
-              <div className="relative overflow-hidden rounded-3xl border border-border bg-card/50 backdrop-blur-xl">
-                <div className="absolute inset-0 bg-gradient-to-tr from-background/80 via-transparent to-background/40" />
-                <img
-                  src={iaFace}
-                  alt="Agente de IA Nexus DevHub atendendo leads em tempo real"
-                  loading="lazy"
-                  width={1024}
-                  height={1024}
-                  className="relative h-full w-full object-cover [mask-image:radial-gradient(ellipse_at_center,black_60%,transparent_100%)]"
-                />
-              </div>
-            </motion.div>
-            <div>
-              <p className="text-sm text-muted-foreground">A inteligência por trás da sua clínica</p>
-              <h2 className="mt-6 font-display text-[clamp(2rem,5vw,3.75rem)] font-bold leading-[0.95] tracking-[-0.03em]">
-                Um cérebro digital que <span className="text-muted-foreground">nunca dorme.</span>
-              </h2>
-              <p className="mt-8 text-base leading-relaxed text-muted-foreground md:text-lg">
-                Nosso Agente de IA atende leads de WhatsApp e Instagram <span className="text-foreground font-semibold">24 horas por dia, 7 dias por semana</span>.
-                Qualifica em segundos, responde com o tom da sua marca e marca o paciente na agenda
-                — sem que ninguém da sua equipe precise digitar uma única palavra.
-              </p>
-              <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">
-                Enquanto você descansa, ele agenda. Enquanto você atende, ele filtra curiosos.
-                A inteligência não substitui você — devolve o seu tempo.
-              </p>
-            </div>
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="text-sm text-muted-foreground">A inteligência por trás da sua clínica</p>
+            <h2 className="mt-6 font-display text-[clamp(2rem,5vw,4rem)] font-bold leading-[0.95] tracking-[-0.03em]">
+              Um cérebro digital que <span className="text-muted-foreground">nunca dorme.</span>
+            </h2>
+            <p className="mx-auto mt-8 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
+              Nosso Agente de IA atende leads de WhatsApp e Instagram <span className="text-foreground font-semibold">24 horas por dia, 7 dias por semana</span>.
+              Qualifica em segundos, responde com o tom da sua marca e marca o paciente na agenda — sem que ninguém da sua equipe precise digitar uma única palavra.
+            </p>
+            <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
+              Enquanto você descansa, ele agenda. Enquanto você atende, ele filtra curiosos. A inteligência não substitui você — devolve o seu tempo.
+            </p>
           </div>
         </div>
       </section>
