@@ -100,6 +100,8 @@ export const Navbar = () => {
                   key={l.href}
                   href={l.href}
                   onClick={() => setOpen(false)}
+                  onTouchStart={() => prefetchRoute(l.href)}
+                  onFocus={() => prefetchRoute(l.href)}
                   initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.05, duration: 0.2 }}
