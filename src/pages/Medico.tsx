@@ -591,24 +591,37 @@ const Medico = () => {
       {/* CTA final */}
       <section className="bg-background py-24">
         <div className="container">
-          <div className="mx-auto max-w-5xl rounded-3xl border border-border bg-card p-10 md:p-16">
-            <p className="text-xs font-mono uppercase tracking-widest text-muted-foreground">
-              Ative agora
-            </p>
-            <h2 className="mt-4 font-display text-[clamp(1.75rem,4vw,3rem)] font-bold leading-tight tracking-tight text-foreground">
-              Seu Setor Digital começa hoje. A partir de R$ 1.299/mês.
-            </h2>
-            <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground">
-              Implementação, operação e tecnologia inclusas. Sem contratação, sem encargos,
-              sem ferramentas avulsas. Um parceiro técnico que cresce junto com você.
-            </p>
-            <a
-              href="#contato"
-              className="mt-10 inline-flex items-center gap-2 text-sm font-medium text-foreground hover:underline"
-            >
-              Ativar meu Setor Digital
-              <ArrowUpRight className="h-4 w-4" />
-            </a>
+          <div className="mx-auto grid max-w-6xl items-stretch gap-0 overflow-hidden rounded-3xl border border-border bg-card md:grid-cols-[1.1fr_1fr]">
+            <div className="p-10 md:p-16">
+              <p className="text-xs font-mono uppercase tracking-widest text-muted-foreground">
+                Ative agora
+              </p>
+              <h2 className="mt-4 font-display text-[clamp(1.75rem,4vw,3rem)] font-bold leading-tight tracking-tight text-foreground">
+                Seu Setor Digital começa hoje. A partir de R$ 1.299/mês.
+              </h2>
+              <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground">
+                Mais que um fornecedor — um parceiro técnico. Implementação, operação e tecnologia
+                inclusas. Se você cresce, nós crescemos. É assim que a aliança funciona.
+              </p>
+              <a
+                href="#contato"
+                className="mt-10 inline-flex items-center gap-2 text-sm font-medium text-foreground hover:underline"
+              >
+                Ativar meu Setor Digital
+                <ArrowUpRight className="h-4 w-4" />
+              </a>
+            </div>
+            <div className="relative min-h-[280px] overflow-hidden border-t border-border md:border-l md:border-t-0">
+              <div className="absolute inset-0 bg-gradient-to-r from-card via-transparent to-transparent z-10" />
+              <img
+                src={parceria}
+                alt="Parceria entre médico e Nexus DevHub — seu setor digital"
+                loading="lazy"
+                width={1024}
+                height={1024}
+                className="h-full w-full object-cover"
+              />
+            </div>
           </div>
         </div>
       </section>
