@@ -51,6 +51,9 @@ export const Navbar = () => {
               <a
                 key={l.href}
                 href={l.href}
+                onMouseEnter={() => prefetchRoute(l.href)}
+                onFocus={() => prefetchRoute(l.href)}
+                onTouchStart={() => prefetchRoute(l.href)}
                 className="px-4 py-2 text-sm text-muted-foreground transition-all duration-200 hover:text-foreground rounded-full hover:bg-secondary"
               >
                 {l.label}
