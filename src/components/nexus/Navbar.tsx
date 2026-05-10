@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { prefetchRoute, prefetchIdle } from "@/lib/routePrefetch";
 
 const links = [
   { href: "/#calculadora", label: "Calcular ROI" },
