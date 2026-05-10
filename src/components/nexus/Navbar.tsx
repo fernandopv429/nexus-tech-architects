@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { prefetchRoute, prefetchIdle } from "@/lib/routePrefetch";
 
 const links = [
   { href: "/#calculadora", label: "Calcular ROI" },
@@ -19,6 +20,8 @@ export const Navbar = () => {
     const onScroll = () => setScrolled(window.scrollY > 24);
     onScroll();
     window.addEventListener("scroll", onScroll);
+    // Prefetch likely-next routes during idle time
+    prefetchIdle(["/medico", "/varejo"]);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
@@ -48,6 +51,9 @@ export const Navbar = () => {
               <a
                 key={l.href}
                 href={l.href}
+                onMouseEnter={() => prefetchRoute(l.href)}
+                onFocus={() => prefetchRoute(l.href)}
+                onTouchStart={() => prefetchRoute(l.href)}
                 className="px-4 py-2 text-sm text-muted-foreground transition-all duration-200 hover:text-foreground rounded-full hover:bg-secondary"
               >
                 {l.label}
@@ -94,6 +100,8 @@ export const Navbar = () => {
                   key={l.href}
                   href={l.href}
                   onClick={() => setOpen(false)}
+                  onTouchStart={() => prefetchRoute(l.href)}
+                  onFocus={() => prefetchRoute(l.href)}
                   initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.05, duration: 0.2 }}
