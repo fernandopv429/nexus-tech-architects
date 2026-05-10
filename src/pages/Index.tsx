@@ -1,16 +1,42 @@
+import { lazy, Suspense } from "react";
 import { Navbar } from "@/components/nexus/Navbar";
 import { Hero } from "@/components/nexus/Hero";
-import { Calculadora } from "@/components/nexus/Calculadora";
-import { Atuacao } from "@/components/nexus/Atuacao";
-import { HubFlow } from "@/components/nexus/HubFlow";
-import { Valor } from "@/components/nexus/Valor";
-import { Areas } from "@/components/nexus/Areas";
-import { Projetos } from "@/components/nexus/Projetos";
-import { FAQ } from "@/components/nexus/FAQ";
-import { ContactForm } from "@/components/nexus/ContactForm";
-import { Footer } from "@/components/nexus/Footer";
 import { WhatsAppFloating } from "@/components/nexus/WhatsAppButton";
 import { useSEO } from "@/hooks/useSEO";
+
+// Above-the-fold: Navbar + Hero render eagerly.
+// Everything below lazy-loads via Suspense — reduces initial JS for first paint.
+const Calculadora = lazy(() =>
+  import("@/components/nexus/Calculadora").then((m) => ({ default: m.Calculadora }))
+);
+const Atuacao = lazy(() =>
+  import("@/components/nexus/Atuacao").then((m) => ({ default: m.Atuacao }))
+);
+const HubFlow = lazy(() =>
+  import("@/components/nexus/HubFlow").then((m) => ({ default: m.HubFlow }))
+);
+const Valor = lazy(() =>
+  import("@/components/nexus/Valor").then((m) => ({ default: m.Valor }))
+);
+const Areas = lazy(() =>
+  import("@/components/nexus/Areas").then((m) => ({ default: m.Areas }))
+);
+const Projetos = lazy(() =>
+  import("@/components/nexus/Projetos").then((m) => ({ default: m.Projetos }))
+);
+const FAQ = lazy(() =>
+  import("@/components/nexus/FAQ").then((m) => ({ default: m.FAQ }))
+);
+const ContactForm = lazy(() =>
+  import("@/components/nexus/ContactForm").then((m) => ({ default: m.ContactForm }))
+);
+const Footer = lazy(() =>
+  import("@/components/nexus/Footer").then((m) => ({ default: m.Footer }))
+);
+
+const SectionFallback = () => (
+  <div className="min-h-[40vh] bg-background" aria-hidden="true" />
+);
 
 const Index = () => {
   useSEO({
@@ -26,15 +52,17 @@ const Index = () => {
     <main className="relative min-h-screen overflow-x-hidden">
       <Navbar />
       <Hero />
-      <Calculadora />
-      <Atuacao />
-      <HubFlow />
-      <Valor />
-      <Areas />
-      <Projetos />
-      <FAQ />
-      <ContactForm />
-      <Footer />
+      <Suspense fallback={<SectionFallback />}>
+        <Calculadora />
+        <Atuacao />
+        <HubFlow />
+        <Valor />
+        <Areas />
+        <Projetos />
+        <FAQ />
+        <ContactForm />
+        <Footer />
+      </Suspense>
       <WhatsAppFloating />
     </main>
   );
