@@ -24,32 +24,42 @@ export const Hero = () => {
         >
           {/* Eyebrow */}
           <p className="text-sm text-muted-foreground md:text-base">
-            Setor Digital · Automação · IA · Performance
+            Setor Digital · CRM Inteligente · IA · Dados · Sites
           </p>
 
-          {/* Massive headline — ROI-driven + keyword principal */}
-          <h1 className="mt-6 font-display text-[clamp(2.5rem,9vw,7.5rem)] font-bold leading-[0.95] tracking-[-0.04em] text-foreground">
+          {/* Massive headline — proposta de valor central */}
+          <h1 className="mt-6 font-display text-[clamp(2.25rem,8vw,6.5rem)] font-bold leading-[0.98] tracking-[-0.04em] text-foreground">
             <span className="sr-only">Nexus DevHub — Setor Digital próprio para empresas. </span>
-            Recupere 20h
+            Sua empresa com um
             <br />
-            da sua semana.
+            <span className="text-foreground">Setor Digital de Elite</span>
+            <br />
+            por uma fração do custo
+            <br />
+            de um funcionário.
           </h1>
 
-          {/* Sub: dor financeira + prova de tecnologia (com keywords) */}
+          {/* Sub */}
           <p className="mx-auto mt-8 max-w-2xl text-base text-muted-foreground md:text-lg">
-            Seu setor digital próprio, sem precisar contratar ninguém.
-            Assumimos <strong className="font-medium text-foreground">CRM, Inteligência Artificial 24/7, site, tráfego e dados</strong> —
-            sua operação rodando sem aumentar a folha. A partir de <strong className="font-medium text-foreground">R$ 1.299</strong>.
+            Assumimos toda a tecnologia do seu negócio: do{" "}
+            <strong className="font-medium text-foreground">CRM Inteligente com IA</strong> à
+            análise de dados e desenvolvimento de sites. Pare de gerenciar
+            ferramentas e comece a gerenciar lucros.
+          </p>
+
+          {/* Argumento de valor acima do botão */}
+          <p className="mt-8 text-sm font-medium text-foreground">
+            Investimento inicial de R$ 1.499 — crescemos junto com o seu faturamento.
           </p>
 
           {/* Pill buttons */}
-          <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
+          <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <Button variant="pill" size="pill" asChild>
               <a
-                href="#calculadora"
-                onClick={() => trackCTAClick("Calcular minha economia", "hero", "#calculadora")}
+                href="#contato"
+                onClick={() => trackCTAClick("Quero ativar meu setor digital", "hero", "#contato")}
               >
-                Calcular minha economia
+                Quero ativar meu Setor Digital
               </a>
             </Button>
             <Button variant="pill-ghost" size="pill" asChild>

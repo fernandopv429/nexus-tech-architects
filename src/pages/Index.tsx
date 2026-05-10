@@ -6,20 +6,26 @@ import { useSEO } from "@/hooks/useSEO";
 
 // Above-the-fold: Navbar + Hero render eagerly.
 // Everything below lazy-loads via Suspense — reduces initial JS for first paint.
-const Calculadora = lazy(() =>
-  import("@/components/nexus/Calculadora").then((m) => ({ default: m.Calculadora }))
+const Contraste = lazy(() =>
+  import("@/components/nexus/Contraste").then((m) => ({ default: m.Contraste }))
 );
 const Atuacao = lazy(() =>
   import("@/components/nexus/Atuacao").then((m) => ({ default: m.Atuacao }))
 );
-const HubFlow = lazy(() =>
-  import("@/components/nexus/HubFlow").then((m) => ({ default: m.HubFlow }))
+const Areas = lazy(() =>
+  import("@/components/nexus/Areas").then((m) => ({ default: m.Areas }))
 );
 const Valor = lazy(() =>
   import("@/components/nexus/Valor").then((m) => ({ default: m.Valor }))
 );
-const Areas = lazy(() =>
-  import("@/components/nexus/Areas").then((m) => ({ default: m.Areas }))
+const HubFlow = lazy(() =>
+  import("@/components/nexus/HubFlow").then((m) => ({ default: m.HubFlow }))
+);
+const MelhoriaContinua = lazy(() =>
+  import("@/components/nexus/MelhoriaContinua").then((m) => ({ default: m.MelhoriaContinua }))
+);
+const Calculadora = lazy(() =>
+  import("@/components/nexus/Calculadora").then((m) => ({ default: m.Calculadora }))
 );
 const Projetos = lazy(() =>
   import("@/components/nexus/Projetos").then((m) => ({ default: m.Projetos }))
@@ -53,11 +59,13 @@ const Index = () => {
       <Navbar />
       <Hero />
       <Suspense fallback={<SectionFallback />}>
-        <Calculadora />
+        <Contraste />
         <Atuacao />
-        <HubFlow />
-        <Valor />
         <Areas />
+        <Valor />
+        <HubFlow />
+        <MelhoriaContinua />
+        <Calculadora />
         <Projetos />
         <FAQ />
         <ContactForm />

@@ -10,7 +10,15 @@ import { WHATSAPP_URL } from "./WhatsAppButton";
 
 const faqs = [
   {
-    q: "O que é o modelo CTO as a Service da Nexus?",
+    q: "O valor aumenta quando?",
+    a: "Quando sua demanda e seu faturamento crescerem, nossa parceria evolui junto. É um modelo ganha-ganha: começamos a partir de R$ 1.499 e o investimento se ajusta conforme a operação escala — você nunca paga por capacidade que não está usando.",
+  },
+  {
+    q: "Já tenho um sistema, posso usar?",
+    a: "Sim. Fazemos a integração completa com a sua infraestrutura atual — ERP, CRM, planilhas, e-commerce, gateways de pagamento e qualquer ferramenta legada. Você não precisa jogar nada fora para começar com a gente.",
+  },
+  {
+    q: "O que é o modelo de Setor Digital da Nexus?",
     a: "Assumimos integralmente o setor digital da sua empresa. Você passa a contar com um time de engenharia sênior — arquitetos, devs, especialistas em RPA, IA e marketing de performance — sem precisar contratar, treinar ou manter estrutura interna. Atuamos como seu CTO e seu time, em um único contrato.",
   },
   {
