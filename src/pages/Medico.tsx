@@ -22,6 +22,10 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { useSEO } from "@/hooks/useSEO";
+import iaFace from "@/assets/medico/ia-face.jpg";
+import crmFlow from "@/assets/medico/crm-flow.jpg";
+import dadosMobile from "@/assets/medico/dados-mobile.jpg";
+import parceria from "@/assets/medico/parceria.jpg";
 
 const SITE = "https://go.nexusdevhub.com";
 
