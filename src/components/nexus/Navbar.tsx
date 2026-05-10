@@ -5,9 +5,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import { prefetchRoute, prefetchIdle } from "@/lib/routePrefetch";
 
 const links = [
-  { href: "/#calculadora", label: "Calcular ROI" },
-  { href: "/#projetos", label: "Projetos" },
-  { href: "/#contato", label: "Contato" },
+  { href: "/#calculadora", label: "Simulador de ROI" },
+  { href: "/#atuacao", label: "Soluções" },
+  { href: "/#projetos", label: "Cases" },
+  { href: "/#valor", label: "Diferenciais" },
+  { href: "/#contato", label: "Fale conosco" },
 ];
 
 export const Navbar = () => {
