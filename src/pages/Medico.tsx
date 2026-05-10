@@ -22,10 +22,6 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { useSEO } from "@/hooks/useSEO";
-import iaFace from "@/assets/medico/ia-face.jpg";
-import crmFlow from "@/assets/medico/crm-flow.jpg";
-import dadosMobile from "@/assets/medico/dados-mobile.jpg";
-import parceria from "@/assets/medico/parceria.jpg";
 
 const SITE = "https://go.nexusdevhub.com";
 
@@ -202,42 +198,18 @@ const Medico = () => {
       {/* Inteligência por trás da Clínica */}
       <section className="bg-background py-32">
         <div className="container">
-          <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-2">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-              className="relative"
-            >
-              <div className="pointer-events-none absolute -inset-6 rounded-[2rem] bg-primary/10 blur-3xl" />
-              <div className="relative overflow-hidden rounded-3xl border border-border bg-card/50 backdrop-blur-xl">
-                <div className="absolute inset-0 bg-gradient-to-tr from-background/80 via-transparent to-background/40" />
-                <img
-                  src={iaFace}
-                  alt="Agente de IA Nexus DevHub atendendo leads em tempo real"
-                  loading="lazy"
-                  width={1024}
-                  height={1024}
-                  className="relative h-full w-full object-cover [mask-image:radial-gradient(ellipse_at_center,black_60%,transparent_100%)]"
-                />
-              </div>
-            </motion.div>
-            <div>
-              <p className="text-sm text-muted-foreground">A inteligência por trás da sua clínica</p>
-              <h2 className="mt-6 font-display text-[clamp(2rem,5vw,3.75rem)] font-bold leading-[0.95] tracking-[-0.03em]">
-                Um cérebro digital que <span className="text-muted-foreground">nunca dorme.</span>
-              </h2>
-              <p className="mt-8 text-base leading-relaxed text-muted-foreground md:text-lg">
-                Nosso Agente de IA atende leads de WhatsApp e Instagram <span className="text-foreground font-semibold">24 horas por dia, 7 dias por semana</span>.
-                Qualifica em segundos, responde com o tom da sua marca e marca o paciente na agenda
-                — sem que ninguém da sua equipe precise digitar uma única palavra.
-              </p>
-              <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">
-                Enquanto você descansa, ele agenda. Enquanto você atende, ele filtra curiosos.
-                A inteligência não substitui você — devolve o seu tempo.
-              </p>
-            </div>
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="text-sm text-muted-foreground">A inteligência por trás da sua clínica</p>
+            <h2 className="mt-6 font-display text-[clamp(2rem,5vw,4rem)] font-bold leading-[0.95] tracking-[-0.03em]">
+              Um cérebro digital que <span className="text-muted-foreground">nunca dorme.</span>
+            </h2>
+            <p className="mx-auto mt-8 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
+              Nosso Agente de IA atende leads de WhatsApp e Instagram <span className="text-foreground font-semibold">24 horas por dia, 7 dias por semana</span>.
+              Qualifica em segundos, responde com o tom da sua marca e marca o paciente na agenda — sem que ninguém da sua equipe precise digitar uma única palavra.
+            </p>
+            <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
+              Enquanto você descansa, ele agenda. Enquanto você atende, ele filtra curiosos. A inteligência não substitui você — devolve o seu tempo.
+            </p>
           </div>
         </div>
       </section>
@@ -265,42 +237,17 @@ const Medico = () => {
       {/* Fluxo Estratégico e CRM */}
       <section className="bg-background py-32">
         <div className="container">
-          <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-2">
-            <div className="lg:order-2">
-              <p className="text-sm text-muted-foreground">Fluxo estratégico · CRM</p>
-              <h2 className="mt-6 font-display text-[clamp(2rem,5vw,3.75rem)] font-bold leading-[0.95] tracking-[-0.03em]">
-                Você no comando. <span className="text-muted-foreground">A tecnologia no trabalho pesado.</span>
-              </h2>
-              <p className="mt-8 text-base leading-relaxed text-muted-foreground md:text-lg">
-                A IA não apenas responde — ela <span className="text-foreground font-semibold">move o lead dentro do CRM</span>:
-                qualifica, agenda, envia confirmações, dispara lembretes e reativa pacientes inativos.
-                Tudo registrado. Tudo rastreável.
-              </p>
-              <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">
-                Você abre o painel e vê o pipeline inteiro vivo: do primeiro clique no anúncio até o
-                paciente sentado na sua cadeira. Sem planilha. Sem WhatsApp espalhado. Sem perda.
-              </p>
-            </div>
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-              className="relative lg:order-1"
-            >
-              <div className="pointer-events-none absolute -inset-6 rounded-[2rem] bg-primary/10 blur-3xl" />
-              <div className="relative overflow-hidden rounded-3xl border border-border bg-card/50 backdrop-blur-xl">
-                <div className="absolute inset-0 bg-gradient-to-bl from-background/70 via-transparent to-background/40" />
-                <img
-                  src={crmFlow}
-                  alt="Médico operando o CRM gerenciado pela IA da Nexus DevHub"
-                  loading="lazy"
-                  width={1024}
-                  height={1024}
-                  className="relative h-full w-full object-cover"
-                />
-              </div>
-            </motion.div>
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="text-sm text-muted-foreground">Fluxo estratégico · CRM</p>
+            <h2 className="mt-6 font-display text-[clamp(2rem,5vw,4rem)] font-bold leading-[0.95] tracking-[-0.03em]">
+              Você no comando. <span className="text-muted-foreground">A tecnologia no trabalho pesado.</span>
+            </h2>
+            <p className="mx-auto mt-8 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
+              A IA não apenas responde — ela <span className="text-foreground font-semibold">move o lead dentro do CRM</span>: qualifica, agenda, envia confirmações, dispara lembretes e reativa pacientes inativos. Tudo registrado. Tudo rastreável.
+            </p>
+            <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
+              Você abre o painel e vê o pipeline inteiro vivo: do primeiro clique no anúncio até o paciente sentado na sua cadeira. Sem planilha. Sem WhatsApp espalhado. Sem perda.
+            </p>
           </div>
         </div>
       </section>
@@ -523,41 +470,17 @@ const Medico = () => {
       {/* Operação Blindada: Dados */}
       <section className="bg-background py-32">
         <div className="container">
-          <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-2">
-            <div>
-              <p className="text-sm text-muted-foreground">Operação blindada · Dados</p>
-              <h2 className="mt-6 font-display text-[clamp(2rem,5vw,3.75rem)] font-bold leading-[0.95] tracking-[-0.03em]">
-                O lucro <span className="text-muted-foreground">na palma da mão.</span>
-              </h2>
-              <p className="mt-8 text-base leading-relaxed text-muted-foreground md:text-lg">
-                Centralizamos cada canal — WhatsApp, Instagram, anúncios, agenda — e traduzimos o
-                comportamento do seu paciente em <span className="text-foreground font-semibold">relatórios simples no seu celular</span>.
-              </p>
-              <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">
-                Custo por agendamento, ticket médio, taxa de no-show, retorno por canal. Você decide
-                o próximo passo com clareza — não com achismo. Tangível, mensurável, no bolso.
-              </p>
-            </div>
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-              className="relative"
-            >
-              <div className="pointer-events-none absolute -inset-6 rounded-[2rem] bg-primary/10 blur-3xl" />
-              <div className="relative overflow-hidden rounded-3xl border border-border bg-card/50 backdrop-blur-xl">
-                <div className="absolute inset-0 bg-gradient-to-tl from-background/70 via-transparent to-background/30" />
-                <img
-                  src={dadosMobile}
-                  alt="Dashboard mobile da Nexus DevHub mostrando crescimento e KPIs da clínica"
-                  loading="lazy"
-                  width={1024}
-                  height={1024}
-                  className="relative h-full w-full object-cover"
-                />
-              </div>
-            </motion.div>
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="text-sm text-muted-foreground">Operação blindada · Dados</p>
+            <h2 className="mt-6 font-display text-[clamp(2rem,5vw,4rem)] font-bold leading-[0.95] tracking-[-0.03em]">
+              O lucro <span className="text-muted-foreground">na palma da mão.</span>
+            </h2>
+            <p className="mx-auto mt-8 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
+              Centralizamos cada canal — WhatsApp, Instagram, anúncios, agenda — e traduzimos o comportamento do seu paciente em <span className="text-foreground font-semibold">relatórios simples no seu celular</span>.
+            </p>
+            <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
+              Custo por agendamento, ticket médio, taxa de no-show, retorno por canal. Você decide o próximo passo com clareza — não com achismo. Tangível, mensurável, no bolso.
+            </p>
           </div>
         </div>
       </section>
@@ -591,37 +514,23 @@ const Medico = () => {
       {/* CTA final */}
       <section className="bg-background py-24">
         <div className="container">
-          <div className="mx-auto grid max-w-6xl items-stretch gap-0 overflow-hidden rounded-3xl border border-border bg-card md:grid-cols-[1.1fr_1fr]">
-            <div className="p-10 md:p-16">
-              <p className="text-xs font-mono uppercase tracking-widest text-muted-foreground">
-                Ative agora
-              </p>
-              <h2 className="mt-4 font-display text-[clamp(1.75rem,4vw,3rem)] font-bold leading-tight tracking-tight text-foreground">
-                Seu Setor Digital começa hoje. A partir de R$ 1.299/mês.
-              </h2>
-              <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground">
-                Mais que um fornecedor — um parceiro técnico. Implementação, operação e tecnologia
-                inclusas. Se você cresce, nós crescemos. É assim que a aliança funciona.
-              </p>
-              <a
-                href="#contato"
-                className="mt-10 inline-flex items-center gap-2 text-sm font-medium text-foreground hover:underline"
-              >
-                Ativar meu Setor Digital
-                <ArrowUpRight className="h-4 w-4" />
-              </a>
-            </div>
-            <div className="relative min-h-[280px] overflow-hidden border-t border-border md:border-l md:border-t-0">
-              <div className="absolute inset-0 bg-gradient-to-r from-card via-transparent to-transparent z-10" />
-              <img
-                src={parceria}
-                alt="Parceria entre médico e Nexus DevHub — seu setor digital"
-                loading="lazy"
-                width={1024}
-                height={1024}
-                className="h-full w-full object-cover"
-              />
-            </div>
+          <div className="mx-auto max-w-5xl rounded-3xl border border-border bg-card p-10 md:p-16">
+            <p className="text-xs font-mono uppercase tracking-widest text-muted-foreground">
+              Ative agora
+            </p>
+            <h2 className="mt-4 font-display text-[clamp(1.75rem,4vw,3rem)] font-bold leading-tight tracking-tight text-foreground">
+              Seu Setor Digital começa hoje. A partir de R$ 1.299/mês.
+            </h2>
+            <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground">
+              Mais que um fornecedor — um parceiro técnico. Implementação, operação e tecnologia inclusas. Se você cresce, nós crescemos. É assim que a aliança funciona.
+            </p>
+            <a
+              href="#contato"
+              className="mt-10 inline-flex items-center gap-2 text-sm font-medium text-foreground hover:underline"
+            >
+              Ativar meu Setor Digital
+              <ArrowUpRight className="h-4 w-4" />
+            </a>
           </div>
         </div>
       </section>
