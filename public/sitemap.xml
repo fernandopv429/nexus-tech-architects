@@ -14,18 +14,4 @@
       <image:title>Nexus DevHub — Setor Digital de Elite</image:title>
     </image:image>
   </url>
-  <url>
-    <loc>https://nexusdevhub.com/medico</loc>
-    <lastmod>2026-05-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://nexusdevhub.com/medico" />
-  </url>
-  <url>
-    <loc>https://nexusdevhub.com/varejo</loc>
-    <lastmod>2026-05-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://nexusdevhub.com/varejo" />
-  </url>
 </urlset>
