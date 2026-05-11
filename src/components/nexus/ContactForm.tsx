@@ -242,6 +242,37 @@ export const ContactForm = () => {
               </div>
             </div>
             <div>
+              <Label htmlFor="sector" className="text-muted-foreground">
+                Setor da sua empresa
+              </Label>
+              <Controller
+                name="sector"
+                control={control}
+                render={({ field }) => (
+                  <Select onValueChange={field.onChange} value={field.value}>
+                    <SelectTrigger
+                      id="sector"
+                      className="mt-2 h-12 rounded-xl border-border bg-background"
+                    >
+                      <SelectValue placeholder="Selecione o setor da sua empresa" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {SECTORS.map((s) => (
+                        <SelectItem key={s} value={s}>
+                          {s}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                )}
+              />
+              {errors.sector && (
+                <p className="mt-1 text-xs text-destructive">
+                  {errors.sector.message}
+                </p>
+              )}
+            </div>
+            <div>
               <Label htmlFor="message" className="text-muted-foreground">
                 Conte sobre seu desafio
               </Label>
