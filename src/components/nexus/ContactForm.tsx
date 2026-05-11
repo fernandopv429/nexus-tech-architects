@@ -37,7 +37,7 @@ const schema = z.object({
   email: z.string().trim().email("E-mail inválido").max(254),
   company: z.string().trim().min(2, "Informe sua empresa").max(200),
   phone: z.string().trim().min(8, "Informe um telefone válido").max(40),
-  sector: z.enum(SECTORS, { required_error: "Selecione o setor da sua empresa" }),
+  sector: z.string().min(1, "Selecione o setor da sua empresa").refine((v) => (SECTORS as readonly string[]).includes(v), "Setor inválido"),
   message: z.string().trim().min(10, "Conte um pouco mais sobre o desafio").max(5000),
 });
 
