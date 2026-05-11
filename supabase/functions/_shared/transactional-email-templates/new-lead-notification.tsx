@@ -19,6 +19,7 @@ interface NewLeadNotificationProps {
   email?: string
   company?: string
   phone?: string
+  sector?: string
   message?: string
   submittedAt?: string
 }
@@ -28,12 +29,13 @@ const NewLeadNotificationEmail = ({
   email = '—',
   company = '—',
   phone = '—',
+  sector = '—',
   message = '—',
   submittedAt,
 }: NewLeadNotificationProps) => (
   <Html lang="pt-BR" dir="ltr">
     <Head />
-    <Preview>Novo lead: {name} ({company})</Preview>
+    <Preview>Novo lead: {name} ({company}) — {sector}</Preview>
     <Body style={main}>
       <Container style={container}>
         <Heading style={h1}>Novo lead recebido</Heading>
@@ -44,6 +46,7 @@ const NewLeadNotificationEmail = ({
         <Section style={card}>
           <Text style={row}><span style={label}>Nome: </span>{name}</Text>
           <Text style={row}><span style={label}>Empresa: </span>{company}</Text>
+          <Text style={row}><span style={label}>Setor: </span>{sector}</Text>
           <Text style={row}><span style={label}>E-mail: </span>{email}</Text>
           <Text style={row}><span style={label}>Telefone: </span>{phone}</Text>
         </Section>
@@ -65,14 +68,15 @@ const NewLeadNotificationEmail = ({
 export const template = {
   component: NewLeadNotificationEmail,
   subject: (data: Record<string, any>) =>
-    `Novo lead: ${data?.name ?? 'Contato'}${data?.company ? ` (${data.company})` : ''}`,
-  to: 'vendas@nexusdevhub.com',
+    `Novo lead${data?.sector ? ` [${data.sector}]` : ''}: ${data?.name ?? 'Contato'}${data?.company ? ` (${data.company})` : ''}`,
+  to: 'comercial@nexusdevhub.com',
   displayName: 'Novo lead — notificação interna',
   previewData: {
     name: 'João Silva',
     email: 'joao@empresa.com',
     company: 'Empresa LTDA',
     phone: '(11) 91234-5678',
+    sector: 'Varejo / E-commerce',
     message: 'Gostaria de automatizar nosso processo de vendas.',
     submittedAt: '20/04/2026 12:34',
   },
