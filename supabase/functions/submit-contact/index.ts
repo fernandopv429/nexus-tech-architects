@@ -44,6 +44,7 @@ Deno.serve(async (req) => {
   const email = trimStr(body.email, 254)
   const company = trimStr(body.company, 200)
   const phone = trimStr(body.phone, 40)
+  const sector = trimStr(body.sector, 80)
   const message = trimStr(body.message, 5000)
   const source = trimStr(body.source, 40) ?? 'contact'
 
@@ -56,7 +57,7 @@ Deno.serve(async (req) => {
 
   const { error: insertError } = await supabase
     .from('contact_submissions')
-    .insert({ id, name, email, company, phone, message })
+    .insert({ id, name, email, company, phone, message, sector })
 
   if (insertError) {
     console.error('Insert failed', insertError)
