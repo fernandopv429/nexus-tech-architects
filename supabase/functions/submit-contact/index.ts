@@ -91,8 +91,8 @@ Deno.serve(async (req) => {
     }
   }
 
-  await invokeEmail('new-lead-notification', 'vendas@nexusdevhub.com', `${source}-notify-${id}`, {
-    name, email, company, phone, message, submittedAt,
+  await invokeEmail('new-lead-notification', 'comercial@nexusdevhub.com', `${source}-notify-${id}`, {
+    name, email, company, phone, sector, message, submittedAt,
   })
   await invokeEmail('contact-confirmation', email, `${source}-confirm-${id}`, { name })
 
