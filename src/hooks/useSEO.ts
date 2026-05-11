@@ -9,7 +9,7 @@ type SEOProps = {
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
 };
 
-const SITE_URL = "https://go.nexusdevhub.com";
+const SITE_URL = "https://nexusdevhub.com";
 const JSONLD_ID = "page-jsonld";
 
 const upsertMeta = (selector: string, attr: string, name: string, content: string) => {

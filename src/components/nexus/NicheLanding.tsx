@@ -26,7 +26,7 @@ export type NichePageProps = {
 };
 
 export const NicheLanding = (props: NichePageProps) => {
-  const SITE = "https://go.nexusdevhub.com";
+  const SITE = "https://nexusdevhub.com";
   useSEO({
     title: props.seoTitle,
     description: props.seoDescription,
