@@ -49,7 +49,7 @@ export const Hero = () => {
 
           {/* Argumento de valor acima do botão */}
           <p className="mt-8 text-sm font-medium text-foreground">
-            Investimento inicial de R$ 1.499 — crescemos junto com o seu faturamento.
+            Investimento inicial de R$ 1.800 — crescemos junto com o seu faturamento.
           </p>
 
           {/* Pill buttons */}

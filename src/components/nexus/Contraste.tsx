@@ -84,7 +84,7 @@ export const Contraste = () => {
             </ul>
             <div className="mt-8 flex items-baseline justify-between border-t border-background/20 pt-6">
               <span className="text-sm uppercase tracking-widest opacity-60">Total</span>
-              <span className="font-display text-3xl font-bold">R$ 1.499/mês</span>
+              <span className="font-display text-3xl font-bold">R$ 1.800/mês</span>
             </div>
           </motion.div>
         </div>
