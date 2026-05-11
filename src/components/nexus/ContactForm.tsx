@@ -64,6 +64,7 @@ export const ContactForm = () => {
     register,
     handleSubmit,
     reset,
+    control,
     formState: { errors, isSubmitting },
   } = useForm<FormData>({ resolver: zodResolver(schema) });
   const startedRef = useRef(false);
