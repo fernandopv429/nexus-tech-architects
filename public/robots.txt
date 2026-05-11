@@ -18,5 +18,5 @@ Allow: /
 User-agent: ClaudeBot
 Allow: /
 
-Host: https://go.nexusdevhub.com
-Sitemap: https://go.nexusdevhub.com/sitemap.xml
+Host: https://nexusdevhub.com
+Sitemap: https://nexusdevhub.com/sitemap.xml

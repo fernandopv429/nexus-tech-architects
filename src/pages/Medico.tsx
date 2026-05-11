@@ -23,7 +23,7 @@ import {
 } from "@/components/ui/accordion";
 import { useSEO } from "@/hooks/useSEO";
 
-const SITE = "https://go.nexusdevhub.com";
+const SITE = "https://nexusdevhub.com";
 
 const operacao = [
   {
