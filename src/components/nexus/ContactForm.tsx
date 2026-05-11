@@ -1,4 +1,4 @@
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { motion } from "framer-motion";
@@ -6,6 +6,13 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { toast } from "@/hooks/use-toast";
 import { Mail, Phone, MessageCircle, ArrowUpRight } from "lucide-react";
 import { WHATSAPP_URL } from "./WhatsAppButton";
@@ -13,12 +20,25 @@ import { supabase } from "@/integrations/supabase/client";
 import { trackFormSubmit, trackFormStart, trackWhatsAppClick, trackCTAClick, forwardLeadToWebhook } from "@/lib/analytics";
 import { useRef } from "react";
 
+const SECTORS = [
+  "Clínica / Saúde",
+  "Advocacia / Jurídico",
+  "Varejo / E-commerce",
+  "Indústria / B2B",
+  "Serviços / Consultoria",
+  "Tecnologia / SaaS",
+  "Educação",
+  "Imobiliário",
+  "Outro",
+] as const;
+
 const schema = z.object({
-  name: z.string().min(2, "Informe seu nome"),
-  email: z.string().email("E-mail inválido"),
-  company: z.string().min(2, "Informe sua empresa"),
-  phone: z.string().min(8, "Informe um telefone válido"),
-  message: z.string().min(10, "Conte um pouco mais sobre o desafio"),
+  name: z.string().trim().min(2, "Informe seu nome").max(120),
+  email: z.string().trim().email("E-mail inválido").max(254),
+  company: z.string().trim().min(2, "Informe sua empresa").max(200),
+  phone: z.string().trim().min(8, "Informe um telefone válido").max(40),
+  sector: z.string().min(1, "Selecione o setor da sua empresa").refine((v) => (SECTORS as readonly string[]).includes(v), "Setor inválido"),
+  message: z.string().trim().min(10, "Conte um pouco mais sobre o desafio").max(5000),
 });
 
 type FormData = z.infer<typeof schema>;
@@ -44,6 +64,7 @@ export const ContactForm = () => {
     register,
     handleSubmit,
     reset,
+    control,
     formState: { errors, isSubmitting },
   } = useForm<FormData>({ resolver: zodResolver(schema) });
   const startedRef = useRef(false);
@@ -219,6 +240,37 @@ export const ContactForm = () => {
                   </p>
                 )}
               </div>
+            </div>
+            <div>
+              <Label htmlFor="sector" className="text-muted-foreground">
+                Setor da sua empresa
+              </Label>
+              <Controller
+                name="sector"
+                control={control}
+                render={({ field }) => (
+                  <Select onValueChange={field.onChange} value={field.value}>
+                    <SelectTrigger
+                      id="sector"
+                      className="mt-2 h-12 rounded-xl border-border bg-background"
+                    >
+                      <SelectValue placeholder="Selecione o setor da sua empresa" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {SECTORS.map((s) => (
+                        <SelectItem key={s} value={s}>
+                          {s}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                )}
+              />
+              {errors.sector && (
+                <p className="mt-1 text-xs text-destructive">
+                  {errors.sector.message}
+                </p>
+              )}
             </div>
             <div>
               <Label htmlFor="message" className="text-muted-foreground">
