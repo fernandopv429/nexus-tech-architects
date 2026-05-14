@@ -39,6 +39,9 @@ const ContactForm = lazy(() =>
 const Footer = lazy(() =>
   import("@/components/nexus/Footer").then((m) => ({ default: m.Footer }))
 );
+const VideoSection = lazy(() =>
+  import("@/components/nexus/VideoSection").then((m) => ({ default: m.VideoSection }))
+);
 
 const SectionFallback = () => (
   <div className="min-h-[40vh] bg-background" aria-hidden="true" />
@@ -59,6 +62,7 @@ const Index = () => {
       <Navbar />
       <Hero />
       <Suspense fallback={<SectionFallback />}>
+        <VideoSection />
         <Contraste />
         <Atuacao />
         <Areas />
