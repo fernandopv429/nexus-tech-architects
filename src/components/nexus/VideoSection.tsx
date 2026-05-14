@@ -74,7 +74,7 @@ export const VideoSection = () => {
             <video
               ref={videoRef}
               className="aspect-video w-full cursor-pointer object-cover"
-              poster="/placeholder.svg"
+              poster="/videos/poster.jpg"
               preload="metadata"
               playsInline
               muted
