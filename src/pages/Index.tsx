@@ -62,6 +62,7 @@ const Index = () => {
       <Navbar />
       <Hero />
       <Suspense fallback={<SectionFallback />}>
+        <VideoSection />
         <Contraste />
         <Atuacao />
         <Areas />
