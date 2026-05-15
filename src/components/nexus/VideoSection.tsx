@@ -77,7 +77,6 @@ export const VideoSection = () => {
               poster="/videos/poster.jpg"
               preload="metadata"
               playsInline
-              muted
               onEnded={handleVideoEnd}
               onClick={togglePlay}
               aria-label="Vídeo apresentando os serviços da Nexus DevHub"
