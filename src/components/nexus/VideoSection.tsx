@@ -5,7 +5,7 @@ import { Play, Pause, Volume2, VolumeX, Maximize } from "lucide-react";
 export const VideoSection = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [isMuted, setIsMuted] = useState(true);
+  const [isMuted, setIsMuted] = useState(false);
   const [showOverlay, setShowOverlay] = useState(true);
 
   const togglePlay = () => {
