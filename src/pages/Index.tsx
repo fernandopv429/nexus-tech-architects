@@ -79,6 +79,9 @@ const Index = () => {
         <Footer />
       </Suspense>
       <WhatsAppFloating />
+      <Suspense fallback={null}>
+        <LeadCaptureModal />
+      </Suspense>
     </main>
   );
 };
