@@ -42,6 +42,9 @@ const Footer = lazy(() =>
 const VideoSection = lazy(() =>
   import("@/components/nexus/VideoSection").then((m) => ({ default: m.VideoSection }))
 );
+const LeadCaptureModal = lazy(() =>
+  import("@/components/nexus/LeadCaptureModal").then((m) => ({ default: m.LeadCaptureModal }))
+);
 
 const SectionFallback = () => (
   <div className="min-h-[40vh] bg-background" aria-hidden="true" />
