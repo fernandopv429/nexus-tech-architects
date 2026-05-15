@@ -40,17 +40,22 @@ Deno.serve(async (req) => {
     return json({ error: 'Invalid JSON' }, 400)
   }
 
-  const name = trimStr(body.name, 120)
+  const source = trimStr(body.source, 40) ?? 'contact'
+  const isQuickLead = source === 'popup'
+
   const email = trimStr(body.email, 254)
-  const company = trimStr(body.company, 200)
   const phone = trimStr(body.phone, 40)
   const sector = trimStr(body.sector, 80)
-  const message = trimStr(body.message, 5000)
-  const source = trimStr(body.source, 40) ?? 'contact'
+  const name = trimStr(body.name, 120) ?? (isQuickLead ? 'Lead via popup' : null)
+  const company = trimStr(body.company, 200) ?? (isQuickLead ? '(não informado)' : null)
+  const message =
+    trimStr(body.message, 5000) ??
+    (isQuickLead ? 'Lead capturado via popup inicial do site.' : null)
 
   if (!name || !email || !company || !phone || !message || !isEmail(email)) {
     return json({ error: 'Invalid input' }, 400)
   }
+
 
   const supabase = createClient(supabaseUrl, supabaseServiceKey)
   const id = crypto.randomUUID()

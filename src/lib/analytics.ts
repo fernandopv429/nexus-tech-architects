@@ -66,7 +66,7 @@ const forwardToWebhook = (eventName: string, params: EventParams) => {
 
 // Forward full lead payload (with PII) to webhook only — never to GTM/GA4
 export const forwardLeadToWebhook = (
-  formName: "contact" | "calculator_roi",
+  formName: "contact" | "calculator_roi" | "popup",
   data: Record<string, unknown>,
 ) => {
   sendToWebhook({ event: "lead_captured", form_name: formName, data });
@@ -122,11 +122,11 @@ const simpleHash = (input: string): string => {
   return Math.abs(h).toString(36);
 };
 
-export const trackFormStart = (formName: "contact" | "calculator_roi") =>
+export const trackFormStart = (formName: "contact" | "calculator_roi" | "popup") =>
   trackEvent("form_start", { form_name: formName });
 
 export const trackFormSubmit = (
-  formName: "contact" | "calculator_roi",
+  formName: "contact" | "calculator_roi" | "popup",
   extra: EventParams & { email?: string } = {},
 ) => {
   const { email, ...rest } = extra;
