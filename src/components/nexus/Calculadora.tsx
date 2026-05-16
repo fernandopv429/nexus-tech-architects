@@ -12,7 +12,6 @@ import { supabase } from "@/integrations/supabase/client";
 import { Clock, TrendingUp, DollarSign, Sparkles } from "lucide-react";
 import { trackFormSubmit, trackFormStart, forwardLeadToWebhook } from "@/lib/analytics";
 
-
 const fmtBRL = (v: number) =>
   v.toLocaleString("pt-BR", {
     style: "currency",
@@ -21,10 +20,13 @@ const fmtBRL = (v: number) =>
   });
 
 const captureSchema = z.object({
-  name: z.string().trim().min(2, "Informe seu nome").max(100),
   email: z.string().trim().email("E-mail inválido").max(255),
-  company: z.string().trim().min(2, "Informe sua empresa").max(120),
-  phone: z.string().trim().min(8, "Informe um telefone").max(30),
+  phone: z
+    .string()
+    .trim()
+    .min(10, "Informe um WhatsApp com DDD")
+    .max(20, "Telefone muito longo")
+    .regex(/^[\d\s()+-]+$/, "Use apenas números e DDD"),
 });
 type CaptureData = z.infer<typeof captureSchema>;
 
@@ -78,7 +80,7 @@ export const Calculadora = () => {
       toast({
         title: "Plano enviado!",
         description:
-          "Em até 24h úteis nossa engenharia envia seu plano de automação personalizado.",
+          "Em instantes entramos em contato pelo WhatsApp com o seu plano personalizado.",
       });
       trackFormSubmit("calculator_roi", {
         email: data.email,
@@ -215,24 +217,43 @@ export const Calculadora = () => {
               className="space-y-3 rounded-3xl border border-border bg-card p-6"
             >
               <p className="text-sm font-medium text-foreground">
-                Receba seu plano personalizado
+                Receba seu plano em segundos
               </p>
               <p className="text-xs text-muted-foreground">
-                Enviamos por e-mail um plano de automação para o seu cenário.
+                Apenas e-mail e WhatsApp. Sem cadastro chato, sem spam.
               </p>
               <div className="space-y-2 pt-2">
-                <Label htmlFor="roi-name" className="sr-only">Nome</Label>
-                <Input id="roi-name" {...register("name")} placeholder="Nome" className="h-11 rounded-xl bg-background" />
-                {errors.name && <p className="text-xs text-destructive">{errors.name.message}</p>}
-                <Input {...register("email")} type="email" placeholder="E-mail corporativo" className="h-11 rounded-xl bg-background" />
-                {errors.email && <p className="text-xs text-destructive">{errors.email.message}</p>}
-                <Input {...register("company")} placeholder="Empresa" className="h-11 rounded-xl bg-background" />
-                {errors.company && <p className="text-xs text-destructive">{errors.company.message}</p>}
-                <Input {...register("phone")} placeholder="WhatsApp" className="h-11 rounded-xl bg-background" />
-                {errors.phone && <p className="text-xs text-destructive">{errors.phone.message}</p>}
+                <Label htmlFor="roi-email" className="sr-only">E-mail</Label>
+                <Input
+                  id="roi-email"
+                  {...register("email")}
+                  type="email"
+                  placeholder="Seu melhor e-mail"
+                  className="h-11 rounded-xl bg-background"
+                />
+                {errors.email && (
+                  <p className="text-xs text-destructive">{errors.email.message}</p>
+                )}
+                <Label htmlFor="roi-phone" className="sr-only">WhatsApp</Label>
+                <Input
+                  id="roi-phone"
+                  {...register("phone")}
+                  placeholder="WhatsApp com DDD (11 9XXXX-XXXX)"
+                  inputMode="tel"
+                  className="h-11 rounded-xl bg-background"
+                />
+                {errors.phone && (
+                  <p className="text-xs text-destructive">{errors.phone.message}</p>
+                )}
               </div>
-              <Button type="submit" variant="pill" size="pill" disabled={isSubmitting} className="w-full">
-                {isSubmitting ? "Enviando..." : "Quero meu plano gratuito"}
+              <Button
+                type="submit"
+                variant="pill"
+                size="pill"
+                disabled={isSubmitting}
+                className="w-full"
+              >
+                {isSubmitting ? "Enviando..." : "Quero meu plano pelo WhatsApp"}
               </Button>
             </form>
           </motion.div>
