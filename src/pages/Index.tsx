@@ -39,9 +39,6 @@ const ContactForm = lazy(() =>
 const Footer = lazy(() =>
   import("@/components/nexus/Footer").then((m) => ({ default: m.Footer }))
 );
-const VideoSection = lazy(() =>
-  import("@/components/nexus/VideoSection").then((m) => ({ default: m.VideoSection }))
-);
 const LeadCaptureModal = lazy(() =>
   import("@/components/nexus/LeadCaptureModal").then((m) => ({ default: m.LeadCaptureModal }))
 );
@@ -65,7 +62,6 @@ const Index = () => {
       <Navbar />
       <Hero />
       <Suspense fallback={<SectionFallback />}>
-        <VideoSection />
         <Contraste />
         <Atuacao />
         <Areas />
