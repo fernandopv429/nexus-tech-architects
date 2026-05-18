@@ -61,7 +61,7 @@ const Medico = () => {
         }
         description="Elimine mensagens perdidas na secretaria e reduza as faltas de pacientes. Nossa Inteligência Artificial qualifica leads, sana dúvidas clínicas frequentes e realiza agendamentos automáticos integrados ao painel operacional da sua recepção."
         priceAnchor="Investimento fixo de R$ 1.299/mês — Tecnologia rodando sem pausas."
-        mockupImage="/nexus_automation_mockup.png"
+        mockupImage="/nexus_medico_mockup.png"
       />
 
       {/* Prova social — Linguagem acolhedora */}
