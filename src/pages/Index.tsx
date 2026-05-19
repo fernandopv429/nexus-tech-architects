@@ -51,7 +51,7 @@ const Index = () => {
   useSEO({
     title: "Nexus DevHub | Setor Digital Próprio: Automação, IA e Marketing",
     description:
-      "Assumimos seu setor digital: CRM, agente de IA 24/7, site de alta conversão, tráfego pago e BI. A partir de R$ 1.299/mês.",
+      "Assumimos seu setor digital: CRM, agente de IA 24/7, site de alta conversão, tráfego pago e BI. Valor apresentado após diagnóstico gratuito.",
     canonical: "/",
     keywords:
       "setor digital terceirizado, automação de processos, RPA Brasil, automação com IA, agente de IA WhatsApp, CRM com IA, gestor de tráfego, CTO as a service, n8n, dashboards BI, automação WhatsApp",
