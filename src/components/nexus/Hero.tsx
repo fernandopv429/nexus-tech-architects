@@ -28,7 +28,7 @@ export const Hero = ({
   eyebrow = "Setor Digital · CRM Inteligente · IA · Dados · Sites",
   headline = DEFAULT_HEADLINE,
   description = "Assumimos toda a tecnologia do seu negócio: do CRM Inteligente com IA à análise de dados e desenvolvimento de sites. Pare de gerenciar ferramentas e comece a gerenciar lucros.",
-  priceAnchor = "Investimento inicial de R$ 1.800 — crescemos junto com o seu faturamento.",
+  priceAnchor,
   mockupImage,
 }: HeroProps) => {
   return (
@@ -64,12 +64,14 @@ export const Hero = ({
                 {description}
               </p>
 
-              <div className="mt-6 flex justify-center lg:justify-start">
-                <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-medium text-foreground md:text-sm">
-                  <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-                  {priceAnchor}
-                </span>
-              </div>
+              {priceAnchor && (
+                <div className="mt-6 flex justify-center lg:justify-start">
+                  <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-medium text-foreground md:text-sm">
+                    <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                    {priceAnchor}
+                  </span>
+                </div>
+              )}
 
               <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row lg:justify-start">
                 <Button variant="pill" size="pill" asChild>

@@ -11,7 +11,7 @@ import { WHATSAPP_URL } from "./WhatsAppButton";
 const faqs = [
   {
     q: "O valor aumenta quando?",
-    a: "Quando sua demanda e seu faturamento crescerem, nossa parceria evolui junto. É um modelo ganha-ganha: começamos a partir de R$ 1.800 e o investimento se ajusta conforme a operação escala — você nunca paga por capacidade que não está usando.",
+    a: "Quando sua demanda e seu faturamento crescerem, nossa parceria evolui junto. É um modelo ganha-ganha: o investimento se ajusta conforme a operação escala — você nunca paga por capacidade que não está usando. O valor exato é apresentado após o diagnóstico gratuito.",
   },
   {
     q: "Já tenho um sistema, posso usar?",

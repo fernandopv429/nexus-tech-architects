@@ -2,10 +2,10 @@ import { motion } from "framer-motion";
 import { Check, X } from "lucide-react";
 
 const evita = [
-  { label: "Desenvolvedor", price: "R$ 6.000+" },
-  { label: "Gestor de CRM", price: "R$ 4.000+" },
-  { label: "Especialista em IA", price: "R$ 5.000+" },
-  { label: "Assinaturas de softwares", price: "R$ 1.000+" },
+  { label: "Desenvolvedor", price: "Custo alto" },
+  { label: "Gestor de CRM", price: "Custo alto" },
+  { label: "Especialista em IA", price: "Custo alto" },
+  { label: "Assinaturas de softwares", price: "Custo recorrente" },
 ];
 
 const ganha = [
@@ -56,7 +56,7 @@ export const Contraste = () => {
             </ul>
             <div className="mt-8 flex items-baseline justify-between border-t border-border pt-6">
               <span className="text-sm uppercase tracking-widest text-muted-foreground">Total</span>
-              <span className="font-display text-3xl font-bold text-foreground">R$ 16.000+/mês</span>
+              <span className="font-display text-xl font-bold text-foreground">Custo mensal elevado</span>
             </div>
           </motion.div>
 
@@ -84,7 +84,7 @@ export const Contraste = () => {
             </ul>
             <div className="mt-8 flex items-baseline justify-between border-t border-background/20 pt-6">
               <span className="text-sm uppercase tracking-widest opacity-60">Total</span>
-              <span className="font-display text-3xl font-bold">R$ 1.800/mês</span>
+              <span className="font-display text-xl font-bold">Valor após diagnóstico</span>
             </div>
           </motion.div>
         </div>
