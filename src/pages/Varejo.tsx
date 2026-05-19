@@ -59,7 +59,6 @@ const Varejo = () => {
           </>
         }
         description="Conecte seu Instagram DM e WhatsApp a um CRM inteligente para reativar clientes, rastrear pix abandonados e centralizar dados de vendas automaticamente no painel da sua operação."
-        priceAnchor="Investimento fixo de R$ 1.299/mês — Sem taxas ocultas de implantação."
         mockupImage="/nexus_ecommerce_mockup_v2.png"
       />
 
