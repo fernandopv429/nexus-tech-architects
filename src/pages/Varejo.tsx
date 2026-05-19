@@ -26,7 +26,7 @@ const Varejo = () => {
   useSEO({
     title: "CRM com IA para E-commerce | Recuperação de Carrinho e DM | Nexus DevHub",
     description:
-      "Conecte Instagram DM e WhatsApp a um CRM com IA. Recupere carrinhos, rastreie Pix abandonados e centralize vendas. Investimento fixo de R$ 1.299/mês.",
+      "Conecte Instagram DM e WhatsApp a um CRM com IA. Recupere carrinhos, rastreie Pix abandonados e centralize vendas. Valor apresentado após diagnóstico gratuito.",
     canonical: "/varejo",
     keywords:
       "CRM e-commerce, recuperação de carrinho, automação Instagram DM, IA para vendas, WhatsApp vendas, automação marketplace, recuperação Pix abandonado",
@@ -41,7 +41,6 @@ const Varejo = () => {
         serviceType: "Automação de Vendas e CRM com IA",
         description:
           "Recuperação de carrinho, automação de DM e WhatsApp, e CRM centralizado para lojas virtuais.",
-        offers: { "@type": "Offer", price: "1299", priceCurrency: "BRL" },
       },
     ],
   });
