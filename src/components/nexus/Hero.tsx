@@ -128,7 +128,7 @@ export const Hero = ({
                 transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
                 className="relative"
               >
-                <div className="relative aspect-[16/10] overflow-hidden rounded-3xl border border-border bg-card shadow-2xl ring-1 ring-primary/10">
+                <div className="relative aspect-[16/10]">
                   <AnimatePresence mode="sync">
                     <motion.img
                       key={currentImage}
