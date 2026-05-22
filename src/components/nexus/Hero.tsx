@@ -1,4 +1,5 @@
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { WHATSAPP_URL } from "./WhatsAppButton";
 import { trackCTAClick, trackWhatsAppClick } from "@/lib/analytics";
@@ -10,6 +11,7 @@ export type HeroProps = {
   description?: string;
   priceAnchor?: string;
   mockupImage?: string;
+  mockupImages?: string[];
 };
 
 const DEFAULT_HEADLINE = (
