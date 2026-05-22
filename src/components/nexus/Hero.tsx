@@ -32,7 +32,18 @@ export const Hero = ({
   description = "Assumimos toda a tecnologia do seu negócio: do CRM Inteligente com IA à análise de dados e desenvolvimento de sites. Pare de gerenciar ferramentas e comece a gerenciar lucros.",
   priceAnchor,
   mockupImage,
+  mockupImages,
 }: HeroProps) => {
+  const images = mockupImages && mockupImages.length > 0 ? mockupImages : mockupImage ? [mockupImage] : [];
+  const [imgIndex, setImgIndex] = useState(0);
+
+  useEffect(() => {
+    if (images.length < 2) return;
+    const id = setInterval(() => setImgIndex((i) => (i + 1) % images.length), 4000);
+    return () => clearInterval(id);
+  }, [images.length]);
+
+  const currentImage = images[imgIndex];
   return (
     <>
       <section
