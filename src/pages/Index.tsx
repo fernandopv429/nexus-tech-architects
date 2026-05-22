@@ -60,7 +60,7 @@ const Index = () => {
   return (
     <main className="relative min-h-screen overflow-x-hidden">
       <Navbar />
-      <Hero />
+      <Hero mockupImages={["/nexus_mockup_crm.png", "/nexus_mockup_ecommerce.png"]} />
       <Suspense fallback={<SectionFallback />}>
         <Contraste />
         <Atuacao />
