@@ -121,22 +121,45 @@ export const Hero = ({
             </motion.div>
 
             {/* Right column — mockup */}
-            {mockupImage && (
+            {currentImage && (
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
                 className="relative"
               >
-                <div className="relative overflow-hidden rounded-3xl border border-border bg-card shadow-2xl ring-1 ring-primary/10">
-                  <img
-                    src={mockupImage}
-                    alt="Painel da plataforma Nexus DevHub"
-                    loading="eager"
-                    fetchPriority="high"
-                    className="h-auto w-full object-cover"
-                  />
+                <div className="relative aspect-[16/10] overflow-hidden rounded-3xl border border-border bg-card shadow-2xl ring-1 ring-primary/10">
+                  <AnimatePresence mode="sync">
+                    <motion.img
+                      key={currentImage}
+                      src={currentImage}
+                      alt="Painel da plataforma Nexus DevHub"
+                      loading="eager"
+                      fetchPriority="high"
+                      initial={{ opacity: 0, scale: 1.02 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.98 }}
+                      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                      className="absolute inset-0 h-full w-full object-cover"
+                    />
+                  </AnimatePresence>
                 </div>
+
+                {/* Dots indicator */}
+                {images.length > 1 && (
+                  <div className="mt-4 flex justify-center gap-2">
+                    {images.map((_, i) => (
+                      <button
+                        key={i}
+                        onClick={() => setImgIndex(i)}
+                        aria-label={`Mostrar mockup ${i + 1}`}
+                        className={`h-1.5 rounded-full transition-all ${
+                          i === imgIndex ? "w-6 bg-primary" : "w-1.5 bg-muted-foreground/40"
+                        }`}
+                      />
+                    ))}
+                  </div>
+                )}
 
                 {/* Floating tag */}
                 <motion.div
