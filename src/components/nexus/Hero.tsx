@@ -140,7 +140,7 @@ export const Hero = ({
                       animate={{ opacity: 1, scale: 1 }}
                       exit={{ opacity: 0, scale: 0.98 }}
                       transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                      className="absolute inset-0 h-full w-full object-cover"
+                      className="absolute inset-0 h-full w-full object-contain"
                     />
                   </AnimatePresence>
                 </div>
