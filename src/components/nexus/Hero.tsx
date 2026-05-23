@@ -92,13 +92,13 @@ export const Hero = ({
                     href="#calculadora"
                     onClick={() =>
                       trackCTAClick(
-                        "Quero ativar meu setor digital",
+                        "Receber Plano de Automação Gratuito",
                         "hero",
                         "#calculadora"
                       )
                     }
                   >
-                    Quero ativar meu Setor Digital
+                    Receber Plano de Automação Gratuito
                   </a>
                 </Button>
                 <Button variant="pill-ghost" size="pill" asChild>
@@ -108,7 +108,7 @@ export const Hero = ({
                     rel="noopener noreferrer"
                     onClick={() => trackWhatsAppClick("hero")}
                   >
-                    Diagnóstico no WhatsApp
+                    Falar com um Especialista
                   </a>
                 </Button>
               </div>

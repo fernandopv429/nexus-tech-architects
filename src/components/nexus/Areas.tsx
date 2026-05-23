@@ -5,17 +5,17 @@ const areas = [
   {
     icon: Briefcase,
     title: "Serviços e Consultorias",
-    desc: "Agendamento inteligente e qualificação de leads de alto ticket — clínicas, advocacias, escritórios e prestadores.",
+    desc: "Agendamento inteligente que reduz no-show e qualifica leads de alto ticket — clínicas, advocacias e prestadores.",
   },
   {
     icon: ShoppingCart,
     title: "Varejo e E-commerce",
-    desc: "Recuperação de carrinhos, automações de pós-venda e retenção de clientes com IA conversacional.",
+    desc: "Recuperação de carrinhos e retenção de clientes com IA conversacional que escala o faturamento no pós-venda.",
   },
   {
     icon: Factory,
     title: "Indústrias e B2B",
-    desc: "Gestão de funil de vendas complexo, automação de cobrança e integração com ERPs e sistemas legados.",
+    desc: "Gestão de funil complexo e automação de cobrança integrada ao seu ERP para eliminar gargalos operacionais.",
   },
 ];
 
