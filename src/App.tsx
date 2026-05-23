@@ -11,6 +11,7 @@ const NotFound = lazy(() => import("./pages/NotFound.tsx"));
 const Unsubscribe = lazy(() => import("./pages/Unsubscribe.tsx"));
 const Medico = lazy(() => import("./pages/Medico.tsx"));
 const Varejo = lazy(() => import("./pages/Varejo.tsx"));
+const Iot = lazy(() => import("./pages/Iot.tsx"));
 
 const queryClient = new QueryClient();
 
@@ -32,6 +33,7 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/medico" element={<Medico />} />
             <Route path="/varejo" element={<Varejo />} />
+            <Route path="/iot" element={<Iot />} />
             <Route path="/unsubscribe" element={<Unsubscribe />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
