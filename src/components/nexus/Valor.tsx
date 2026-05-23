@@ -4,8 +4,8 @@ import { ShieldCheck, Zap, Target } from "lucide-react";
 const props = [
   {
     icon: ShieldCheck,
-    title: "Responsabilidade Técnica",
-    desc: "Você deixa de se preocupar com ferramentas e softwares. Nós garantimos que a tecnologia trabalhe para o seu negócio.",
+    title: "Sem Lock-in Técnico",
+    desc: "Os dados e a propriedade são sempre seus. Nós garantimos que a tecnologia trabalhe para o seu negócio, sem te deixar refém.",
   },
   {
     icon: Zap,
