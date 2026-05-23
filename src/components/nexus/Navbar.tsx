@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown, Stethoscope, ShoppingBag, Home, BarChart3, Layers, Award, MessageCircle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { prefetchRoute, prefetchIdle } from "@/lib/routePrefetch";
+import { prefetchRoute } from "@/lib/routePrefetch";
 
 const anchorLinks = [
   { href: "/#calculadora", label: "Simulador", icon: BarChart3 },
