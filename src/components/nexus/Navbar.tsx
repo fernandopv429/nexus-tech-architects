@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X, ChevronDown, Stethoscope, ShoppingBag, Home, BarChart3, Layers, Award, MessageCircle } from "lucide-react";
+import { Menu, X, ChevronDown, Stethoscope, ShoppingBag, Home, BarChart3, Layers, Award, MessageCircle, Cpu } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { prefetchRoute } from "@/lib/routePrefetch";
 
@@ -15,6 +15,7 @@ const anchorLinks = [
 const nichePages = [
   { to: "/medico", label: "Clínicas & Saúde", icon: Stethoscope, desc: "Agendamento e atendimento com IA" },
   { to: "/varejo", label: "E-commerce", icon: ShoppingBag, desc: "Recuperação de carrinho e vendas" },
+  { to: "/iot", label: "IoT & Indústria", icon: Cpu, desc: "Monitoramento e telemetria em tempo real" },
 ];
 
 export const Navbar = () => {
