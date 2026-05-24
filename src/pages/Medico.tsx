@@ -423,25 +423,38 @@ const Medico = () => {
               </p>
             </div>
 
-            <div className="mx-auto mt-14 grid max-w-5xl gap-8 md:grid-cols-2">
-              {testimonials.map((p) => (
-                <figure
+            <div className="mx-auto mt-14 grid max-w-5xl gap-12 md:grid-cols-2 md:gap-10">
+              {testimonials.map((p, i) => (
+                <motion.figure
                   key={p.src}
-                  className="overflow-hidden rounded-3xl border border-border bg-card p-4 shadow-card"
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-60px" }}
+                  transition={{ duration: 0.7, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
+                  className="group relative flex flex-col items-center"
                 >
-                  <img
+                  {/* Soft ambient glow */}
+                  <div className="pointer-events-none absolute inset-0 -z-10 flex items-center justify-center">
+                    <div className="h-[70%] w-[70%] rounded-full bg-[hsl(162_65%_35%/0.10)] blur-[80px]" />
+                  </div>
+
+                  <motion.img
                     src={p.src}
                     alt={p.alt}
                     loading="lazy"
-                    className="mx-auto h-[480px] w-auto rounded-2xl object-contain"
+                    whileHover={{ y: -6 }}
+                    transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                    className="h-[480px] w-auto object-contain drop-shadow-[0_24px_50px_hsl(207_45%_11%/0.22)]"
                   />
-                  <figcaption className="px-2 pb-2 pt-5 text-center">
+                  <figcaption className="mt-6 max-w-xs text-center">
                     <p className="font-display text-lg font-semibold text-foreground">
                       {p.title}
                     </p>
-                    <p className="mt-1 text-sm text-muted-foreground">{p.desc}</p>
+                    <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
+                      {p.desc}
+                    </p>
                   </figcaption>
-                </figure>
+                </motion.figure>
               ))}
             </div>
           </div>
