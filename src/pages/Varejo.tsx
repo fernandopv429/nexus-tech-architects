@@ -24,23 +24,23 @@ const chatPrints = [
 
 const Varejo = () => {
   useSEO({
-    title: "CRM com IA para E-commerce | Recuperação de Carrinho e DM | Nexus DevHub",
+    title: "Recupere Carrinhos Abandonados com IA | Nexus DevHub",
     description:
-      "Conecte Instagram DM e WhatsApp a um CRM com IA. Recupere carrinhos, rastreie Pix abandonados e centralize vendas. Valor apresentado após diagnóstico gratuito.",
+      "Transforme carrinhos abandonados em vendas finais com IA no WhatsApp e Instagram. Recuperação automática 24/7, rastreamento de Pix e centralização de dados. Diagnóstico gratuito.",
     canonical: "/varejo",
     keywords:
-      "CRM e-commerce, recuperação de carrinho, automação Instagram DM, IA para vendas, WhatsApp vendas, automação marketplace, recuperação Pix abandonado",
+      "recuperação carrinho abandonado, CRM com IA, automação WhatsApp vendas, IA e-commerce, Instagram DM automático, automação marketplace, recuperação Pix",
     ogType: "article",
     jsonLd: [
       {
         "@context": "https://schema.org",
         "@type": "Service",
-        name: "CRM com IA para E-commerce — Nexus DevHub",
+        name: "Recuperação de Carrinhos com IA — Nexus DevHub",
         provider: { "@type": "Organization", name: "Nexus DevHub", url: SITE },
         areaServed: { "@type": "Country", name: "Brasil" },
-        serviceType: "Automação de Vendas e CRM com IA",
+        serviceType: "Automação de Vendas e Recuperação com IA",
         description:
-          "Recuperação de carrinho, automação de DM e WhatsApp, e CRM centralizado para lojas virtuais.",
+          "Recuperação automática de carrinhos abandonados via WhatsApp e Instagram DM com inteligência artificial.",
       },
     ],
   });
@@ -50,15 +50,17 @@ const Varejo = () => {
       <Navbar />
 
       <Hero
-        eyebrow="E-commerce & Lojas Virtuais"
+        eyebrow="E-commerce & Marketplace"
         headline={
           <>
-            Sua Loja com{" "}
-            <span className="text-primary">Recuperação e IA</span> de Elite por
-            fração do custo.
+            Recupere até 30% dos
+            <br />
+            <span className="text-primary">Carrinhos Abandonados</span>
+            <br />
+            com IA no WhatsApp
           </>
         }
-        description="Conecte seu Instagram DM e WhatsApp a um CRM inteligente para reativar clientes, rastrear pix abandonados e centralizar dados de vendas automaticamente no painel da sua operação."
+        description="Cada carrinho abandonado é uma venda perdida. Nossa IA reativa clientes no WhatsApp e Instagram DM, rastreia Pix pendentes e centraliza tudo em um painel inteligente — enquanto você foca em escalar."
         mockupImage="/nexus_ecommerce_mockup_v2.png"
       />
 
