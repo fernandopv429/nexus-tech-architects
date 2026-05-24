@@ -203,20 +203,27 @@ const Medico = () => {
                 transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
                 className="relative"
               >
-                <div className="overflow-hidden rounded-3xl border border-border bg-card shadow-card">
-                  <img
-                    src="/nexus_medico_mockup.png"
-                    alt="Painel CRM Nexus para clínicas, com pipeline de pacientes e agente de IA no WhatsApp"
-                    loading="eager"
-                    fetchPriority="high"
-                    className="h-auto w-full object-cover"
-                  />
+                {/* Ambient glow behind mockup */}
+                <div className="pointer-events-none absolute inset-0 -z-10">
+                  <div className="absolute left-1/2 top-1/2 h-[120%] w-[120%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[hsl(162_65%_35%/0.12)] blur-[100px]" />
+                  <div className="absolute bottom-0 right-0 h-[60%] w-[60%] rounded-full bg-[hsl(10_78%_54%/0.08)] blur-[80px]" />
                 </div>
+
+                <motion.img
+                  src="/nexus_medico_mockup.png"
+                  alt="Painel CRM Nexus para clínicas, com pipeline de pacientes e agente de IA no WhatsApp"
+                  loading="eager"
+                  fetchPriority="high"
+                  animate={{ y: [0, -10, 0] }}
+                  transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                  className="relative h-auto w-full object-contain drop-shadow-[0_30px_60px_hsl(207_45%_11%/0.25)]"
+                />
+
                 <motion.div
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 0.5 }}
-                  className="absolute -bottom-5 left-6 flex items-center gap-3 rounded-2xl border border-border bg-card px-4 py-3 shadow-xl md:left-8"
+                  className="absolute bottom-4 left-2 flex items-center gap-3 rounded-2xl border border-border bg-card/95 px-4 py-3 shadow-xl backdrop-blur md:left-4"
                 >
                   <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[hsl(10_78%_54%)] text-white">
                     <Calendar className="h-5 w-5" />
