@@ -203,20 +203,27 @@ const Medico = () => {
                 transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
                 className="relative"
               >
-                <div className="overflow-hidden rounded-3xl border border-border bg-card shadow-card">
-                  <img
-                    src="/nexus_medico_mockup.png"
-                    alt="Painel CRM Nexus para clínicas, com pipeline de pacientes e agente de IA no WhatsApp"
-                    loading="eager"
-                    fetchPriority="high"
-                    className="h-auto w-full object-cover"
-                  />
+                {/* Ambient glow behind mockup */}
+                <div className="pointer-events-none absolute inset-0 -z-10">
+                  <div className="absolute left-1/2 top-1/2 h-[120%] w-[120%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[hsl(162_65%_35%/0.12)] blur-[100px]" />
+                  <div className="absolute bottom-0 right-0 h-[60%] w-[60%] rounded-full bg-[hsl(10_78%_54%/0.08)] blur-[80px]" />
                 </div>
+
+                <motion.img
+                  src="/nexus_medico_mockup.png"
+                  alt="Painel CRM Nexus para clínicas, com pipeline de pacientes e agente de IA no WhatsApp"
+                  loading="eager"
+                  fetchPriority="high"
+                  animate={{ y: [0, -10, 0] }}
+                  transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                  className="relative h-auto w-full object-contain drop-shadow-[0_30px_60px_hsl(207_45%_11%/0.25)]"
+                />
+
                 <motion.div
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 0.5 }}
-                  className="absolute -bottom-5 left-6 flex items-center gap-3 rounded-2xl border border-border bg-card px-4 py-3 shadow-xl md:left-8"
+                  className="absolute bottom-4 left-2 flex items-center gap-3 rounded-2xl border border-border bg-card/95 px-4 py-3 shadow-xl backdrop-blur md:left-4"
                 >
                   <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[hsl(10_78%_54%)] text-white">
                     <Calendar className="h-5 w-5" />
@@ -416,25 +423,38 @@ const Medico = () => {
               </p>
             </div>
 
-            <div className="mx-auto mt-14 grid max-w-5xl gap-8 md:grid-cols-2">
-              {testimonials.map((p) => (
-                <figure
+            <div className="mx-auto mt-14 grid max-w-5xl gap-12 md:grid-cols-2 md:gap-10">
+              {testimonials.map((p, i) => (
+                <motion.figure
                   key={p.src}
-                  className="overflow-hidden rounded-3xl border border-border bg-card p-4 shadow-card"
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-60px" }}
+                  transition={{ duration: 0.7, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
+                  className="group relative flex flex-col items-center"
                 >
-                  <img
+                  {/* Soft ambient glow */}
+                  <div className="pointer-events-none absolute inset-0 -z-10 flex items-center justify-center">
+                    <div className="h-[70%] w-[70%] rounded-full bg-[hsl(162_65%_35%/0.10)] blur-[80px]" />
+                  </div>
+
+                  <motion.img
                     src={p.src}
                     alt={p.alt}
                     loading="lazy"
-                    className="mx-auto h-[480px] w-auto rounded-2xl object-contain"
+                    whileHover={{ y: -6 }}
+                    transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                    className="h-[480px] w-auto object-contain drop-shadow-[0_24px_50px_hsl(207_45%_11%/0.22)]"
                   />
-                  <figcaption className="px-2 pb-2 pt-5 text-center">
+                  <figcaption className="mt-6 max-w-xs text-center">
                     <p className="font-display text-lg font-semibold text-foreground">
                       {p.title}
                     </p>
-                    <p className="mt-1 text-sm text-muted-foreground">{p.desc}</p>
+                    <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
+                      {p.desc}
+                    </p>
                   </figcaption>
-                </figure>
+                </motion.figure>
               ))}
             </div>
           </div>
