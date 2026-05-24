@@ -10,37 +10,37 @@ const SITE = "https://nexusdevhub.com";
 const chatPrints = [
   {
     src: "/whatsapp_ecommerce_v2_1.png",
-    alt: "WhatsApp recuperando carrinho abandonado de e-commerce",
-    title: "Recuperação de carrinho",
-    desc: "A IA aborda o cliente que abandonou a compra e fecha a venda sozinha.",
+    alt: "IA no WhatsApp recuperando cliente que abandonou o carrinho",
+    title: "Carrinho abandonado → Venda finalizada",
+    desc: "A IA identifica o abandono, entra em contato no WhatsApp e conduz o cliente até o pagamento — sozinha, em minutos.",
   },
   {
     src: "/whatsapp_ecommerce_v2_2.png",
-    alt: "Automação de Direct Message do Instagram para marketplaces",
-    title: "Automação de DM",
-    desc: "Respostas instantâneas no Instagram e Mercado Livre — zero pergunta perdida.",
+    alt: "Automação de Instagram DM respondendo cliente em segundos",
+    title: "DM do Instagram respondida em 3 segundos",
+    desc: "Nenhuma pergunta fica sem resposta. A IA atende clientes no Instagram e Mercado Livre 24 horas por dia.",
   },
 ];
 
 const Varejo = () => {
   useSEO({
-    title: "CRM com IA para E-commerce | Recuperação de Carrinho e DM | Nexus DevHub",
+    title: "Recupere Carrinhos Abandonados com IA | Nexus DevHub",
     description:
-      "Conecte Instagram DM e WhatsApp a um CRM com IA. Recupere carrinhos, rastreie Pix abandonados e centralize vendas. Valor apresentado após diagnóstico gratuito.",
+      "Transforme carrinhos abandonados em vendas finais com IA no WhatsApp e Instagram. Recuperação automática 24/7, rastreamento de Pix e centralização de dados. Diagnóstico gratuito.",
     canonical: "/varejo",
     keywords:
-      "CRM e-commerce, recuperação de carrinho, automação Instagram DM, IA para vendas, WhatsApp vendas, automação marketplace, recuperação Pix abandonado",
+      "recuperação carrinho abandonado, CRM com IA, automação WhatsApp vendas, IA e-commerce, Instagram DM automático, automação marketplace, recuperação Pix",
     ogType: "article",
     jsonLd: [
       {
         "@context": "https://schema.org",
         "@type": "Service",
-        name: "CRM com IA para E-commerce — Nexus DevHub",
+        name: "Recuperação de Carrinhos com IA — Nexus DevHub",
         provider: { "@type": "Organization", name: "Nexus DevHub", url: SITE },
         areaServed: { "@type": "Country", name: "Brasil" },
-        serviceType: "Automação de Vendas e CRM com IA",
+        serviceType: "Automação de Vendas e Recuperação com IA",
         description:
-          "Recuperação de carrinho, automação de DM e WhatsApp, e CRM centralizado para lojas virtuais.",
+          "Recuperação automática de carrinhos abandonados via WhatsApp e Instagram DM com inteligência artificial.",
       },
     ],
   });
@@ -50,15 +50,17 @@ const Varejo = () => {
       <Navbar />
 
       <Hero
-        eyebrow="E-commerce & Lojas Virtuais"
+        eyebrow="E-commerce & Marketplace"
         headline={
           <>
-            Sua Loja com{" "}
-            <span className="text-primary">Recuperação e IA</span> de Elite por
-            fração do custo.
+            Recupere até 30% dos
+            <br />
+            <span className="text-primary">Carrinhos Abandonados</span>
+            <br />
+            com IA no WhatsApp
           </>
         }
-        description="Conecte seu Instagram DM e WhatsApp a um CRM inteligente para reativar clientes, rastrear pix abandonados e centralizar dados de vendas automaticamente no painel da sua operação."
+        description="Cada carrinho abandonado é uma venda perdida. Nossa IA reativa clientes no WhatsApp e Instagram DM, rastreia Pix pendentes e centraliza tudo em um painel inteligente — enquanto você foca em escalar."
         mockupImage="/nexus_ecommerce_mockup_v2.png"
       />
 
@@ -67,14 +69,13 @@ const Varejo = () => {
         <div className="container">
           <div className="mx-auto max-w-3xl text-center">
             <p className="text-sm font-medium uppercase tracking-wider text-primary">
-              Prova real
+              Resultados reais
             </p>
             <h2 className="mt-4 font-display text-[clamp(2rem,5vw,3.5rem)] font-bold leading-[1] tracking-[-0.03em] text-foreground">
-              A IA agindo em tempo real nos seus canais
+              A IA vende sozinha enquanto você dorme
             </h2>
             <p className="mx-auto mt-5 max-w-2xl text-base text-muted-foreground md:text-lg">
-              Conversas reais geradas pela nossa automação — sem operador humano,
-              sem script engessado.
+              Conversas naturais, respostas instantâneas e fechamento automático — zero operador, zero demora.
             </p>
           </div>
 
