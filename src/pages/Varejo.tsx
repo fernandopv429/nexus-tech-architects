@@ -10,15 +10,15 @@ const SITE = "https://nexusdevhub.com";
 const chatPrints = [
   {
     src: "/whatsapp_ecommerce_v2_1.png",
-    alt: "WhatsApp recuperando carrinho abandonado de e-commerce",
-    title: "Recuperação de carrinho",
-    desc: "A IA aborda o cliente que abandonou a compra e fecha a venda sozinha.",
+    alt: "IA no WhatsApp recuperando cliente que abandonou o carrinho",
+    title: "Carrinho abandonado → Venda finalizada",
+    desc: "A IA identifica o abandono, entra em contato no WhatsApp e conduz o cliente até o pagamento — sozinha, em minutos.",
   },
   {
     src: "/whatsapp_ecommerce_v2_2.png",
-    alt: "Automação de Direct Message do Instagram para marketplaces",
-    title: "Automação de DM",
-    desc: "Respostas instantâneas no Instagram e Mercado Livre — zero pergunta perdida.",
+    alt: "Automação de Instagram DM respondendo cliente em segundos",
+    title: "DM do Instagram respondida em 3 segundos",
+    desc: "Nenhuma pergunta fica sem resposta. A IA atende clientes no Instagram e Mercado Livre 24 horas por dia.",
   },
 ];
 
