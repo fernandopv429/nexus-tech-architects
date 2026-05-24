@@ -69,14 +69,13 @@ const Varejo = () => {
         <div className="container">
           <div className="mx-auto max-w-3xl text-center">
             <p className="text-sm font-medium uppercase tracking-wider text-primary">
-              Prova real
+              Resultados reais
             </p>
             <h2 className="mt-4 font-display text-[clamp(2rem,5vw,3.5rem)] font-bold leading-[1] tracking-[-0.03em] text-foreground">
-              A IA agindo em tempo real nos seus canais
+              A IA vende sozinha enquanto você dorme
             </h2>
             <p className="mx-auto mt-5 max-w-2xl text-base text-muted-foreground md:text-lg">
-              Conversas reais geradas pela nossa automação — sem operador humano,
-              sem script engessado.
+              Conversas naturais, respostas instantâneas e fechamento automático — zero operador, zero demora.
             </p>
           </div>
 
