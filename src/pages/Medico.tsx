@@ -462,7 +462,7 @@ const Medico = () => {
 
         <Calculadora />
         <Footer />
-        <WhatsAppFloating />
+        <ChatWidget />
       </main>
     </div>
   );

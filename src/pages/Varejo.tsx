@@ -2,7 +2,7 @@ import { Navbar } from "@/components/nexus/Navbar";
 import { Hero } from "@/components/nexus/Hero";
 import { Calculadora } from "@/components/nexus/Calculadora";
 import { Footer } from "@/components/nexus/Footer";
-import { WhatsAppFloating } from "@/components/nexus/WhatsAppButton";
+import { ChatWidget } from "@/components/nexus/ChatWidget";
 import { useSEO } from "@/hooks/useSEO";
 
 const SITE = "https://nexusdevhub.com";
@@ -105,7 +105,7 @@ const Varejo = () => {
 
       <Calculadora />
       <Footer />
-      <WhatsAppFloating />
+      <ChatWidget />
     </main>
   );
 };
