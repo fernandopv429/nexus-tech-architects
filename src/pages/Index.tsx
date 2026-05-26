@@ -1,7 +1,7 @@
 import { lazy, Suspense } from "react";
 import { Navbar } from "@/components/nexus/Navbar";
 import { Hero } from "@/components/nexus/Hero";
-import { WhatsAppFloating } from "@/components/nexus/WhatsAppButton";
+import { ChatWidget } from "@/components/nexus/ChatWidget";
 import { useSEO } from "@/hooks/useSEO";
 
 const Contraste = lazy(() =>
@@ -56,7 +56,7 @@ const Index = () => {
         <ContactForm />
         <Footer />
       </Suspense>
-      <WhatsAppFloating />
+      <ChatWidget />
       <Suspense fallback={null}>
         <LeadCaptureModal />
       </Suspense>

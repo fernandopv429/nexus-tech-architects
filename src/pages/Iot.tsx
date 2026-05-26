@@ -2,7 +2,7 @@ import { Navbar } from "@/components/nexus/Navbar";
 import { Hero } from "@/components/nexus/Hero";
 import { Calculadora } from "@/components/nexus/Calculadora";
 import { Footer } from "@/components/nexus/Footer";
-import { WhatsAppFloating } from "@/components/nexus/WhatsAppButton";
+import { ChatWidget } from "@/components/nexus/ChatWidget";
 import { useSEO } from "@/hooks/useSEO";
 import { Cpu, Wifi, Database, BarChart3 } from "lucide-react";
 import { motion } from "framer-motion";
@@ -113,7 +113,7 @@ const Iot = () => {
 
       <Calculadora />
       <Footer />
-      <WhatsAppFloating />
+      <ChatWidget />
     </main>
   );
 };
