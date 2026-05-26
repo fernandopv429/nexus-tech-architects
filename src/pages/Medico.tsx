@@ -3,7 +3,8 @@ import { Bot, Calendar, CreditCard, ArrowRight, Workflow, Megaphone, Sparkles } 
 import { Navbar } from "@/components/nexus/Navbar";
 import { Calculadora } from "@/components/nexus/Calculadora";
 import { Footer } from "@/components/nexus/Footer";
-import { WhatsAppFloating, WHATSAPP_URL } from "@/components/nexus/WhatsAppButton";
+import { WHATSAPP_URL } from "@/components/nexus/WhatsAppButton";
+import { ChatWidget } from "@/components/nexus/ChatWidget";
 import { Button } from "@/components/ui/button";
 import { useSEO } from "@/hooks/useSEO";
 import { trackCTAClick, trackWhatsAppClick } from "@/lib/analytics";
