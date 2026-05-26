@@ -5,6 +5,7 @@ import { Calculadora } from "@/components/nexus/Calculadora";
 import { Footer } from "@/components/nexus/Footer";
 import { WHATSAPP_URL } from "@/components/nexus/WhatsAppButton";
 import { ChatWidget } from "@/components/nexus/ChatWidget";
+import { CrmAccessButton } from "@/components/nexus/CrmAccessButton";
 import { Button } from "@/components/ui/button";
 import { useSEO } from "@/hooks/useSEO";
 import { trackCTAClick, trackWhatsAppClick } from "@/lib/analytics";
@@ -160,20 +161,11 @@ const Medico = () => {
                 </p>
 
                 <div className="mt-9 flex flex-wrap items-center gap-3">
-                  <Button
-                    asChild
-                    size="lg"
-                    className="rounded-full bg-[hsl(10_78%_54%)] px-7 py-6 text-base font-semibold text-white shadow-lg shadow-[hsl(10_78%_54%/0.25)] hover:bg-[hsl(10_78%_48%)]"
-                  >
-                    <a
-                      href="#calculadora"
-                      onClick={() =>
-                        trackCTAClick("Ver CRM na Prática", "medico-hero", "#calculadora")
-                      }
-                    >
-                      Ver CRM na Prática <ArrowRight className="ml-2 h-5 w-5" />
-                    </a>
-                  </Button>
+                  <CrmAccessButton
+                    label="Ver CRM na Prática"
+                    source="medico-hero"
+                    sector="saude"
+                  />
                   <Button
                     asChild
                     variant="outline"
