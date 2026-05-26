@@ -79,8 +79,32 @@ export const ChatWidget = () => {
         }),
       });
       const data = await res.json().catch(() => ({}));
+      const pick = (v: unknown): string | null => {
+        if (!v) return null;
+        if (typeof v === "string") return v;
+        if (Array.isArray(v)) {
+          for (const item of v) {
+            const r = pick(item);
+            if (r) return r;
+          }
+          return null;
+        }
+        if (typeof v === "object") {
+          const o = v as Record<string, unknown>;
+          return (
+            pick(o.output) ||
+            pick(o.reply) ||
+            pick(o.message) ||
+            pick(o.text) ||
+            pick(o.response) ||
+            pick(o.answer) ||
+            pick(o.data)
+          );
+        }
+        return null;
+      };
       const reply =
-        (data && (data.reply || data.message || data.text)) ||
+        pick(data) ||
         "Obrigado! Em instantes um especialista entra em contato.";
       setMessages((m) => [...m, { role: "bot", text: String(reply) }]);
     } catch {
