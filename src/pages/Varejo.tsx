@@ -297,7 +297,9 @@ const Varejo = () => {
               </ul>
             </motion.div>
           </div>
-        </section>
+        </div>
+      </section>
+
 
       {/* ─────────────────── TIMELINE / FLUXO ─────────────────── */}
       <section className="py-20 md:py-28">

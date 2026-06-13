@@ -70,11 +70,8 @@ export const Navbar = () => {
     >
       <div className="container flex h-20 items-center justify-between">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-3 group" onMouseEnter={() => prefetchRoute("/")}>
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-primary-glow transition-all duration-300 group-hover:shadow-glow">
-            <span className="font-display text-lg font-bold tracking-tight text-white">N</span>
-          </div>
-          <span className="hidden sm:inline font-display text-xl font-semibold tracking-tight text-foreground">
+        <Link to="/" className="flex items-center group" onMouseEnter={() => prefetchRoute("/")}>
+          <span className="font-display text-xl font-semibold tracking-tight text-foreground transition-colors group-hover:text-primary">
             Nexus
           </span>
         </Link>
