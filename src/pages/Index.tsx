@@ -46,7 +46,7 @@ const Index = () => {
   return (
     <main className="relative min-h-screen overflow-x-hidden bg-background text-foreground">
       <Navbar />
-      <Hero mockupImages={["/nexus_mockup_crm.png", "/nexus_mockup_ecommerce.png"]} />
+      <Hero />
       <Suspense fallback={<SectionFallback />}>
         <Contraste />
         <Areas />
