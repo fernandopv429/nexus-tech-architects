@@ -32,9 +32,9 @@ const SectionFallback = () => (
 
 const Index = () => {
   useSEO({
-    title: "Nexus DevHub | Setor Digital Próprio: Automação, IA e Marketing",
+    title: "Nexus DevHub | CRM com IA, Automação e Tráfego",
     description:
-      "Assumimos seu setor digital: CRM, agente de IA 24/7, site de alta conversão, tráfego pago e BI. Valor apresentado após diagnóstico gratuito.",
+      "Assumimos seu setor digital: CRM, agente de IA 24/7, tráfego pago e BI. Valor após diagnóstico gratuito.",
     canonical: "/",
     keywords:
       "setor digital terceirizado, automação de processos, RPA Brasil, automação com IA, agente de IA WhatsApp, CRM com IA, gestor de tráfego, CTO as a service, n8n, dashboards BI, automação WhatsApp",

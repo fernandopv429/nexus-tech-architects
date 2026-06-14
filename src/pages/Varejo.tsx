@@ -79,7 +79,7 @@ const Varejo = () => {
   useSEO({
     title: "Recupere Carrinhos Abandonados com IA | Nexus DevHub",
     description:
-      "Transforme carrinhos abandonados em vendas finais com IA no WhatsApp e Instagram. Recuperação automática 24/7, rastreamento de Pix e centralização de dados. Diagnóstico gratuito.",
+      "Recupere carrinhos com IA no WhatsApp e Instagram. Rastreamento de Pix e centralização de dados. Diagnóstico gratuito.",
     canonical: "/varejo",
     keywords:
       "recuperação carrinho abandonado, CRM com IA, automação WhatsApp vendas, IA e-commerce, Instagram DM automático, automação marketplace, recuperação Pix",
