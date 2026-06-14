@@ -76,16 +76,30 @@ export const FAQ = () => {
             transition={{ duration: 0.6 }}
             className="lg:sticky lg:top-32 lg:self-start"
           >
-            <p className="text-sm text-muted-foreground">FAQ</p>
-            <h2 className="mt-6 font-display text-[clamp(2.5rem,6vw,4.5rem)] font-bold leading-[0.95] tracking-[-0.04em] text-foreground">
-              Perguntas
-              <br />
-              frequentes.
+            <div className="flex items-center gap-3">
+              <span className="inline-block h-10 w-10 bg-primary/90 shadow-glow md:h-12 md:w-12" />
+              <span className="text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground/90 md:text-xs">
+                FAQ
+              </span>
+            </div>
+            <h2 className="relative -mt-2 select-none font-display font-bold leading-[0.88] tracking-[-0.05em] text-foreground md:-mt-3">
+              <span className="block text-[clamp(2.5rem,7vw,5rem)]">
+                Perguntas
+              </span>
+              <span className="block text-[clamp(2.5rem,7vw,5rem)] text-muted-foreground/60">
+                frequentes.
+              </span>
             </h2>
+            <div className="mt-4 flex items-center gap-3 text-[10px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
+              <span className="h-1.5 w-1.5 rounded-full border border-muted-foreground/60" />
+              <span>Dúvidas comuns</span>
+              <span className="h-px w-16 bg-border" />
+            </div>
             <p className="mt-6 max-w-md text-base leading-relaxed text-muted-foreground">
               Tudo que você precisa saber sobre o modelo CTO as a Service,
               prazos, SLA e como começar com a Nexus.
             </p>
+
 
             <div className="mt-10 flex flex-col gap-3 sm:flex-row lg:flex-col xl:flex-row">
               <Button variant="pill" size="pill" asChild>
