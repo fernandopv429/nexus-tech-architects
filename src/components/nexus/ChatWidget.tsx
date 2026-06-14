@@ -130,7 +130,7 @@ export const ChatWidget = () => {
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: open ? 0 : 1, opacity: open ? 0 : 1 }}
         transition={{ delay: 0.6, type: "spring" }}
-        className="fixed bottom-6 right-6 z-50 group"
+        className="fixed bottom-20 right-4 z-40 group lg:bottom-6 lg:right-6"
       >
         <span className="absolute inset-0 rounded-full bg-emerald-500/40 animate-pulse-glow" />
         <span className="relative flex h-14 w-14 items-center justify-center rounded-full bg-emerald-500 text-white shadow-elegant transition-transform group-hover:scale-110">
@@ -146,7 +146,7 @@ export const ChatWidget = () => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 24, scale: 0.96 }}
             transition={{ type: "spring", stiffness: 260, damping: 24 }}
-            className="fixed bottom-6 right-6 z-50 flex h-[560px] max-h-[calc(100vh-2rem)] w-[calc(100vw-2rem)] max-w-[380px] flex-col overflow-hidden rounded-3xl border border-border bg-card shadow-elegant"
+            className="fixed bottom-20 right-4 z-40 flex h-[560px] max-h-[calc(100vh-6rem)] w-[calc(100vw-2rem)] max-w-[380px] flex-col overflow-hidden rounded-3xl border border-border bg-card shadow-elegant lg:bottom-6 lg:right-6 lg:max-h-[calc(100vh-2rem)]"
           >
             {/* Header */}
             <div className="flex items-center justify-between bg-emerald-500 px-4 py-3 text-white">
