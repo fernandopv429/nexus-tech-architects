@@ -29,11 +29,11 @@ export const Hero = ({
         {/* Background image — right side, fades to black on the left */}
         <div className="pointer-events-none absolute inset-0 -z-10">
           <div
-            className="absolute inset-0 bg-cover bg-center opacity-50"
+            className="absolute inset-0 bg-cover bg-center opacity-90"
             style={{ backgroundImage: `url(${heroBg})` }}
           />
           {/* Left-to-right fade to background */}
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-background/30" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/50 to-background/20" />
           {/* Bottom vignette */}
           <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-background to-transparent" />
           {/* Subtle ambient glow */}
