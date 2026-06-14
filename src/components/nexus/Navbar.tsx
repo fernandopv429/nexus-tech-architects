@@ -5,6 +5,8 @@ import { Menu, X, ChevronDown, Stethoscope, ShoppingBag, Home, BarChart3, Layers
 import { motion, AnimatePresence } from "framer-motion";
 import { prefetchRoute } from "@/lib/routePrefetch";
 import { MobileBottomNav } from "./MobileBottomNav";
+import { WHATSAPP_URL } from "./WhatsAppButton";
+import { trackWhatsAppClick } from "@/lib/analytics";
 
 
 const anchorLinks = [
@@ -198,7 +200,12 @@ export const Navbar = () => {
             className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90 font-medium px-6 shadow-glow"
             asChild
           >
-            <a href="#contato" onClick={(e) => handleAnchorClick(e, "/#contato")}>
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackWhatsAppClick("navbar")}
+            >
               Falar com nosso time
             </a>
           </Button>
@@ -298,7 +305,12 @@ export const Navbar = () => {
                 className="mt-4 rounded-full bg-primary text-primary-foreground hover:bg-primary/90 font-medium shadow-glow"
                 asChild
               >
-                <a href="#contato" onClick={(e) => { handleAnchorClick(e, "/#contato"); setOpen(false); }}>
+                <a
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => { trackWhatsAppClick("navbar"); setOpen(false); }}
+                >
                   Falar com nosso time
                 </a>
               </Button>
