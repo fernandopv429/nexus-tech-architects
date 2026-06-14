@@ -4,54 +4,84 @@ import { Briefcase, ShoppingCart, Factory } from "lucide-react";
 const areas = [
   {
     icon: Briefcase,
-    title: "Serviços e Consultorias",
+    title: "SERVIÇOS E CONSULTORIAS",
     desc: "Agendamento inteligente que reduz no-show e qualifica leads de alto ticket — clínicas, advocacias e prestadores.",
   },
   {
     icon: ShoppingCart,
-    title: "Varejo e E-commerce",
+    title: "VAREJO E E-COMMERCE",
     desc: "Recuperação de carrinhos e retenção de clientes com IA conversacional que escala o faturamento no pós-venda.",
   },
   {
     icon: Factory,
-    title: "Indústrias e B2B",
+    title: "INDÚSTRIAS E B2B",
     desc: "Gestão de funil complexo e automação de cobrança integrada ao seu ERP para eliminar gargalos operacionais.",
   },
 ];
 
 export const Areas = () => (
-  <section id="areas" className="bg-background py-32 md:py-40">
-    <div className="container">
-      <div className="mx-auto max-w-4xl text-center">
-        <p className="text-sm text-muted-foreground">Para quem é a Nexus</p>
-        <h2 className="mt-6 font-display text-[clamp(2.5rem,7vw,5.5rem)] font-bold leading-[0.95] tracking-[-0.04em] text-foreground">
-          Tecnologia adaptável
-          <br />
-          para qualquer negócio.
-        </h2>
-        <p className="mx-auto mt-6 max-w-xl text-base text-muted-foreground md:text-lg">
-          Independente do segmento, se a sua empresa vende, a nossa estrutura
-          acelera o resultado.
-        </p>
-      </div>
+  <section
+    id="areas"
+    className="relative isolate overflow-hidden bg-background py-32 md:py-40"
+  >
+    {/* Ambient glow */}
+    <div className="pointer-events-none absolute inset-0 -z-10">
+      <div className="absolute right-1/4 top-1/4 h-[500px] w-[700px] rounded-full bg-primary/5 blur-[160px]" />
+    </div>
 
-      <div className="mx-auto mt-20 grid max-w-6xl gap-6 md:grid-cols-3">
+    <div className="container">
+      {/* Editorial header */}
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+        className="relative max-w-4xl"
+      >
+        <div className="flex items-center gap-3 lg:ml-[4%]">
+          <span className="inline-block h-10 w-10 bg-primary/90 shadow-glow md:h-12 md:w-12" />
+          <span className="text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground/90 md:text-xs">
+            Para quem é a Nexus
+          </span>
+        </div>
+        <h2 className="relative -mt-2 select-none font-display font-bold leading-[0.88] tracking-[-0.05em] text-foreground md:-mt-3">
+          <span className="block text-[clamp(2.75rem,9vw,7rem)]">
+            Tecnologia
+          </span>
+          <span className="block text-[clamp(2.75rem,9vw,7rem)] text-muted-foreground/60">
+            adaptável.
+          </span>
+        </h2>
+        <div className="mt-4 flex items-center gap-3 pl-1 text-[10px] font-medium uppercase tracking-[0.3em] text-muted-foreground md:pl-[4%]">
+          <span className="h-1.5 w-1.5 rounded-full border border-muted-foreground/60" />
+          <span>Setores atendidos</span>
+          <span className="h-px w-24 bg-border" />
+        </div>
+      </motion.div>
+
+      <div className="mt-16 grid gap-4 md:grid-cols-3 md:gap-5">
         {areas.map((a, i) => (
           <motion.div
             key={a.title}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: i * 0.08 }}
-            className="rounded-3xl border border-border bg-card p-10 transition-colors hover:border-foreground/20"
+            transition={{ duration: 0.5, delay: i * 0.08 }}
+            className="group relative overflow-hidden rounded-sm border border-border/60 bg-card/40 p-8 backdrop-blur-sm transition-colors hover:border-primary/40 hover:bg-card/60"
           >
-            <div className="mb-8 inline-flex h-11 w-11 items-center justify-center rounded-full border border-border bg-secondary">
-              <a.icon className="h-5 w-5 text-foreground" />
+            <div className="mb-8 flex items-center justify-between">
+              <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
+                {String(i + 1).padStart(2, "0")} / {String(areas.length).padStart(2, "0")}
+              </span>
+              <a.icon className="h-5 w-5 text-primary" />
             </div>
-            <h3 className="font-display text-2xl font-semibold tracking-tight text-foreground">
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-foreground">
               {a.title}
-            </h3>
-            <p className="mt-3 leading-relaxed text-muted-foreground">{a.desc}</p>
+            </p>
+            <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+              {a.desc}
+            </p>
+            <span className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
           </motion.div>
         ))}
       </div>
