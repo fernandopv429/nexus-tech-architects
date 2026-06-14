@@ -21,20 +21,3 @@ export const prefetchRoute = (path: string) => {
   fn().catch(() => started.delete(pathname));
 };
 
-type IdleDeadline = { didTimeout: boolean; timeRemaining: () => number };
-type IdleCb = (deadline: IdleDeadline) => void;
-type WindowWithIdle = Window & {
-  requestIdleCallback?: (cb: IdleCb, opts?: { timeout: number }) => number;
-};
-
-/** Schedule prefetch of likely-next routes during browser idle time. */
-export const prefetchIdle = (paths: string[]) => {
-  if (typeof window === "undefined") return;
-  const run = () => paths.forEach(prefetchRoute);
-  const w = window as WindowWithIdle;
-  if (typeof w.requestIdleCallback === "function") {
-    w.requestIdleCallback(run, { timeout: 2500 });
-  } else {
-    window.setTimeout(run, 1500);
-  }
-};
