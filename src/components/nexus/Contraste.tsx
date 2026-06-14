@@ -56,14 +56,7 @@ export const Contraste = () => {
           </div>
         </motion.div>
 
-        <div className="mt-10 flex items-center md:hidden" aria-hidden="true">
-          <span className="swipe-hint-track">
-            <span className="swipe-hint-dot" />
-          </span>
-        </div>
-
-
-        <div className="mt-6 -mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-4 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden md:mt-16 md:mx-0 md:grid md:grid-cols-2 md:gap-5 md:overflow-visible md:px-0 md:pb-0">
+        <div className="mt-16 -mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-4 swipe-nudge [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:grid md:grid-cols-2 md:gap-5 md:overflow-visible md:px-0 md:pb-0 md:[animation:none]">
           {/* Evita */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
