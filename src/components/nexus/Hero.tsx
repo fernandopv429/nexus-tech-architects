@@ -26,19 +26,27 @@ export const Hero = ({
         id="top"
         className="relative isolate flex min-h-screen items-center overflow-hidden bg-background pt-24"
       >
-        {/* Background image — confined to the right side, fades to background on the left */}
+        {/* Background image — confined to the right side, smoothly blended into background */}
         <div className="pointer-events-none absolute inset-0 z-0">
           <div
-            className="absolute inset-y-0 right-0 w-full md:w-3/5 lg:w-1/2 bg-cover bg-center opacity-80"
-            style={{ backgroundImage: `url(${heroBg})` }}
+            className="absolute inset-y-0 right-0 w-full md:w-3/5 lg:w-1/2 bg-cover bg-center opacity-70 mix-blend-luminosity"
+            style={{
+              backgroundImage: `url(${heroBg})`,
+              WebkitMaskImage:
+                "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.25) 25%, #000 60%), linear-gradient(to bottom, #000 40%, transparent 100%)",
+              maskImage:
+                "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.25) 25%, #000 60%), linear-gradient(to bottom, #000 40%, transparent 100%)",
+              WebkitMaskComposite: "source-in",
+              maskComposite: "intersect",
+            }}
           />
-          {/* Left-to-right fade so image blends into background */}
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent" />
-          {/* Bottom vignette */}
-          <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-background to-transparent" />
+          {/* Extra soft fade so the image dissolves into background */}
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/70 to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-background via-background/80 to-transparent" />
           {/* Subtle ambient glow */}
           <div className="absolute left-1/4 top-1/3 h-[600px] w-[900px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/10 blur-[160px]" />
         </div>
+
 
 
         {/* Left side rail — small dots */}
