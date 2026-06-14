@@ -26,19 +26,20 @@ export const Hero = ({
         id="top"
         className="relative isolate flex min-h-screen items-center overflow-hidden bg-background pt-24"
       >
-        {/* Background image — right side, fades to black on the left */}
+        {/* Background image — confined to the right side, fades to background on the left */}
         <div className="pointer-events-none absolute inset-0 z-0">
           <div
-            className="absolute inset-0 bg-cover bg-center opacity-90"
+            className="absolute inset-y-0 right-0 w-full md:w-3/5 lg:w-1/2 bg-cover bg-center opacity-80"
             style={{ backgroundImage: `url(${heroBg})` }}
           />
-          {/* Left-to-right fade to background */}
-          <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/50 to-background/20" />
+          {/* Left-to-right fade so image blends into background */}
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent" />
           {/* Bottom vignette */}
           <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-background to-transparent" />
           {/* Subtle ambient glow */}
           <div className="absolute left-1/4 top-1/3 h-[600px] w-[900px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/10 blur-[160px]" />
         </div>
+
 
         {/* Left side rail — small dots */}
         <div className="pointer-events-none absolute left-6 top-1/2 z-10 hidden -translate-y-1/2 flex-col items-center gap-3 md:flex">
