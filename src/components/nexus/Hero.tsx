@@ -130,14 +130,10 @@ export const Hero = ({
                   <div className="mt-7 flex flex-col gap-3 sm:flex-row">
                     <Button variant="pill" size="pill" asChild>
                       <a
-                        href="#calculadora"
-                        onClick={() =>
-                          trackCTAClick(
-                            "Começar",
-                            "hero",
-                            "#calculadora"
-                          )
-                        }
+                        href={WHATSAPP_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() => trackWhatsAppClick("hero-primary")}
                       >
                         Começar
                       </a>
