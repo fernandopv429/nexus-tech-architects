@@ -24,10 +24,10 @@ export const Hero = ({
     <>
       <section
         id="top"
-        className="relative flex min-h-screen items-center overflow-hidden bg-background pt-24"
+        className="relative isolate flex min-h-screen items-center overflow-hidden bg-background pt-24"
       >
         {/* Background image — right side, fades to black on the left */}
-        <div className="pointer-events-none absolute inset-0 -z-10">
+        <div className="pointer-events-none absolute inset-0 z-0">
           <div
             className="absolute inset-0 bg-cover bg-center opacity-90"
             style={{ backgroundImage: `url(${heroBg})` }}
@@ -41,7 +41,7 @@ export const Hero = ({
         </div>
 
         {/* Left side rail — small dots */}
-        <div className="pointer-events-none absolute left-6 top-1/2 hidden -translate-y-1/2 flex-col items-center gap-3 md:flex">
+        <div className="pointer-events-none absolute left-6 top-1/2 z-10 hidden -translate-y-1/2 flex-col items-center gap-3 md:flex">
           <span className="h-12 w-px bg-primary" />
           <span className="h-1 w-1 rounded-full bg-muted-foreground/60" />
           <span className="h-1 w-1 rounded-full bg-muted-foreground/40" />
@@ -49,14 +49,14 @@ export const Hero = ({
         </div>
 
         {/* Right side rail — social initials */}
-        <div className="pointer-events-none absolute right-6 top-1/3 hidden flex-col items-end gap-4 text-[10px] font-medium uppercase tracking-[0.2em] text-muted-foreground/70 md:flex">
+        <div className="pointer-events-none absolute right-6 top-1/3 z-10 hidden flex-col items-end gap-4 text-[10px] font-medium uppercase tracking-[0.2em] text-muted-foreground/70 md:flex">
           <span>Vk</span>
           <span>Tw</span>
           <span>Fb</span>
           <span>In</span>
         </div>
 
-        <div className="container relative">
+        <div className="container relative z-10">
           {/* Top markers — eyebrow tags floating */}
           <div className="relative mb-2 hidden items-center justify-end lg:flex">
             <div className="flex items-center gap-3 text-[11px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
