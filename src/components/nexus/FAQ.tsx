@@ -103,7 +103,7 @@ export const FAQ = () => {
 
             <div className="mt-10 flex flex-col gap-3 sm:flex-row lg:flex-col xl:flex-row">
               <Button variant="pill" size="pill" asChild>
-                <a href="#contato">Falar com nosso time</a>
+                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">Falar com nosso time</a>
               </Button>
               <Button variant="pill-ghost" size="pill" asChild>
                 <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
