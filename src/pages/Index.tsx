@@ -25,9 +25,6 @@ const ContactForm = lazy(() =>
 const Footer = lazy(() =>
   import("@/components/nexus/Footer").then((m) => ({ default: m.Footer }))
 );
-const LeadCaptureModal = lazy(() =>
-  import("@/components/nexus/LeadCaptureModal").then((m) => ({ default: m.LeadCaptureModal }))
-);
 
 const SectionFallback = () => (
   <div className="min-h-[40vh] bg-background" aria-hidden="true" />
@@ -57,9 +54,6 @@ const Index = () => {
         <Footer />
       </Suspense>
       <ChatWidget />
-      <Suspense fallback={null}>
-        <LeadCaptureModal />
-      </Suspense>
     </main>
   );
 };
