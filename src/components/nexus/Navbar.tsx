@@ -4,6 +4,8 @@ import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown, Stethoscope, ShoppingBag, Home, BarChart3, Layers, Award, MessageCircle, Cpu } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { prefetchRoute } from "@/lib/routePrefetch";
+import { MobileBottomNav } from "./MobileBottomNav";
+
 
 const anchorLinks = [
   { href: "/#calculadora", label: "Simulador", icon: BarChart3 },
@@ -20,18 +22,31 @@ const nichePages = [
 
 export const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [hidden, setHidden] = useState(false);
   const [open, setOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
   const isHome = location.pathname === "/";
+  const lastYRef = useRef(0);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
+    const onScroll = () => {
+      const y = window.scrollY;
+      setScrolled(y > 24);
+      // Auto-hide on scroll down, reveal on scroll up (mobile-friendly)
+      if (y > 120 && y > lastYRef.current + 4) {
+        setHidden(true);
+      } else if (y < lastYRef.current - 4 || y < 80) {
+        setHidden(false);
+      }
+      lastYRef.current = y;
+    };
     onScroll();
-    window.addEventListener("scroll", onScroll);
+    window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
 
   useEffect(() => {
     const handleClick = (e: MouseEvent) => {
@@ -61,13 +76,18 @@ export const Navbar = () => {
   };
 
   return (
+    <>
     <header
+
       className={`fixed top-0 z-50 w-full transition-all duration-500 ${
+        hidden && !open ? "-translate-y-full" : "translate-y-0"
+      } ${
         scrolled
           ? "bg-background/80 backdrop-blur-xl border-b border-border/50"
           : "bg-transparent"
       }`}
     >
+
       <div className="container flex h-20 items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center group" onMouseEnter={() => prefetchRoute("/")}>
@@ -287,5 +307,8 @@ export const Navbar = () => {
         )}
       </AnimatePresence>
     </header>
+    <MobileBottomNav />
+    </>
   );
 };
+
