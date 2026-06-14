@@ -109,9 +109,9 @@ const testimonials = [
 
 const Medico = () => {
   useSEO({
-    title: "Agendamento por IA para Clínicas | Recepção 24/7 | Nexus DevHub",
+    title: "Agendamento por IA para Clínicas | Nexus DevHub",
     description:
-      "IA que qualifica pacientes, responde dúvidas clínicas e agenda automaticamente no WhatsApp. Gestão de clínicas e consultórios com CRM completo.",
+      "IA que qualifica pacientes e agenda no WhatsApp. CRM para clínicas com lembretes automáticos e redução de faltas.",
     canonical: "/medico",
     keywords:
       "agendamento por IA, gestão de clínicas, recepção 24/7, WhatsApp para clínica, IA para médicos, redução de faltas, CRM clínica, automação agendamento",

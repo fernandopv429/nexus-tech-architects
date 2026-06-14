@@ -1,0 +1,13 @@
+# Nexus DevHub
+
+> Setor digital terceirizado para empresas brasileiras: CRM com IA, automação (RPA), agente de IA 24/7 no WhatsApp, site de alta conversão, tráfego pago e dashboards. A partir de R$ 1.800/mês.
+
+A Nexus DevHub atua como o departamento de tecnologia das empresas que contrata: assumimos arquitetura, desenvolvimento, RPA, IA e marketing de performance em um único contrato mensal recorrente. Atendemos todo o Brasil.
+
+## Pages
+
+- [Home](/): Visão geral do setor digital terceirizado, calculadora de investimento e FAQ.
+- [Clínicas e Consultórios](/medico): Agendamento por IA, recepção 24/7 no WhatsApp e CRM para saúde.
+- [Varejo e E-commerce](/varejo): Recuperação de carrinhos abandonados com IA no WhatsApp e Instagram.
+- [IoT](/iot): Soluções de automação e monitoramento conectado.
+- [Privacidade](/privacidade): Política de privacidade e tratamento de dados.
