@@ -59,7 +59,7 @@ export const Areas = () => (
         </div>
       </motion.div>
 
-      <div className="mt-16 grid gap-4 md:grid-cols-3 md:gap-5">
+      <div className="mt-16 -mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-4 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:grid md:grid-cols-3 md:gap-5 md:overflow-visible md:px-0 md:pb-0">
         {areas.map((a, i) => (
           <motion.div
             key={a.title}
@@ -67,7 +67,7 @@ export const Areas = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: i * 0.08 }}
-            className="group relative overflow-hidden rounded-sm border border-border/60 bg-card/40 p-8 backdrop-blur-sm transition-colors hover:border-primary/40 hover:bg-card/60"
+            className="group relative w-[78%] shrink-0 snap-start overflow-hidden rounded-sm border border-border/60 bg-card/40 p-8 backdrop-blur-sm transition-colors hover:border-primary/40 hover:bg-card/60 md:w-auto md:shrink"
           >
             <div className="mb-8 flex items-center justify-between">
               <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
@@ -85,6 +85,7 @@ export const Areas = () => (
           </motion.div>
         ))}
       </div>
+
     </div>
   </section>
 );

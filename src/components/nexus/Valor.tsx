@@ -58,7 +58,7 @@ export const Valor = () => (
         </div>
       </motion.div>
 
-      <div className="mt-16 grid gap-4 md:grid-cols-3 md:gap-5">
+      <div className="mt-16 -mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-4 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:grid md:grid-cols-3 md:gap-5 md:overflow-visible md:px-0 md:pb-0">
         {props.map((p, i) => (
           <motion.div
             key={p.title}
@@ -66,7 +66,7 @@ export const Valor = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: i * 0.1 }}
-            className="group relative overflow-hidden rounded-sm border border-border/60 bg-card/40 p-8 backdrop-blur-sm transition-colors hover:border-primary/40 hover:bg-card/60"
+            className="group relative w-[78%] shrink-0 snap-start overflow-hidden rounded-sm border border-border/60 bg-card/40 p-8 backdrop-blur-sm transition-colors hover:border-primary/40 hover:bg-card/60 md:w-auto md:shrink"
           >
             <div className="mb-8 flex items-center justify-between">
               <p.icon className="h-5 w-5 text-primary" />
@@ -84,6 +84,7 @@ export const Valor = () => (
           </motion.div>
         ))}
       </div>
+
     </div>
   </section>
 );

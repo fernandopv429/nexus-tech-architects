@@ -56,14 +56,14 @@ export const Contraste = () => {
           </div>
         </motion.div>
 
-        <div className="mt-16 grid gap-4 md:grid-cols-2 md:gap-5">
+        <div className="mt-16 -mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-4 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:grid md:grid-cols-2 md:gap-5 md:overflow-visible md:px-0 md:pb-0">
           {/* Evita */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="relative overflow-hidden rounded-sm border border-border/60 bg-card/40 p-8 backdrop-blur-sm md:p-10"
+            className="relative w-[85%] shrink-0 snap-start overflow-hidden rounded-sm border border-border/60 bg-card/40 p-8 backdrop-blur-sm md:w-auto md:shrink md:p-10"
           >
             <div className="mb-6 flex items-center justify-between">
               <span className="text-[10px] font-semibold uppercase tracking-[0.28em] text-muted-foreground">
@@ -108,7 +108,7 @@ export const Contraste = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="relative overflow-hidden rounded-sm border border-primary/40 bg-foreground p-8 text-background md:p-10"
+            className="relative w-[85%] shrink-0 snap-start overflow-hidden rounded-sm border border-primary/40 bg-foreground p-8 text-background md:w-auto md:shrink md:p-10"
           >
             <span className="absolute left-0 top-0 h-1 w-full bg-primary/90" />
             <div className="mb-6 flex items-center justify-between">
