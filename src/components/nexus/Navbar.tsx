@@ -305,7 +305,12 @@ export const Navbar = () => {
                 className="mt-4 rounded-full bg-primary text-primary-foreground hover:bg-primary/90 font-medium shadow-glow"
                 asChild
               >
-                <a href="#contato" onClick={(e) => { handleAnchorClick(e, "/#contato"); setOpen(false); }}>
+                <a
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => { trackWhatsAppClick("navbar"); setOpen(false); }}
+                >
                   Falar com nosso time
                 </a>
               </Button>
