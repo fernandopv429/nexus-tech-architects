@@ -133,7 +133,7 @@ export const Hero = ({
                         href={WHATSAPP_URL}
                         target="_blank"
                         rel="noopener noreferrer"
-                        onClick={() => trackWhatsAppClick("hero-primary")}
+                        onClick={() => trackWhatsAppClick("hero")}
                       >
                         Começar
                       </a>
