@@ -133,3 +133,31 @@
   }
 }
 
+/* Subtle horizontal swipe hint */
+@keyframes swipe-hint {
+  0%   { transform: translateX(-6px); opacity: 0; }
+  20%  { opacity: 1; }
+  80%  { opacity: 1; }
+  100% { transform: translateX(18px); opacity: 0; }
+}
+.swipe-hint-track {
+  position: relative;
+  display: inline-block;
+  width: 28px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, hsl(var(--border)), transparent);
+  overflow: visible;
+}
+.swipe-hint-dot {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 4px;
+  height: 4px;
+  margin-top: -2px;
+  border-radius: 9999px;
+  background: hsl(var(--primary) / 0.8);
+  animation: swipe-hint 1.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+
