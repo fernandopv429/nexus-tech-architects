@@ -305,5 +305,8 @@ export const Navbar = () => {
         )}
       </AnimatePresence>
     </header>
+    <MobileBottomNav />
+    </>
   );
 };
+
