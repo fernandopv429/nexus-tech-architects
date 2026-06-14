@@ -76,7 +76,9 @@ export const Navbar = () => {
   };
 
   return (
+    <>
     <header
+
       className={`fixed top-0 z-50 w-full transition-all duration-500 ${
         hidden && !open ? "-translate-y-full" : "translate-y-0"
       } ${
