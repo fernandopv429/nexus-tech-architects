@@ -106,7 +106,7 @@ export const trackCTAClick = (label: string, location: string, href?: string) =>
   trackEvent("cta_click", { cta_label: label, cta_location: location, cta_href: href });
 
 export const trackWhatsAppClick = (
-  source: "floating" | "hero" | "footer" | "contact" | "qualified",
+  source: "floating" | "hero" | "footer" | "contact" | "qualified" | "navbar" | "faq",
   segmento?: string,
   porte?: string,
 ) => trackEvent("whatsapp_click", { source, segmento, porte });
