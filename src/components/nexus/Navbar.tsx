@@ -5,6 +5,8 @@ import { Menu, X, ChevronDown, Stethoscope, ShoppingBag, Home, BarChart3, Layers
 import { motion, AnimatePresence } from "framer-motion";
 import { prefetchRoute } from "@/lib/routePrefetch";
 import { MobileBottomNav } from "./MobileBottomNav";
+import { WHATSAPP_URL } from "./WhatsAppButton";
+import { trackWhatsAppClick } from "@/lib/analytics";
 
 
 const anchorLinks = [
