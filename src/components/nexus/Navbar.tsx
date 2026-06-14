@@ -4,6 +4,8 @@ import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown, Stethoscope, ShoppingBag, Home, BarChart3, Layers, Award, MessageCircle, Cpu } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { prefetchRoute } from "@/lib/routePrefetch";
+import { MobileBottomNav } from "./MobileBottomNav";
+
 
 const anchorLinks = [
   { href: "/#calculadora", label: "Simulador", icon: BarChart3 },
