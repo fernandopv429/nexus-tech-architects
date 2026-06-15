@@ -56,16 +56,8 @@ const buildUrl = (segmento?: string, porte?: string) => {
   return `https://wa.me/${PHONE}?text=${encodeURIComponent(text)}`;
 };
 
-// Default URL for direct/header links — getter para capturar gclid em runtime
-export const WHATSAPP_URL: string = new Proxy({ toString: () => buildUrl() } as any, {
-  get(target, prop) {
-    const url = buildUrl();
-    if (prop === "toString" || prop === Symbol.toPrimitive || prop === "valueOf") {
-      return () => url;
-    }
-    return (url as any)[prop];
-  },
-}) as unknown as string;
+// Default URL for direct/header links — capturado no load (gclid persiste em sessionStorage)
+export const WHATSAPP_URL: string = buildUrl();
 
 export const WhatsAppFloating = () => {
   const [open, setOpen] = useState(false);
