@@ -28,15 +28,44 @@ const portes = [
   { id: "200+", label: "200+" },
 ];
 
+// Captura e persiste o gclid (Google Ads) na primeira visita
+const getGclid = (): string | null => {
+  if (typeof window === "undefined") return null;
+  try {
+    const fromUrl = new URLSearchParams(window.location.search).get("gclid");
+    if (fromUrl) {
+      window.sessionStorage.setItem("gclid", fromUrl);
+      return fromUrl;
+    }
+    return window.sessionStorage.getItem("gclid");
+  } catch {
+    return null;
+  }
+};
+
 const buildUrl = (segmento?: string, porte?: string) => {
-  const seg = segmentos.find((s) => s.id === segmento)?.label ?? "—";
-  const por = portes.find((p) => p.id === porte)?.label ?? "—";
-  const text = `Olá Nexus! Quero um diagnóstico de automação.\n\n• Segmento: ${seg}\n• Porte: ${por}\n\nPodem me chamar?`;
+  const gclid = getGclid();
+  let text: string;
+  if (gclid && !segmento && !porte) {
+    text = `Olá! Gostaria de um orçamento para automação. (Ref: G-${gclid})`;
+  } else {
+    const seg = segmentos.find((s) => s.id === segmento)?.label ?? "—";
+    const por = portes.find((p) => p.id === porte)?.label ?? "—";
+    text = `Olá Nexus! Quero um diagnóstico de automação.\n\n• Segmento: ${seg}\n• Porte: ${por}\n\nPodem me chamar?${gclid ? `\n\n(Ref: G-${gclid})` : ""}`;
+  }
   return `https://wa.me/${PHONE}?text=${encodeURIComponent(text)}`;
 };
 
-// Default URL for direct/header links
-export const WHATSAPP_URL = buildUrl();
+// Default URL for direct/header links — getter para capturar gclid em runtime
+export const WHATSAPP_URL: string = new Proxy({ toString: () => buildUrl() } as any, {
+  get(target, prop) {
+    const url = buildUrl();
+    if (prop === "toString" || prop === Symbol.toPrimitive || prop === "valueOf") {
+      return () => url;
+    }
+    return (url as any)[prop];
+  },
+}) as unknown as string;
 
 export const WhatsAppFloating = () => {
   const [open, setOpen] = useState(false);
