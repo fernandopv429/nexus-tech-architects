@@ -154,20 +154,30 @@ export const WhatsAppGate = () => {
 
   return (
     <Dialog open={open} onOpenChange={handleOpenChange}>
-      <DialogContent className="sm:max-w-md">
-        <DialogHeader>
-          <DialogTitle className="font-display text-2xl">
-            Antes de abrir o WhatsApp
-          </DialogTitle>
-          <DialogDescription>
-            Deixe seu contato pra nosso time já chegar com a proposta certa.
-          </DialogDescription>
-        </DialogHeader>
+      <DialogContent className="w-[calc(100vw-1.5rem)] max-w-md p-0 overflow-hidden rounded-2xl border-emerald-500/20 sm:rounded-3xl">
+        {/* Header com gradiente */}
+        <div className="relative bg-gradient-to-br from-emerald-500 via-emerald-600 to-emerald-700 px-5 py-6 sm:px-7 sm:py-7 text-white">
+          <div className="absolute inset-0 opacity-20 [background:radial-gradient(circle_at_top_right,white,transparent_60%)]" />
+          <div className="relative flex items-start gap-3">
+            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white/15 backdrop-blur-sm ring-1 ring-white/30">
+              <MessageCircle className="h-5 w-5" />
+            </div>
+            <div className="min-w-0">
+              <DialogTitle className="font-display text-xl sm:text-2xl leading-tight text-white">
+                Falar com a Nexus
+              </DialogTitle>
+              <DialogDescription className="mt-1 text-sm text-white/85">
+                Deixe seu contato e chegamos com a proposta certa.
+              </DialogDescription>
+            </div>
+          </div>
+        </div>
 
-        <form onSubmit={handleSubmit} className="space-y-4 pt-2">
+        {/* Formulário */}
+        <form onSubmit={handleSubmit} className="space-y-4 px-5 py-5 sm:px-7 sm:py-6">
           <div className="space-y-1.5">
-            <Label htmlFor="wa-empresa" className="text-xs uppercase tracking-wider text-muted-foreground">
-              Nome da empresa ou negócio
+            <Label htmlFor="wa-empresa" className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+              Empresa ou negócio
             </Label>
             <Input
               id="wa-empresa"
@@ -177,6 +187,7 @@ export const WhatsAppGate = () => {
               placeholder="Ex.: Padaria do João"
               maxLength={100}
               aria-invalid={!!errors.empresa}
+              className="h-12 text-base rounded-xl focus-visible:ring-emerald-500"
             />
             {errors.empresa && (
               <p className="text-xs text-destructive">{errors.empresa}</p>
@@ -184,7 +195,7 @@ export const WhatsAppGate = () => {
           </div>
 
           <div className="space-y-1.5">
-            <Label htmlFor="wa-telefone" className="text-xs uppercase tracking-wider text-muted-foreground">
+            <Label htmlFor="wa-telefone" className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
               Telefone (WhatsApp)
             </Label>
             <Input
@@ -196,6 +207,7 @@ export const WhatsAppGate = () => {
               placeholder="(11) 99999-9999"
               maxLength={20}
               aria-invalid={!!errors.telefone}
+              className="h-12 text-base rounded-xl focus-visible:ring-emerald-500"
             />
             {errors.telefone && (
               <p className="text-xs text-destructive">{errors.telefone}</p>
@@ -204,14 +216,16 @@ export const WhatsAppGate = () => {
 
           <Button
             type="submit"
-            variant="pill"
-            size="pill"
             disabled={submitting}
-            className="w-full bg-emerald-500 text-white hover:bg-emerald-600"
+            className="w-full h-12 rounded-xl bg-emerald-500 text-white hover:bg-emerald-600 shadow-lg shadow-emerald-500/30 text-base font-semibold gap-2"
           >
-            <MessageCircle className="h-4 w-4" />
-            Abrir WhatsApp
+            <MessageCircle className="h-5 w-5" />
+            {submitting ? "Abrindo..." : "Abrir WhatsApp"}
           </Button>
+
+          <p className="text-center text-[11px] text-muted-foreground">
+            Resposta em minutos · Sem spam
+          </p>
         </form>
       </DialogContent>
     </Dialog>
