@@ -55,6 +55,7 @@ const Index = () => {
         <Footer />
       </Suspense>
       <ChatWidget />
+      <WhatsAppFloating />
     </main>
   );
 };
