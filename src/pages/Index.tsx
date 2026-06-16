@@ -2,6 +2,7 @@ import { lazy, Suspense } from "react";
 import { Navbar } from "@/components/nexus/Navbar";
 import { Hero } from "@/components/nexus/Hero";
 import { ChatWidget } from "@/components/nexus/ChatWidget";
+import { WhatsAppFloating } from "@/components/nexus/WhatsAppButton";
 import { useSEO } from "@/hooks/useSEO";
 
 const Contraste = lazy(() =>
@@ -54,6 +55,7 @@ const Index = () => {
         <Footer />
       </Suspense>
       <ChatWidget />
+      <WhatsAppFloating />
     </main>
   );
 };
