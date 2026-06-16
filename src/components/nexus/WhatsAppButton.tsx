@@ -227,26 +227,3 @@ export const WhatsAppGate = () => {
   );
 };
 
-export const WhatsAppFloating = () => {
-  const handleOpen = () => dispatchOpen("floating");
-
-  return (
-    <motion.button
-      type="button"
-      aria-label="Falar no WhatsApp"
-      onClick={handleOpen}
-      initial={{ scale: 0, opacity: 0 }}
-      animate={{ scale: 1, opacity: 1 }}
-      transition={{ delay: 1.2, type: "spring" }}
-      className="fixed bottom-6 right-6 z-50 group"
-    >
-      <span className="absolute inset-0 rounded-full bg-emerald-500/40 animate-pulse-glow" />
-      <span className="relative flex h-14 w-14 items-center justify-center rounded-full bg-emerald-500 text-white shadow-elegant transition-transform group-hover:scale-110">
-        <MessageCircle className="h-6 w-6" />
-      </span>
-      <span className="pointer-events-none absolute right-full top-1/2 mr-3 -translate-y-1/2 whitespace-nowrap rounded-lg glass px-3 py-1.5 text-sm font-medium opacity-0 transition-opacity group-hover:opacity-100">
-        Diagnóstico no WhatsApp
-      </span>
-    </motion.button>
-  );
-};
