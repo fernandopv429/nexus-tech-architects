@@ -154,29 +154,28 @@ export const WhatsAppGate = () => {
 
   return (
     <Dialog open={open} onOpenChange={handleOpenChange}>
-      <DialogContent className="w-[calc(100vw-1.5rem)] max-w-md p-0 overflow-hidden rounded-2xl border-emerald-500/20 sm:rounded-3xl">
-        {/* Header com gradiente */}
-        <div className="relative bg-gradient-to-br from-emerald-500 via-emerald-600 to-emerald-700 px-5 py-6 sm:px-7 sm:py-7 text-white">
-          <div className="absolute inset-0 opacity-20 [background:radial-gradient(circle_at_top_right,white,transparent_60%)]" />
-          <div className="relative flex items-start gap-3">
-            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white/15 backdrop-blur-sm ring-1 ring-white/30">
-              <MessageCircle className="h-5 w-5" />
+      <DialogContent className="w-[calc(100vw-2rem)] max-w-sm gap-0 overflow-hidden rounded-2xl border border-slate-700/60 bg-slate-900/95 p-0 text-slate-100 shadow-2xl backdrop-blur-sm sm:rounded-2xl">
+        {/* Header minimal */}
+        <div className="px-5 pt-5 sm:px-6 sm:pt-6">
+          <div className="flex items-center gap-2.5">
+            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-slate-800 text-emerald-400 ring-1 ring-slate-700/50">
+              <MessageCircle className="h-4 w-4" />
             </div>
-            <div className="min-w-0">
-              <DialogTitle className="font-display text-xl sm:text-2xl leading-tight text-white">
+            <div>
+              <DialogTitle className="text-lg font-semibold tracking-tight text-slate-50">
                 Falar com a Nexus
               </DialogTitle>
-              <DialogDescription className="mt-1 text-sm text-white/85">
-                Deixe seu contato e chegamos com a proposta certa.
+              <DialogDescription className="text-xs text-slate-400">
+                Preencha para abrir o WhatsApp
               </DialogDescription>
             </div>
           </div>
         </div>
 
-        {/* Formulário */}
-        <form onSubmit={handleSubmit} className="space-y-4 px-5 py-5 sm:px-7 sm:py-6">
-          <div className="space-y-1.5">
-            <Label htmlFor="wa-empresa" className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+        {/* Formulário simples */}
+        <form onSubmit={handleSubmit} className="space-y-3.5 px-5 pb-5 pt-3 sm:px-6 sm:pb-6">
+          <div className="space-y-1">
+            <Label htmlFor="wa-empresa" className="text-xs font-medium text-slate-400">
               Empresa ou negócio
             </Label>
             <Input
@@ -187,15 +186,15 @@ export const WhatsAppGate = () => {
               placeholder="Ex.: Padaria do João"
               maxLength={100}
               aria-invalid={!!errors.empresa}
-              className="h-12 text-base rounded-xl focus-visible:ring-emerald-500"
+              className="h-11 border-slate-700/60 bg-slate-800/60 text-sm text-slate-100 placeholder:text-slate-500 focus-visible:ring-1 focus-visible:ring-emerald-500/40 focus-visible:ring-offset-0 rounded-lg"
             />
             {errors.empresa && (
-              <p className="text-xs text-destructive">{errors.empresa}</p>
+              <p className="text-xs text-red-400">{errors.empresa}</p>
             )}
           </div>
 
-          <div className="space-y-1.5">
-            <Label htmlFor="wa-telefone" className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+          <div className="space-y-1">
+            <Label htmlFor="wa-telefone" className="text-xs font-medium text-slate-400">
               Telefone (WhatsApp)
             </Label>
             <Input
@@ -207,25 +206,21 @@ export const WhatsAppGate = () => {
               placeholder="(11) 99999-9999"
               maxLength={20}
               aria-invalid={!!errors.telefone}
-              className="h-12 text-base rounded-xl focus-visible:ring-emerald-500"
+              className="h-11 border-slate-700/60 bg-slate-800/60 text-sm text-slate-100 placeholder:text-slate-500 focus-visible:ring-1 focus-visible:ring-emerald-500/40 focus-visible:ring-offset-0 rounded-lg"
             />
             {errors.telefone && (
-              <p className="text-xs text-destructive">{errors.telefone}</p>
+              <p className="text-xs text-red-400">{errors.telefone}</p>
             )}
           </div>
 
           <Button
             type="submit"
             disabled={submitting}
-            className="w-full h-12 rounded-xl bg-emerald-500 text-white hover:bg-emerald-600 shadow-lg shadow-emerald-500/30 text-base font-semibold gap-2"
+            className="w-full h-11 rounded-lg bg-slate-100 text-slate-900 hover:bg-white text-sm font-medium gap-2 transition-colors"
           >
-            <MessageCircle className="h-5 w-5" />
+            <MessageCircle className="h-4 w-4" />
             {submitting ? "Abrindo..." : "Abrir WhatsApp"}
           </Button>
-
-          <p className="text-center text-[11px] text-muted-foreground">
-            Resposta em minutos · Sem spam
-          </p>
         </form>
       </DialogContent>
     </Dialog>
