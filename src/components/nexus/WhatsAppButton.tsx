@@ -1,11 +1,9 @@
 import { MessageCircle } from "lucide-react";
-import { motion } from "framer-motion";
 import { useCallback, useEffect, useState } from "react";
 import { z } from "zod";
 import {
   Dialog,
   DialogContent,
-  DialogHeader,
   DialogTitle,
   DialogDescription,
 } from "@/components/ui/dialog";
