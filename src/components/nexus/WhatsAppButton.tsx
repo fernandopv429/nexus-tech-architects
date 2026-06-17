@@ -1,4 +1,3 @@
-import { MessageCircle } from "lucide-react";
 import { useCallback, useEffect, useState } from "react";
 import { z } from "zod";
 import {
@@ -10,51 +9,50 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { trackWhatsAppClick, trackEvent, forwardLeadToWebhook } from "@/lib/analytics";
+import { trackWhatsAppClick, trackEvent } from "@/lib/analytics";
 
 const PHONE = "5587996487067";
-
-// Captura e persiste o gclid (Google Ads) na primeira visita
-const getGclid = (): string | null => {
-  if (typeof window === "undefined") return null;
-  try {
-    const fromUrl = new URLSearchParams(window.location.search).get("gclid");
-    if (fromUrl) {
-      window.sessionStorage.setItem("gclid", fromUrl);
-      return fromUrl;
-    }
-    return window.sessionStorage.getItem("gclid");
-  } catch {
-    return null;
-  }
-};
-
-const buildDefaultText = () => {
-  const gclid = getGclid();
-  return gclid
-    ? `Olá! Gostaria de um orçamento para automação. (Ref: G-${gclid})`
-    : `Olá Nexus! Quero um diagnóstico de automação. Podem me chamar?`;
-};
+const WEBHOOK_URL = "https://n8n.nexusdevhub.com/webhook/clic";
+const DEFAULT_MESSAGE =
+  "Olá Nexus! Preenchi o formulário no site e gostaria de um diagnóstico de automação.";
 
 const buildUrl = (text: string) =>
   `https://wa.me/${PHONE}?text=${encodeURIComponent(text)}`;
 
 // URL padrão exibida nos hrefs (clique é interceptado pelo Gate)
-export const WHATSAPP_URL: string = buildUrl(buildDefaultText());
+export const WHATSAPP_URL: string = buildUrl(DEFAULT_MESSAGE);
 
-// Validação dos campos do mini formulário
+// Hook: captura o gclid da URL e persiste em sessionStorage
+const useGclid = () => {
+  const [gclid, setGclid] = useState<string>("");
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    try {
+      const fromUrl = new URLSearchParams(window.location.search).get("gclid");
+      if (fromUrl) {
+        window.sessionStorage.setItem("gclid", fromUrl);
+        setGclid(fromUrl);
+        return;
+      }
+      const stored = window.sessionStorage.getItem("gclid");
+      setGclid(stored ?? "");
+    } catch {
+      setGclid("");
+    }
+  }, []);
+  return gclid;
+};
+
+// Validação: nome + whatsapp (apenas dígitos, com DDD)
 const leadSchema = z.object({
-  empresa: z
+  nome: z
     .string()
     .trim()
-    .min(2, { message: "Informe o nome da empresa" })
+    .min(2, { message: "Informe seu nome" })
     .max(100, { message: "Máximo de 100 caracteres" }),
-  telefone: z
+  whatsapp: z
     .string()
-    .trim()
-    .min(8, { message: "Telefone inválido" })
-    .max(20, { message: "Máximo de 20 caracteres" })
-    .regex(/^[\d\s()+\-.]+$/, { message: "Use apenas números e ( ) + -" }),
+    .regex(/^\d{10,13}$/, { message: "Informe DDD + número (somente dígitos)" }),
 });
 
 // Evento global para abrir o mini formulário antes do WhatsApp
@@ -65,17 +63,24 @@ const dispatchOpen = (source: string) => {
   window.dispatchEvent(new CustomEvent(OPEN_EVENT, { detail: { source } }));
 };
 
-/**
- * Mounted once globally. Intercepts cliques em qualquer <a href="wa.me/...">
- * e abre um mini formulário (Empresa + Telefone) antes de redirecionar.
- */
+// Formata telefone BR: (11) 99999-9999
+const formatPhone = (raw: string) => {
+  const d = raw.replace(/\D/g, "").slice(0, 11);
+  if (d.length <= 2) return d.length ? `(${d}` : "";
+  if (d.length <= 6) return `(${d.slice(0, 2)}) ${d.slice(2)}`;
+  if (d.length <= 10)
+    return `(${d.slice(0, 2)}) ${d.slice(2, 6)}-${d.slice(6)}`;
+  return `(${d.slice(0, 2)}) ${d.slice(2, 7)}-${d.slice(7)}`;
+};
+
 export const WhatsAppGate = () => {
   const [open, setOpen] = useState(false);
   const [source, setSource] = useState<string>("link");
-  const [empresa, setEmpresa] = useState("");
-  const [telefone, setTelefone] = useState("");
-  const [errors, setErrors] = useState<{ empresa?: string; telefone?: string }>({});
+  const [nome, setNome] = useState("");
+  const [whatsapp, setWhatsapp] = useState("");
+  const [errors, setErrors] = useState<{ nome?: string; whatsapp?: string }>({});
   const [submitting, setSubmitting] = useState(false);
+  const gclid = useGclid();
 
   // Intercepta cliques em anchors do WhatsApp
   useEffect(() => {
@@ -107,8 +112,8 @@ export const WhatsAppGate = () => {
   }, []);
 
   const reset = () => {
-    setEmpresa("");
-    setTelefone("");
+    setNome("");
+    setWhatsapp("");
     setErrors({});
     setSubmitting(false);
   };
@@ -119,41 +124,46 @@ export const WhatsAppGate = () => {
   };
 
   const handleSubmit = useCallback(
-    (e?: React.FormEvent) => {
+    async (e?: React.FormEvent) => {
       e?.preventDefault();
-      const parsed = leadSchema.safeParse({ empresa, telefone });
+      const onlyDigits = whatsapp.replace(/\D/g, "");
+      const parsed = leadSchema.safeParse({ nome, whatsapp: onlyDigits });
       if (!parsed.success) {
-        const fieldErrors: { empresa?: string; telefone?: string } = {};
+        const fieldErrors: { nome?: string; whatsapp?: string } = {};
         for (const issue of parsed.error.issues) {
-          const key = issue.path[0] as "empresa" | "telefone";
+          const key = issue.path[0] as "nome" | "whatsapp";
           if (!fieldErrors[key]) fieldErrors[key] = issue.message;
         }
         setErrors(fieldErrors);
         return;
       }
       setSubmitting(true);
-      const gclid = getGclid();
-      const text = `Olá Nexus! Quero um diagnóstico de automação.\n\n• Empresa: ${parsed.data.empresa}\n• Telefone: ${parsed.data.telefone}${gclid ? `\n\n(Ref: G-${gclid})` : ""}`;
+
+      const payload = {
+        nome: parsed.data.nome,
+        whatsapp: parsed.data.whatsapp,
+        gclid: gclid || "",
+      };
+
+      try {
+        await fetch(WEBHOOK_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        });
+      } catch {
+        // segue o fluxo mesmo se o webhook falhar
+      }
 
       trackWhatsAppClick("qualified", source);
-      forwardLeadToWebhook("popup", {
-        empresa: parsed.data.empresa,
-        telefone: parsed.data.telefone,
-        source,
-        gclid,
-      });
-
-      window.open(buildUrl(text), "_blank", "noopener,noreferrer");
-      setOpen(false);
-      reset();
+      window.location.href = buildUrl(DEFAULT_MESSAGE);
     },
-    [empresa, telefone, source],
+    [nome, whatsapp, gclid, source],
   );
 
   return (
     <Dialog open={open} onOpenChange={handleOpenChange}>
       <DialogContent className="w-[calc(100vw-2rem)] max-w-md gap-0 overflow-hidden rounded-3xl border border-border/60 bg-background/50 p-0 text-foreground shadow-2xl backdrop-blur-2xl sm:w-full">
-        {/* Header centralizado */}
         <div className="px-6 pt-8 text-center sm:px-8 sm:pt-10">
           <DialogTitle className="text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
             Falar com a Nexus
@@ -163,44 +173,43 @@ export const WhatsAppGate = () => {
           </DialogDescription>
         </div>
 
-        {/* Formulário */}
         <form onSubmit={handleSubmit} className="space-y-5 px-6 pb-8 pt-6 sm:px-8 sm:pb-10 sm:pt-8">
           <div className="space-y-2">
-            <Label htmlFor="wa-empresa" className="text-sm font-medium text-foreground">
-              Empresa ou negócio
+            <Label htmlFor="wa-nome" className="text-sm font-medium text-foreground">
+              Nome
             </Label>
             <Input
-              id="wa-empresa"
+              id="wa-nome"
               autoFocus
-              value={empresa}
-              onChange={(e) => setEmpresa(e.target.value)}
-              placeholder="Ex.: Padaria do João"
+              value={nome}
+              onChange={(e) => setNome(e.target.value)}
+              placeholder="Seu nome"
               maxLength={100}
-              aria-invalid={!!errors.empresa}
+              aria-invalid={!!errors.nome}
               className="h-14 border-border/60 bg-input/60 text-base text-foreground placeholder:text-muted-foreground focus-visible:ring-1 focus-visible:ring-ring/40 focus-visible:ring-offset-0 rounded-xl"
             />
-            {errors.empresa && (
-              <p className="text-xs text-destructive">{errors.empresa}</p>
+            {errors.nome && (
+              <p className="text-xs text-destructive">{errors.nome}</p>
             )}
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="wa-telefone" className="text-sm font-medium text-foreground">
-              Telefone
+            <Label htmlFor="wa-whatsapp" className="text-sm font-medium text-foreground">
+              WhatsApp
             </Label>
             <Input
-              id="wa-telefone"
+              id="wa-whatsapp"
               type="tel"
-              inputMode="tel"
-              value={telefone}
-              onChange={(e) => setTelefone(e.target.value)}
+              inputMode="numeric"
+              value={whatsapp}
+              onChange={(e) => setWhatsapp(formatPhone(e.target.value))}
               placeholder="(11) 99999-9999"
-              maxLength={20}
-              aria-invalid={!!errors.telefone}
+              maxLength={16}
+              aria-invalid={!!errors.whatsapp}
               className="h-14 border-border/60 bg-input/60 text-base text-foreground placeholder:text-muted-foreground focus-visible:ring-1 focus-visible:ring-ring/40 focus-visible:ring-offset-0 rounded-xl"
             />
-            {errors.telefone && (
-              <p className="text-xs text-destructive">{errors.telefone}</p>
+            {errors.whatsapp && (
+              <p className="text-xs text-destructive">{errors.whatsapp}</p>
             )}
           </div>
 
@@ -210,7 +219,7 @@ export const WhatsAppGate = () => {
               disabled={submitting}
               className="w-full h-14 rounded-xl bg-primary text-primary-foreground hover:bg-primary/90 text-base font-medium transition-colors"
             >
-              {submitting ? "Abrindo..." : "Abrir WhatsApp"}
+              {submitting ? "Enviando..." : "Abrir WhatsApp"}
             </Button>
           </div>
         </form>
@@ -218,4 +227,3 @@ export const WhatsAppGate = () => {
     </Dialog>
   );
 };
-
