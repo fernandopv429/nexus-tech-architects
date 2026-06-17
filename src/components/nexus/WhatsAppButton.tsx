@@ -152,13 +152,13 @@ export const WhatsAppGate = () => {
 
   return (
     <Dialog open={open} onOpenChange={handleOpenChange}>
-      <DialogContent className="w-[calc(100vw-2rem)] max-w-md gap-0 overflow-hidden rounded-3xl border border-slate-700/50 bg-slate-900/95 p-0 text-slate-100 shadow-2xl backdrop-blur-xl sm:w-full">
+      <DialogContent className="w-[calc(100vw-2rem)] max-w-md gap-0 overflow-hidden rounded-3xl border border-border/60 bg-background/70 p-0 text-foreground shadow-2xl backdrop-blur-2xl sm:w-full">
         {/* Header centralizado */}
         <div className="px-6 pt-8 text-center sm:px-8 sm:pt-10">
-          <DialogTitle className="text-2xl font-semibold tracking-tight text-white sm:text-3xl">
+          <DialogTitle className="text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
             Falar com a Nexus
           </DialogTitle>
-          <DialogDescription className="mt-1 text-sm text-slate-400">
+          <DialogDescription className="mt-1 text-sm text-muted-foreground">
             Preencha os dados abaixo
           </DialogDescription>
         </div>
@@ -166,7 +166,7 @@ export const WhatsAppGate = () => {
         {/* Formulário */}
         <form onSubmit={handleSubmit} className="space-y-5 px-6 pb-8 pt-6 sm:px-8 sm:pb-10 sm:pt-8">
           <div className="space-y-2">
-            <Label htmlFor="wa-empresa" className="text-sm font-medium text-slate-100">
+            <Label htmlFor="wa-empresa" className="text-sm font-medium text-foreground">
               Empresa ou negócio
             </Label>
             <Input
@@ -177,15 +177,15 @@ export const WhatsAppGate = () => {
               placeholder="Ex.: Padaria do João"
               maxLength={100}
               aria-invalid={!!errors.empresa}
-              className="h-14 border-slate-700/60 bg-slate-800/60 text-base text-slate-100 placeholder:text-slate-500 focus-visible:ring-1 focus-visible:ring-emerald-500/40 focus-visible:ring-offset-0 rounded-xl"
+              className="h-14 border-border/60 bg-input/60 text-base text-foreground placeholder:text-muted-foreground focus-visible:ring-1 focus-visible:ring-ring/40 focus-visible:ring-offset-0 rounded-xl"
             />
             {errors.empresa && (
-              <p className="text-xs text-red-400">{errors.empresa}</p>
+              <p className="text-xs text-destructive">{errors.empresa}</p>
             )}
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="wa-telefone" className="text-sm font-medium text-slate-100">
+            <Label htmlFor="wa-telefone" className="text-sm font-medium text-foreground">
               Telefone
             </Label>
             <Input
@@ -197,10 +197,10 @@ export const WhatsAppGate = () => {
               placeholder="(11) 99999-9999"
               maxLength={20}
               aria-invalid={!!errors.telefone}
-              className="h-14 border-slate-700/60 bg-slate-800/60 text-base text-slate-100 placeholder:text-slate-500 focus-visible:ring-1 focus-visible:ring-emerald-500/40 focus-visible:ring-offset-0 rounded-xl"
+              className="h-14 border-border/60 bg-input/60 text-base text-foreground placeholder:text-muted-foreground focus-visible:ring-1 focus-visible:ring-ring/40 focus-visible:ring-offset-0 rounded-xl"
             />
             {errors.telefone && (
-              <p className="text-xs text-red-400">{errors.telefone}</p>
+              <p className="text-xs text-destructive">{errors.telefone}</p>
             )}
           </div>
 
@@ -208,7 +208,7 @@ export const WhatsAppGate = () => {
             <Button
               type="submit"
               disabled={submitting}
-              className="w-full h-14 rounded-xl bg-white text-slate-900 hover:bg-slate-100 text-base font-medium transition-colors"
+              className="w-full h-14 rounded-xl bg-primary text-primary-foreground hover:bg-primary/90 text-base font-medium transition-colors"
             >
               {submitting ? "Abrindo..." : "Abrir WhatsApp"}
             </Button>
