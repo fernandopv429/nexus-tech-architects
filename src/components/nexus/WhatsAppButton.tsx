@@ -152,7 +152,7 @@ export const WhatsAppGate = () => {
 
   return (
     <Dialog open={open} onOpenChange={handleOpenChange}>
-      <DialogContent className="w-[calc(100vw-2rem)] max-w-md gap-0 overflow-hidden rounded-3xl border border-border/60 bg-background/70 p-0 text-foreground shadow-2xl backdrop-blur-2xl sm:w-full">
+      <DialogContent className="w-[calc(100vw-2rem)] max-w-md gap-0 overflow-hidden rounded-3xl border border-border/60 bg-background/50 p-0 text-foreground shadow-2xl backdrop-blur-2xl sm:w-full">
         {/* Header centralizado */}
         <div className="px-6 pt-8 text-center sm:px-8 sm:pt-10">
           <DialogTitle className="text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
