@@ -152,28 +152,21 @@ export const WhatsAppGate = () => {
 
   return (
     <Dialog open={open} onOpenChange={handleOpenChange}>
-      <DialogContent className="w-[calc(100vw-2rem)] max-w-sm gap-0 overflow-hidden rounded-2xl border border-slate-700/60 bg-slate-900/95 p-0 text-slate-100 shadow-2xl backdrop-blur-sm sm:rounded-2xl">
-        {/* Header minimal */}
-        <div className="px-5 pt-5 sm:px-6 sm:pt-6">
-          <div className="flex items-center gap-2.5">
-            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-slate-800 text-emerald-400 ring-1 ring-slate-700/50">
-              <MessageCircle className="h-4 w-4" />
-            </div>
-            <div>
-              <DialogTitle className="text-lg font-semibold tracking-tight text-slate-50">
-                Falar com a Nexus
-              </DialogTitle>
-              <DialogDescription className="text-xs text-slate-400">
-                Preencha para abrir o WhatsApp
-              </DialogDescription>
-            </div>
-          </div>
+      <DialogContent className="w-[calc(100vw-2rem)] max-w-md gap-0 overflow-hidden rounded-3xl border border-slate-700/50 bg-slate-900/95 p-0 text-slate-100 shadow-2xl backdrop-blur-xl sm:w-full">
+        {/* Header centralizado */}
+        <div className="px-6 pt-8 text-center sm:px-8 sm:pt-10">
+          <DialogTitle className="text-2xl font-semibold tracking-tight text-white sm:text-3xl">
+            Falar com a Nexus
+          </DialogTitle>
+          <DialogDescription className="mt-1 text-sm text-slate-400">
+            Preencha os dados abaixo
+          </DialogDescription>
         </div>
 
-        {/* Formulário simples */}
-        <form onSubmit={handleSubmit} className="space-y-3.5 px-5 pb-5 pt-3 sm:px-6 sm:pb-6">
-          <div className="space-y-1">
-            <Label htmlFor="wa-empresa" className="text-xs font-medium text-slate-400">
+        {/* Formulário */}
+        <form onSubmit={handleSubmit} className="space-y-5 px-6 pb-8 pt-6 sm:px-8 sm:pb-10 sm:pt-8">
+          <div className="space-y-2">
+            <Label htmlFor="wa-empresa" className="text-sm font-medium text-slate-100">
               Empresa ou negócio
             </Label>
             <Input
@@ -184,16 +177,16 @@ export const WhatsAppGate = () => {
               placeholder="Ex.: Padaria do João"
               maxLength={100}
               aria-invalid={!!errors.empresa}
-              className="h-11 border-slate-700/60 bg-slate-800/60 text-sm text-slate-100 placeholder:text-slate-500 focus-visible:ring-1 focus-visible:ring-emerald-500/40 focus-visible:ring-offset-0 rounded-lg"
+              className="h-14 border-slate-700/60 bg-slate-800/60 text-base text-slate-100 placeholder:text-slate-500 focus-visible:ring-1 focus-visible:ring-emerald-500/40 focus-visible:ring-offset-0 rounded-xl"
             />
             {errors.empresa && (
               <p className="text-xs text-red-400">{errors.empresa}</p>
             )}
           </div>
 
-          <div className="space-y-1">
-            <Label htmlFor="wa-telefone" className="text-xs font-medium text-slate-400">
-              Telefone (WhatsApp)
+          <div className="space-y-2">
+            <Label htmlFor="wa-telefone" className="text-sm font-medium text-slate-100">
+              Telefone
             </Label>
             <Input
               id="wa-telefone"
@@ -204,21 +197,22 @@ export const WhatsAppGate = () => {
               placeholder="(11) 99999-9999"
               maxLength={20}
               aria-invalid={!!errors.telefone}
-              className="h-11 border-slate-700/60 bg-slate-800/60 text-sm text-slate-100 placeholder:text-slate-500 focus-visible:ring-1 focus-visible:ring-emerald-500/40 focus-visible:ring-offset-0 rounded-lg"
+              className="h-14 border-slate-700/60 bg-slate-800/60 text-base text-slate-100 placeholder:text-slate-500 focus-visible:ring-1 focus-visible:ring-emerald-500/40 focus-visible:ring-offset-0 rounded-xl"
             />
             {errors.telefone && (
               <p className="text-xs text-red-400">{errors.telefone}</p>
             )}
           </div>
 
-          <Button
-            type="submit"
-            disabled={submitting}
-            className="w-full h-11 rounded-lg bg-slate-100 text-slate-900 hover:bg-white text-sm font-medium gap-2 transition-colors"
-          >
-            <MessageCircle className="h-4 w-4" />
-            {submitting ? "Abrindo..." : "Abrir WhatsApp"}
-          </Button>
+          <div className="pt-2">
+            <Button
+              type="submit"
+              disabled={submitting}
+              className="w-full h-14 rounded-xl bg-white text-slate-900 hover:bg-slate-100 text-base font-medium transition-colors"
+            >
+              {submitting ? "Abrindo..." : "Abrir WhatsApp"}
+            </Button>
+          </div>
         </form>
       </DialogContent>
     </Dialog>
