@@ -39,8 +39,16 @@ const App = () => (
             <Route path="/iot" element={<Iot />} />
             <Route path="/unsubscribe" element={<Unsubscribe />} />
             <Route path="/privacidade" element={<Privacidade />} />
+
+            {/* ───── Variantes Google Ads (noindex, canonical → rota original) ───── */}
+            <Route path="/lp" element={<Index />} />
+            <Route path="/lp/medico" element={<Medico />} />
+            <Route path="/lp/varejo" element={<Varejo />} />
+            <Route path="/lp/iot" element={<Iot />} />
+
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
+
           </Routes>
         </Suspense>
       </BrowserRouter>

@@ -3,6 +3,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Loader2 } from "lucide-react";
 import { useSEO } from "@/hooks/useSEO";
+import { getSeo } from "@/config/seo";
 
 
 type State =
@@ -15,11 +16,8 @@ type State =
   | { status: "error"; message: string };
 
 const Unsubscribe = () => {
-  useSEO({
-    title: "Cancelar inscrição | Nexus DevHub",
-    description: "Página para confirmar o cancelamento de inscrição em comunicações da Nexus DevHub.",
-    canonical: "/unsubscribe",
-  });
+  useSEO(getSeo("/unsubscribe"));
+
 
   const [state, setState] = useState<State>({ status: "loading" });
   const params = new URLSearchParams(window.location.search);

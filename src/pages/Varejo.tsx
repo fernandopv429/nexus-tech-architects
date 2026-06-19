@@ -8,9 +8,10 @@ import { ChatWidget } from "@/components/nexus/ChatWidget";
 import { CrmAccessButton } from "@/components/nexus/CrmAccessButton";
 import { Button } from "@/components/ui/button";
 import { useSEO } from "@/hooks/useSEO";
+import { getSeo } from "@/config/seo";
+import { useLocation } from "react-router-dom";
 import { trackCTAClick, trackWhatsAppClick } from "@/lib/analytics";
 
-const SITE = "https://nexusdevhub.com";
 
 const solutions = [
   {
@@ -76,27 +77,8 @@ const chatPrints = [
 ];
 
 const Varejo = () => {
-  useSEO({
-    title: "Recupere Carrinhos Abandonados com IA | Nexus DevHub",
-    description:
-      "Recupere carrinhos com IA no WhatsApp e Instagram. Rastreamento de Pix e centralização de dados. Diagnóstico gratuito.",
-    canonical: "/varejo",
-    keywords:
-      "recuperação carrinho abandonado, CRM com IA, automação WhatsApp vendas, IA e-commerce, Instagram DM automático, automação marketplace, recuperação Pix",
-    ogType: "article",
-    jsonLd: [
-      {
-        "@context": "https://schema.org",
-        "@type": "Service",
-        name: "Recuperação de Carrinhos com IA — Nexus DevHub",
-        provider: { "@type": "Organization", name: "Nexus DevHub", url: SITE },
-        areaServed: { "@type": "Country", name: "Brasil" },
-        serviceType: "Automação de Vendas e Recuperação com IA",
-        description:
-          "Recuperação automática de carrinhos abandonados via WhatsApp e Instagram DM com inteligência artificial.",
-      },
-    ],
-  });
+  useSEO(getSeo(useLocation().pathname));
+
 
   return (
     <main className="relative min-h-screen overflow-x-hidden bg-background">

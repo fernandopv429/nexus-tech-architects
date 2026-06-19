@@ -1,15 +1,13 @@
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { useSEO } from "@/hooks/useSEO";
+import { getSeo } from "@/config/seo";
 
 const NotFound = () => {
   const location = useLocation();
 
-  useSEO({
-    title: "Página não encontrada (404) | Nexus DevHub",
-    description: "A página que você procura não existe ou foi movida. Volte para a home da Nexus DevHub.",
-    canonical: location.pathname,
-  });
+  useSEO({ ...getSeo("/404"), canonical: location.pathname });
+
 
   useEffect(() => {
     console.error("404 Error: User attempted to access non-existent route:", location.pathname);

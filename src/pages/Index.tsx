@@ -1,9 +1,12 @@
 import { lazy, Suspense } from "react";
+import { useLocation } from "react-router-dom";
 import { Navbar } from "@/components/nexus/Navbar";
 import { Hero } from "@/components/nexus/Hero";
 import { ChatWidget } from "@/components/nexus/ChatWidget";
 
 import { useSEO } from "@/hooks/useSEO";
+import { getSeo } from "@/config/seo";
+
 
 const Contraste = lazy(() =>
   import("@/components/nexus/Contraste").then((m) => ({ default: m.Contraste }))
@@ -32,16 +35,9 @@ const SectionFallback = () => (
 );
 
 const Index = () => {
-  useSEO({
-    title: "Nexus DevHub | CRM com IA, Automação e Tráfego",
-    description:
-      "Assumimos seu setor digital: CRM, agente de IA 24/7, tráfego pago e BI. Valor após diagnóstico gratuito.",
-    canonical: "/",
-    keywords:
-      "setor digital terceirizado, automação de processos, RPA Brasil, automação com IA, agente de IA WhatsApp, CRM com IA, gestor de tráfego, CTO as a service, n8n, dashboards BI, automação WhatsApp",
-    ogType: "website",
-  });
+  useSEO(getSeo(useLocation().pathname));
   return (
+
     <main className="relative min-h-screen overflow-x-hidden bg-background text-foreground">
       <Navbar />
       <Hero />

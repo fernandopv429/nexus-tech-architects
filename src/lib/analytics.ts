@@ -85,6 +85,27 @@ export const trackEvent = (eventName: string, params: EventParams = {}) => {
   forwardToWebhook(eventName, params);
 };
 
+/**
+ * Conversão Google Ads — dispara o evento de conversão no AW-XXXXXXX/LABEL.
+ *
+ * Configure o label de conversão definindo `VITE_GOOGLE_ADS_CONVERSION_LABEL`
+ * no formato `AW-18129210607/AbCdEfGhIjKlMn`. Se não estiver definido,
+ * a função é um no-op silencioso — não quebra nada.
+ */
+export const trackGoogleAdsConversion = (
+  params: { value?: number; currency?: string; transaction_id?: string } = {},
+) => {
+  const sendTo = import.meta.env.VITE_GOOGLE_ADS_CONVERSION_LABEL as string | undefined;
+  if (!sendTo) return;
+  if (typeof window.gtag !== "function") return;
+  window.gtag("event", "conversion", {
+    send_to: sendTo,
+    currency: params.currency ?? "BRL",
+    ...params,
+  });
+};
+
+
 export const trackPageView = (path: string, title?: string) => {
   if (typeof window === "undefined") return;
   pushToDataLayer({
@@ -109,7 +130,12 @@ export const trackWhatsAppClick = (
   source: "floating" | "hero" | "footer" | "contact" | "qualified" | "navbar" | "faq",
   segmento?: string,
   porte?: string,
-) => trackEvent("whatsapp_click", { source, segmento, porte });
+) => {
+  trackEvent("whatsapp_click", { source, segmento, porte });
+  // Conversão Google Ads apenas quando o lead já passou pelo formulário
+  if (source === "qualified") trackGoogleAdsConversion();
+};
+
 
 // Lightweight non-cryptographic hash so GTM/GA4 receives a stable
 // non-PII identifier for the lead email (useful for dedup / audiences).
@@ -143,4 +169,7 @@ export const trackFormSubmit = (
   trackEvent("generate_lead", enriched);
   // Generic form submit (for GTM triggers)
   trackEvent("form_submit", enriched);
+  // Conversão Google Ads (no-op se VITE_GOOGLE_ADS_CONVERSION_LABEL não estiver setada)
+  trackGoogleAdsConversion();
 };
+

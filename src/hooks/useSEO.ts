@@ -7,10 +7,15 @@ type SEOProps = {
   keywords?: string;
   ogType?: "website" | "article" | "profile";
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
+  /** Quando true, injeta meta robots noindex,nofollow (ex.: /lp/*, /unsubscribe, 404). */
+  noIndex?: boolean;
 };
 
 const SITE_URL = "https://nexusdevhub.com";
 const JSONLD_ID = "page-jsonld";
+const ROBOTS_PAGE_ID = "page-robots";
+const DEFAULT_ROBOTS =
+  "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1";
 
 const upsertMeta = (selector: string, attr: string, name: string, content: string) => {
   let el = document.head.querySelector<HTMLMetaElement>(selector);
@@ -32,7 +37,15 @@ const upsertLink = (rel: string, href: string) => {
   el.setAttribute("href", href);
 };
 
-export const useSEO = ({ title, description, canonical, keywords, ogType, jsonLd }: SEOProps) => {
+export const useSEO = ({
+  title,
+  description,
+  canonical,
+  keywords,
+  ogType,
+  jsonLd,
+  noIndex,
+}: SEOProps) => {
   useEffect(() => {
     document.title = title;
 
@@ -43,6 +56,14 @@ export const useSEO = ({ title, description, canonical, keywords, ogType, jsonLd
     upsertMeta('meta[property="og:description"]', "property", "og:description", description);
     upsertMeta('meta[name="twitter:title"]', "name", "twitter:title", title);
     upsertMeta('meta[name="twitter:description"]', "name", "twitter:description", description);
+
+    // robots — sobrescreve o default do index.html quando noIndex=true
+    upsertMeta(
+      'meta[name="robots"]',
+      "name",
+      "robots",
+      noIndex ? "noindex, nofollow" : DEFAULT_ROBOTS,
+    );
 
     const url = canonical
       ? canonical.startsWith("http")
@@ -66,6 +87,10 @@ export const useSEO = ({ title, description, canonical, keywords, ogType, jsonLd
     return () => {
       const s = document.getElementById(JSONLD_ID);
       if (s) s.remove();
+      // Reverte robots para o default ao trocar de rota
+      upsertMeta('meta[name="robots"]', "name", "robots", DEFAULT_ROBOTS);
+      const r = document.getElementById(ROBOTS_PAGE_ID);
+      if (r) r.remove();
     };
-  }, [title, description, canonical, JSON.stringify(jsonLd)]);
+  }, [title, description, canonical, keywords, ogType, noIndex, JSON.stringify(jsonLd)]);
 };
