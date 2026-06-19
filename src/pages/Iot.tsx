@@ -4,10 +4,11 @@ import { Calculadora } from "@/components/nexus/Calculadora";
 import { Footer } from "@/components/nexus/Footer";
 import { ChatWidget } from "@/components/nexus/ChatWidget";
 import { useSEO } from "@/hooks/useSEO";
+import { getSeo } from "@/config/seo";
+import { useLocation } from "react-router-dom";
 import { Cpu, Wifi, Database, BarChart3 } from "lucide-react";
 import { motion } from "framer-motion";
 
-const SITE = "https://nexusdevhub.com";
 
 const iotFeatures = [
   {
