@@ -130,7 +130,12 @@ export const trackWhatsAppClick = (
   source: "floating" | "hero" | "footer" | "contact" | "qualified" | "navbar" | "faq",
   segmento?: string,
   porte?: string,
-) => trackEvent("whatsapp_click", { source, segmento, porte });
+) => {
+  trackEvent("whatsapp_click", { source, segmento, porte });
+  // Conversão Google Ads apenas quando o lead já passou pelo formulário
+  if (source === "qualified") trackGoogleAdsConversion();
+};
+
 
 // Lightweight non-cryptographic hash so GTM/GA4 receives a stable
 // non-PII identifier for the lead email (useful for dedup / audiences).
