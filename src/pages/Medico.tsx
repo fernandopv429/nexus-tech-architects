@@ -109,27 +109,8 @@ const testimonials = [
 ];
 
 const Medico = () => {
-  useSEO({
-    title: "Agendamento por IA para Clínicas | Nexus DevHub",
-    description:
-      "IA que qualifica pacientes e agenda no WhatsApp. CRM para clínicas com lembretes automáticos e redução de faltas.",
-    canonical: "/medico",
-    keywords:
-      "agendamento por IA, gestão de clínicas, recepção 24/7, WhatsApp para clínica, IA para médicos, redução de faltas, CRM clínica, automação agendamento",
-    ogType: "article",
-    jsonLd: [
-      {
-        "@context": "https://schema.org",
-        "@type": "Service",
-        name: "Agendamento por IA para Clínicas — Nexus DevHub",
-        provider: { "@type": "Organization", name: "Nexus DevHub", url: SITE },
-        areaServed: { "@type": "Country", name: "Brasil" },
-        serviceType: "Automação de Recepção e Agendamento para Saúde",
-        description:
-          "IA qualifica leads, responde dúvidas clínicas e agenda pacientes automaticamente, integrado ao painel da recepção.",
-      },
-    ],
-  });
+  useSEO(getSeo(useLocation().pathname));
+
 
   return (
     <div className="medico-theme">
