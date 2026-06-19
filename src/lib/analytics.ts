@@ -169,4 +169,7 @@ export const trackFormSubmit = (
   trackEvent("generate_lead", enriched);
   // Generic form submit (for GTM triggers)
   trackEvent("form_submit", enriched);
+  // Conversão Google Ads (no-op se VITE_GOOGLE_ADS_CONVERSION_LABEL não estiver setada)
+  trackGoogleAdsConversion();
 };
+
