@@ -1,9 +1,12 @@
 import { lazy, Suspense } from "react";
+import { useLocation } from "react-router-dom";
 import { Navbar } from "@/components/nexus/Navbar";
 import { Hero } from "@/components/nexus/Hero";
 import { ChatWidget } from "@/components/nexus/ChatWidget";
 
 import { useSEO } from "@/hooks/useSEO";
+import { getSeo } from "@/config/seo";
+
 
 const Contraste = lazy(() =>
   import("@/components/nexus/Contraste").then((m) => ({ default: m.Contraste }))
