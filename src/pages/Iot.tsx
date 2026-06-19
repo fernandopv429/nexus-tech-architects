@@ -34,27 +34,8 @@ const iotFeatures = [
 ];
 
 const Iot = () => {
-  useSEO({
-    title: "Soluções de IoT e Monitoramento Inteligente | Nexus DevHub",
-    description:
-      "Transforme sua empresa com Internet das Coisas (IoT). Monitoramento em tempo real, automação industrial e coleta de dados inteligente para escala operacional.",
-    canonical: "/iot",
-    keywords:
-      "IoT, Internet das Coisas, monitoramento industrial, automação IoT, sensores inteligentes, telemetria, dashboards industriais, indústria 4.0",
-    ogType: "article",
-    jsonLd: [
-      {
-        "@context": "https://schema.org",
-        "@type": "Service",
-        name: "Soluções de IoT — Nexus DevHub",
-        provider: { "@type": "Organization", name: "Nexus DevHub", url: SITE },
-        areaServed: { "@type": "Country", name: "Brasil" },
-        serviceType: "Internet das Coisas e Monitoramento",
-        description:
-          "Monitoramento em tempo real, telemetria e automação baseada em sensores para empresas e indústrias.",
-      },
-    ],
-  });
+  useSEO(getSeo(useLocation().pathname));
+
 
   return (
     <main className="relative min-h-screen overflow-x-hidden bg-background">
