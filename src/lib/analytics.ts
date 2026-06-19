@@ -85,6 +85,27 @@ export const trackEvent = (eventName: string, params: EventParams = {}) => {
   forwardToWebhook(eventName, params);
 };
 
+/**
+ * Conversão Google Ads — dispara o evento de conversão no AW-XXXXXXX/LABEL.
+ *
+ * Configure o label de conversão definindo `VITE_GOOGLE_ADS_CONVERSION_LABEL`
+ * no formato `AW-18129210607/AbCdEfGhIjKlMn`. Se não estiver definido,
+ * a função é um no-op silencioso — não quebra nada.
+ */
+export const trackGoogleAdsConversion = (
+  params: { value?: number; currency?: string; transaction_id?: string } = {},
+) => {
+  const sendTo = import.meta.env.VITE_GOOGLE_ADS_CONVERSION_LABEL as string | undefined;
+  if (!sendTo) return;
+  if (typeof window.gtag !== "function") return;
+  window.gtag("event", "conversion", {
+    send_to: sendTo,
+    currency: params.currency ?? "BRL",
+    ...params,
+  });
+};
+
+
 export const trackPageView = (path: string, title?: string) => {
   if (typeof window === "undefined") return;
   pushToDataLayer({
