@@ -8,9 +8,10 @@ import { ChatWidget } from "@/components/nexus/ChatWidget";
 import { CrmAccessButton } from "@/components/nexus/CrmAccessButton";
 import { Button } from "@/components/ui/button";
 import { useSEO } from "@/hooks/useSEO";
+import { getSeo } from "@/config/seo";
+import { useLocation } from "react-router-dom";
 import { trackCTAClick, trackWhatsAppClick } from "@/lib/analytics";
 
-const SITE = "https://nexusdevhub.com";
 
 /**
  * Medico page — scoped LIGHT theme (Nexus.ai vibe).
