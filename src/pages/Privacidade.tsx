@@ -1,7 +1,11 @@
 import { Navbar } from "@/components/nexus/Navbar";
 import { Footer } from "@/components/nexus/Footer";
+import { useSEO } from "@/hooks/useSEO";
+import { getSeo } from "@/config/seo";
 
 const Privacidade = () => {
+  useSEO(getSeo("/privacidade"));
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Navbar />
